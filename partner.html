@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GOLDe5 | Premium Metal Investing - Partner</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#d0c5af",
+                        "primary-container": "#d4af37",
+                        "on-tertiary": "#1b247f",
+                        "primary-fixed": "#ffe088",
+                        "on-background": "#e5e2e1",
+                        "surface-dim": "#131313",
+                        "surface-tint": "#e9c349",
+                        "on-tertiary-container": "#323b94",
+                        "on-surface": "#e5e2e1",
+                        "primary-fixed-dim": "#e9c349",
+                        "on-primary-fixed": "#241a00",
+                        "surface-container": "#1a1a1a",
+                        "surface-bright": "#3a3939",
+                        "error": "#ffb4ab",
+                        "secondary-fixed-dim": "#e4c45a",
+                        "on-primary-fixed-variant": "#574500",
+                        "outline-variant": "#4d4635",
+                        "tertiary-fixed-dim": "#bdc2ff",
+                        "secondary": "#e4c45a",
+                        "outline": "#99907c",
+                        "on-error-container": "#ffdad6",
+                        "on-error": "#690005",
+                        "error-container": "#93000a",
+                        "surface-container-lowest": "#0a0a0a",
+                        "on-tertiary-fixed": "#000767",
+                        "on-secondary-fixed": "#231b00",
+                        "surface": "#131313",
+                        "surface-container-low": "#111111",
+                        "background": "#0a0a0a",
+                        "inverse-primary": "#735c00",
+                        "inverse-surface": "#e5e2e1",
+                        "secondary-container": "#836b00",
+                        "on-secondary": "#3c2f00",
+                        "on-secondary-fixed-variant": "#564500",
+                        "tertiary-container": "#a5adff",
+                        "inverse-on-surface": "#313030",
+                        "tertiary": "#c7cbff",
+                        "primary": "#f2ca50",
+                        "surface-container-highest": "#2d2d2c",
+                        "surface-container-high": "#222222",
+                        "on-primary-container": "#554300",
+                        "on-primary": "#3c2f00",
+                        "on-secondary-container": "#ffefc6",
+                        "secondary-fixed": "#ffe080",
+                        "on-tertiary-fixed-variant": "#343d96",
+                        "tertiary-fixed": "#e0e0ff",
+                        "surface-variant": "#353534"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.375rem",
+                        "xl": "0.5rem",
+                        "full": "0.95rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        @keyframes slideUpFade {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-slide-up {
+            animation: slideUpFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+        .shimmer-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        .shimmer-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transform: skewX(-20deg);
+            animation: shimmer 3s infinite;
+        }
+        .glass-card {
+            background: linear-gradient(180deg, rgba(30, 30, 30, 0.6) 0%, rgba(15, 15, 15, 0.8) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15);
+            transform: translateY(-5px);
+        }
+        .bullion-gradient {
+            background: linear-gradient(135deg, #D4AF37, #F2CA50, #D4AF37);
+            background-size: 200% 200%;
+        }
+        .dark-radial-bg {
+            background: radial-gradient(circle at top right, #1a1a1a 0%, #0a0a0a 100%);
+        }
+        .ticker-content {
+            display: inline-flex;
+            animation: ticker 40s linear infinite;
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(242, 202, 80, 0.4);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom Scrollbar for form */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #f2ca50; }
+    </style>
+
+<!-- GLOBAL UX STYLES -->
+<style id="global-ux-styles">
+    /* Reveal Animation Physics */
+    .ux-reveal {
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+        transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        will-change: opacity, transform;
+    }
+    .ux-revealed {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    
+    /* Sticky Navbar Enhancement */
+    nav { transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) !important; }
+    .nav-scrolled {
+        background: rgba(5, 5, 5, 0.98) !important;
+        height: 4.5rem !important; /* Shrink height */
+        box-shadow: 0 15px 40px rgba(0,0,0,0.9), 0 1px 0 rgba(212,175,55,0.15) !important;
+        backdrop-filter: blur(25px) !important;
+    }
+    
+    /* Cards Global Hover & Tilt (Smooth overrides) */
+    .glass-card {
+        transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease, border-color 0.3s ease !important;
+    }
+    .glass-card:hover {
+        border-color: rgba(212, 175, 55, 0.4) !important;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(212,175,55,0.1) !important;
+        z-index: 10;
+    }
+    
+    /* Input Animations */
+    .input-focused > label { 
+        color: #D4AF37 !important; 
+        transform: translateY(-2px); 
+        transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); 
+    }
+    input, textarea, select { transition: all 0.3s ease !important; }
+    input:focus, textarea:focus, select:focus { 
+        box-shadow: 0 0 20px rgba(212,175,55,0.2) !important; 
+        border-color: #D4AF37 !important;
+    }
+    
+    /* Buttons Interactive Glow */
+    button { transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) !important; }
+    button:hover { 
+        box-shadow: 0 0 25px rgba(212, 175, 55, 0.6) !important; 
+        transform: translateY(-2px) !important; 
+    }
+    button:active { transform: translateY(1px) scale(0.97) !important; }
+
+    /* Nav Links Hover Underline */
+    .nav-hover-line { position: relative; }
+    .nav-hover-line::after {
+        content: ''; position: absolute; width: 0; height: 2px;
+        bottom: 0; left: 0; background-color: #f2ca50;
+        transition: width 0.3s ease-out;
+    }
+    .nav-hover-line:hover::after { width: 100%; }
+
+    /* Page Fade-in Transition */
+    body { animation: pageFadeIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+    @keyframes pageFadeIn { from { opacity: 0; filter: blur(10px); } to { opacity: 1; filter: blur(0px); } }
+    
+    /* Live Price Ticker Overlay */
+    @keyframes tickerScroll {
+        0% { transform: translateX(100%); }
+        100% { transform: translateX(-100%); }
+    }
+</style>
+</head>
+<body class="flex flex-col min-h-[100vh] bg-surface-container-lowest text-on-surface font-body selection:bg-primary selection:text-on-primary antialiased">
+    <!-- Top Navigation Bar -->
+    <nav class="sticky top-0 w-full z-50 bg-[#0B0B0B]/80 backdrop-blur-xl border-b border-white/5 shadow-[0_4px_20px_rgba(233,195,73,0.05)] h-20 flex items-center">
+        <div class="flex justify-between items-center max-w-7xl mx-auto px-6 md:px-8 w-full">
+            <!-- Left Side Logo -->
+            <a href="index.html" class="flex flex-col items-center justify-center cursor-pointer group hover:-translate-y-[1px] transition-transform duration-300">
+                <div class="text-[28px] md:text-[30px] font-black text-[#D4AF37] font-headline tracking-tighter leading-none group-hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.8)] transition-all duration-300">
+                    GOLDe5
+                </div>
+                <div class="text-[#d0c5af] text-[13px] md:text-[14px] font-semibold tracking-tight font-headline leading-tight mt-[1px] group-hover:text-white transition-colors duration-300">
+                    Grow in Grams
+                </div>
+            </a>
+            
+            <!-- Right Side Navigation -->
+            <div class="flex items-center gap-6 md:gap-10">
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a class="flex items-center text-gray-400 font-medium border-b-2 border-transparent pb-1 font-headline tracking-tight text-sm hover:text-[#f2ca50] hover:border-[#f2ca50] transition-all duration-300 cursor-pointer" href="index.html">Home</a>
+                    
+                    <!-- Products Dropdown Link -->
+                    <div class="relative group">
+                        <a class="flex items-center gap-1 text-gray-400 font-medium border-b-2 border-transparent pb-1 font-headline tracking-tight text-sm hover:text-[#f2ca50] hover:border-[#f2ca50] transition-all duration-300 cursor-pointer" href="#">
+                            Products
+                            <span class="material-symbols-outlined text-[16px] transition-transform duration-300 group-hover:rotate-180">expand_more</span>
+                        </a>
+
+                        <!-- Dropdown Menu -->
+                        <div class="absolute top-[calc(100%+10px)] left-[50%] -translate-x-1/2 w-48 bg-[#0B0B0B] rounded-xl border border-[#D4AF37]/20 shadow-[0_15px_30px_rgba(0,0,0,0.8)] flex flex-col py-2 opacity-0 invisible translate-y-3 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
+                            <!-- Invisible Hover Bridge -->
+                            <div class="absolute -top-[15px] left-0 w-full h-[15px] bg-transparent"></div>
+
+                            <a href="gold-sip.html" class="px-5 py-3 text-sm text-gray-300 font-medium hover:text-[#D4AF37] hover:bg-white/5 transition-all duration-200 cursor-pointer flex items-center gap-3">
+                                <span class="material-symbols-outlined text-[18px]">payments</span> Gold SIP
+                            </a>
+                            <a href="coins-bars.html" class="px-5 py-3 text-sm text-gray-300 font-medium hover:text-[#D4AF37] hover:bg-white/5 transition-all duration-200 cursor-pointer flex items-center gap-3">
+                                <span class="material-symbols-outlined text-[18px]">monetization_on</span> Coins & Bars
+                            </a>
+                            <a href="gift-voucher.html" class="px-5 py-3 text-sm text-gray-300 font-medium hover:text-[#D4AF37] hover:bg-white/5 transition-all duration-200 cursor-pointer flex items-center gap-3">
+                                <span class="material-symbols-outlined text-[18px]">card_giftcard</span> Gift Voucher
+                            </a>
+                            <a href="jewel-scheme.html" class="px-5 py-3 text-sm text-gray-300 font-medium hover:text-[#D4AF37] hover:bg-white/5 transition-all duration-200 cursor-pointer flex items-center gap-3">
+                                <span class="material-symbols-outlined text-[18px]">diamond</span> Jewel Scheme
+                            </a>
+                        </div>
+                    </div>
+                    <a class="flex items-center text-gray-400 font-medium border-b-2 border-transparent pb-1 font-headline tracking-tight text-sm hover:text-[#f2ca50] hover:border-[#f2ca50] transition-all duration-300 cursor-pointer" href="investor.html">Investor</a>
+                    <!-- ACTIVE LINK -->
+                    <a class="flex items-center text-[#f2ca50] font-bold border-b-2 border-[#f2ca50] pb-1 font-headline tracking-tight text-sm hover:text-[#f2ca50] transition-colors duration-300 cursor-pointer" href="partner.html">Partner</a>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="flex items-center gap-4 md:gap-6">
+                    <button class="bullion-gradient text-[#111] px-6 md:px-8 py-2 md:py-2.5 rounded-xl font-headline font-extrabold text-xs md:text-sm tracking-wide active:scale-95 transition-all duration-300 shadow-[0_0_15px_rgba(212,175,55,0.3)] hover:shadow-[0_0_25px_rgba(212,175,55,0.6)] hover:brightness-110">
+                        Login
+                    </button>
+                    <!-- Mobile Hamburger -->
+                    <button class="md:hidden text-white hover:text-[#D4AF37] transition-colors p-1" onclick="document.getElementById('mobile-menu').classList.remove('hidden')">
+                        <span class="material-symbols-outlined text-3xl">menu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="hidden fixed inset-0 z-[100] bg-[#0B0B0B]/95 backdrop-blur-xl pt-24 px-6 flex flex-col gap-6 items-center border-b border-[#D4AF37]/20 shadow-[0_20px_50px_rgba(0,0,0,0.9)] overflow-y-auto pb-10">
+        <a class="text-gray-400 font-medium font-headline tracking-tighter text-xl active:scale-95 transition-all" href="index.html">Home</a>
+        <div class="w-full h-px bg-white/5 max-w-xs"></div>
+        <div class="flex flex-col items-center gap-4">
+            <span class="text-gray-400 font-medium font-headline tracking-tighter text-xl">Products</span>
+            <a href="gold-sip.html" class="text-sm text-gray-300 hover:text-[#D4AF37] transition-colors text-center">Gold SIP</a>
+            <a href="coins-bars.html" class="text-sm text-gray-300 hover:text-[#D4AF37] transition-colors text-center">Coins & Bars</a>
+            <a href="gift-voucher.html" class="text-sm text-gray-300 hover:text-[#D4AF37] transition-colors text-center">Gift Voucher</a>
+            <a href="jewel-scheme.html" class="text-sm text-gray-300 hover:text-[#D4AF37] transition-colors text-center">Jewel Scheme</a>
+        </div>
+        <div class="w-full h-px bg-white/5 max-w-xs"></div>
+        <a class="text-gray-400 font-medium font-headline tracking-tighter text-xl active:scale-95 transition-all" href="investor.html">Investor</a>
+        <div class="w-full h-px bg-white/5 max-w-xs"></div>
+        <!-- ACTIVE LINK -->
+        <a class="text-[#f2ca50] font-bold pb-1 font-headline tracking-tighter text-xl active:scale-95 transition-all" href="partner.html">Partner</a>
+        <button class="absolute top-6 right-6 text-white" onclick="document.getElementById('mobile-menu').classList.add('hidden')">
+            <span class="material-symbols-outlined text-3xl">close</span>
+        </button>
+    </div>
+
+    <!-- Live Financial Ticker -->
+    <div class="w-full bg-[#D4AF37] h-10 flex items-center overflow-hidden border-b border-[#B8962E] relative z-40 group shadow-[0_2px_15px_rgba(212,175,55,0.2)]">
+        <!-- Static Left Container (Prices) -->
+        <div class="bg-[#0B0B0B] text-[#D4AF37] px-4 md:px-8 h-full flex items-center shadow-[10px_0_20px_rgba(0,0,0,0.8)] z-20 font-black tracking-wider text-[10px] md:text-xs uppercase border-r border-[#D4AF37]/30 shrink-0 relative">
+            <span class="flex items-center gap-2 md:gap-3">
+                <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse drop-shadow-[0_0_5px_rgba(239,68,68,1)]"></span>
+                <span>Live Price: Gold ₹74,000/gm <span class="text-white/30 px-1 hidden md:inline">|</span> Silver ₹90/gm</span>
+            </span>
+            <!-- Slanted decorative edge -->
+            <div class="absolute right-[-15px] top-0 h-full w-[30px] bg-[#0B0B0B] -skew-x-[25deg] z-[-1] border-r border-[#D4AF37]/40 shadow-[5px_0_15px_rgba(0,0,0,0.5)]"></div>
+        </div>
+
+        <!-- Scrolling Right Container (Quotes) -->
+        <div class="flex-1 relative overflow-hidden h-full flex items-center ml-2 md:ml-6 justify-center md:justify-start">
+            <div id="quote-slider" class="text-[#111] font-bold text-[11px] md:text-sm tracking-wide absolute w-full transition-all duration-500 transform translate-y-0 opacity-100 flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-[#4d3d0f] rounded-full hidden md:inline-block"></span>
+                <span id="quote-text">Grow your business as a trusted GOLDe5 Partner.</span>
+            </div>
+            <script>
+                (function(){
+                    if (window.quotesInitialized) return;
+                    window.quotesInitialized = true;
+                    const quotes = [
+                        "Grow your business as a trusted GOLDe5 Partner.",
+                        "Join the future of digital gold.",
+                        "Empower your network with premium digital gold.",
+                        "Zero setup cost. High earning potential.",
+                        "Secure your future with GOLDe5."
+                    ];
+                    let currentQuote = 0;
+                    
+                    window.addEventListener('load', () => {
+                        const slider = document.getElementById('quote-slider');
+                        const textEl = document.getElementById('quote-text');
+                        if(!slider || !textEl) return;
+                        
+                        setInterval(() => {
+                            slider.style.opacity = '0';
+                            slider.style.transform = 'translateY(-20px)';
+                            
+                            setTimeout(() => {
+                                currentQuote = (currentQuote + 1) % quotes.length;
+                                textEl.textContent = quotes[currentQuote];
+                                
+                                slider.style.transition = 'none';
+                                slider.style.transform = 'translateY(20px)';
+                                
+                                setTimeout(() => {
+                                    slider.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+                                    slider.style.opacity = '1';
+                                    slider.style.transform = 'translateY(0)';
+                                }, 50);
+                            }, 500);
+                        }, 4000);
+                    });
+                })();
+            </script>
+        </div>
+    </div>
+
+    <!-- MAIN PARTNER CONTENT -->
+    <main class="flex-1 w-full">
+        <!-- Hero Section -->
+        <section class="relative min-h-[50vh] md:min-h-[60vh] flex items-center overflow-hidden border-b border-primary/10">
+            <!-- Background Image overlay -->
+            <div class="absolute inset-0 bg-[#0B0B0B] z-0">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000" alt="business architecture" class="w-full h-full object-cover opacity-30 mix-blend-luminosity" />
+                <div class="absolute inset-0 bg-gradient-to-b from-[#0B0B0B]/90 via-[#0B0B0B]/50 to-[#0B0B0B] border-b border-[#D4AF37]/10"></div>
+            </div>
+            <!-- Glow elements -->
+            <div class="absolute top-[20%] left-[10%] w-96 h-96 bg-[#D4AF37]/10 rounded-full blur-[100px] z-0"></div>
+            <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#D4AF37]/5 rounded-full blur-[150px] z-0"></div>
+
+            <div class="max-w-7xl mx-auto px-6 md:px-8 w-full relative z-10 py-20 pointer-events-none">
+                <div class="flex flex-col items-start gap-12 text-left">
+                    <div class="w-full md:w-3/5 space-y-8 animate-slide-up pointer-events-auto">
+                        <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 shadow-[0_0_15px_rgba(212,175,55,0.1)]">
+                            <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                            <span class="text-primary font-bold text-xs uppercase tracking-[0.2em]">PARTNER WITH US</span>
+                        </div>
+                        <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold font-headline leading-[1.1] text-white">
+                            Become a <span class="text-transparent bg-clip-text bullion-gradient">GOLDe5 Partner</span>
+                        </h1>
+                        <p class="text-lg md:text-xl text-on-surface-variant/80 font-medium max-w-2xl leading-relaxed">
+                            At GOLDe5, we believe in growing together. Join our partner network and be part of the future of digital precious metal investing. Whether you're a business owner or an individual with a strong network, our partnership programs are designed for long-term growth and rewarding income.
+                        </p>
+                        <p class="text-sm font-bold text-[#D4AF37] uppercase tracking-widest border-l-4 border-[#D4AF37] pl-4 py-1">
+                            Choose your path. Start your journey today.
+                        </p>
+                        
+                        <div class="pt-4">
+                            <button onclick="document.getElementById('partner-form').scrollIntoView({behavior: 'smooth'})" class="bullion-gradient text-[#111] px-8 py-4 rounded-xl font-headline font-extrabold text-sm tracking-wide active:scale-95 transition-all duration-300 shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:shadow-[0_0_30px_rgba(212,175,55,0.8)] hover:brightness-110 flex items-center justify-center gap-2 group">
+                                Start Your Partnership
+                                <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partnership Options Section -->
+        <section class="py-24 relative overflow-hidden bg-[#0A0A0A]">
+            <div class="max-w-7xl mx-auto px-6 md:px-8 relative z-10 w-full animate-slide-up" style="animation-delay: 0.3s">
+                <div class="text-center space-y-4 mb-16">
+                    <h2 class="text-3xl md:text-5xl font-extrabold font-headline text-white">Choose Your <span class="text-[#D4AF37]">Partnership</span></h2>
+                    <p class="text-on-surface-variant/70 font-medium">Select the tier that best aligns with your business goals.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 w-full">
+                    
+                    <!-- Retail Partner Card -->
+                    <div class="glass-card rounded-[2rem] p-8 md:p-12 relative overflow-hidden group flex flex-col h-full">
+                        <div class="absolute -top-32 -right-32 w-64 h-64 bg-[#D4AF37]/10 rounded-full blur-[80px] group-hover:bg-[#D4AF37]/20 transition-colors duration-700"></div>
+                        
+                        <div class="flex items-center gap-4 mb-8">
+                            <div class="w-16 h-16 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/30 flex items-center justify-center text-[#D4AF37] group-hover:scale-110 transition-transform duration-500 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
+                                <span class="material-symbols-outlined text-3xl">storefront</span>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold font-headline text-white group-hover:text-[#D4AF37] transition-colors">Retail Partner</h3>
+                                <p class="text-sm font-medium text-white/50 tracking-wide uppercase mt-1">Local Presence. Higher Earnings.</p>
+                            </div>
+                        </div>
+
+                        <p class="text-on-surface-variant/80 text-sm leading-relaxed mb-8 flex-grow">
+                            Designed for businesses, advisors, and financial professionals who want to offer gold investment solutions directly to their local clients.
+                        </p>
+
+                        <div class="space-y-6 mb-10 w-full">
+                            <div>
+                                <h4 class="text-[#D4AF37] text-xs font-bold uppercase tracking-widest mb-3">Your Role</h4>
+                                <ul class="space-y-2 text-sm text-gray-300">
+                                    <li class="flex items-start gap-2">
+                                        <span class="material-symbols-outlined text-[#D4AF37] text-sm mt-[2px]">check_circle</span>
+                                        Assist customers in starting their gold & silver investment journey
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="material-symbols-outlined text-[#D4AF37] text-sm mt-[2px]">check_circle</span>
+                                        Support account setup and transactions
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="material-symbols-outlined text-[#D4AF37] text-sm mt-[2px]">check_circle</span>
+                                        Guide customers on savings plans and future offerings
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="material-symbols-outlined text-[#D4AF37] text-sm mt-[2px]">check_circle</span>
+                                        Build long-term customer relationships
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-3">Benefits</h4>
+                                <ul class="space-y-2 text-sm text-gray-300">
+                                    <li class="flex items-start gap-2 font-medium">
+                                        <span class="material-symbols-outlined text-[#D4AF37] text-sm mt-[2px]">task_alt</span>
+                                        Exclusive regional opportunities
+                                    </li>
+                                    <li class="flex items-start gap-2 font-medium">
+                                        <span class="material-symbols-outlined text-[#D4AF37] text-sm mt-[2px]">task_alt</span>
+                                        Higher earning potential with performance bonuses
+                                    </li>
+                                    <li class="flex items-start gap-2 font-medium">
+                                        <span class="material-symbols-outlined text-[#D4AF37] text-sm mt-[2px]">task_alt</span>
+                                        Training & onboarding support
+                                    </li>
+                                    <li class="flex items-start gap-2 font-medium">
+                                        <span class="material-symbols-outlined text-[#D4AF37] text-sm mt-[2px]">task_alt</span>
+                                        Marketing and branding assistance
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <button onclick="document.getElementById('partner-form').scrollIntoView({behavior: 'smooth'}); document.getElementById('partnerType').value='retail';" class="w-full py-4 rounded-xl border-2 border-[#D4AF37]/50 text-[#D4AF37] font-bold text-sm tracking-widest hover:bg-[#D4AF37] hover:text-[#0a0a0a] transition-all duration-300 uppercase shadow-[0_0_15px_rgba(212,175,55,0)] hover:shadow-[0_0_20px_rgba(212,175,55,0.4)]">
+                            Apply as Retail Partner
+                        </button>
+                    </div>
+
+                    <!-- Affiliate Partner Card -->
+                    <div class="glass-card rounded-[2rem] p-8 md:p-12 relative overflow-hidden group flex flex-col h-full mt-4 md:mt-0">
+                        <div class="absolute -top-32 -right-32 w-64 h-64 bg-[#D4AF37]/10 rounded-full blur-[80px] group-hover:bg-[#D4AF37]/20 transition-colors duration-700"></div>
+                        
+                        <div class="flex items-center gap-4 mb-8">
+                            <div class="w-16 h-16 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/30 flex items-center justify-center text-[#D4AF37] group-hover:scale-110 transition-transform duration-500 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
+                                <span class="material-symbols-outlined text-3xl">share</span>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold font-headline text-white group-hover:text-[#D4AF37] transition-colors">Affiliate Partner</h3>
+                                <p class="text-sm font-medium text-white/50 tracking-wide uppercase mt-1">Share. Connect. Earn.</p>
+                            </div>
+                        </div>
+
+                        <p class="text-on-surface-variant/80 text-sm leading-relaxed mb-8 flex-grow">
+                            Ideal for digital influencers, marketers, and individuals who want to earn by promoting GOLDe5.
+                        </p>
+
+                        <div class="space-y-6 mb-10 w-full">
+                            <div>
+                                <h4 class="text-[#D4AF37] text-xs font-bold uppercase tracking-widest mb-3">Your Role</h4>
+                                <ul class="space-y-2 text-sm text-gray-300">
+                                    <li class="flex items-start gap-2">
+                                        <span class="material-symbols-outlined text-[#D4AF37] text-sm mt-[2px]">check_circle</span>
+                                        Introduce GOLDe5 to individuals and businesses
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="material-symbols-outlined text-[#D4AF37] text-sm mt-[2px]">check_circle</span>
+                                        Help users begin their investment journey
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="material-symbols-outlined text-[#D4AF37] text-sm mt-[2px]">check_circle</span>
+                                        Earn commission & rewards for successful referrals
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-3">Benefits</h4>
+                                <ul class="space-y-2 text-sm text-gray-300">
+                                    <li class="flex items-start gap-2 font-medium">
+                                        <span class="material-symbols-outlined text-[#D4AF37] text-sm mt-[2px]">task_alt</span>
+                                        Zero setup cost
+                                    </li>
+                                    <li class="flex items-start gap-2 font-medium">
+                                        <span class="material-symbols-outlined text-[#D4AF37] text-sm mt-[2px]">task_alt</span>
+                                        Commission-based earnings
+                                    </li>
+                                    <li class="flex items-start gap-2 font-medium">
+                                        <span class="material-symbols-outlined text-[#D4AF37] text-sm mt-[2px]">task_alt</span>
+                                        Marketing tools and support
+                                    </li>
+                                    <li class="flex items-start gap-2 font-medium">
+                                        <span class="material-symbols-outlined text-[#D4AF37] text-sm mt-[2px]">task_alt</span>
+                                        Flexible work from anywhere
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <button onclick="document.getElementById('partner-form').scrollIntoView({behavior: 'smooth'}); document.getElementById('partnerType').value='affiliate';" class="w-full py-4 rounded-xl border-2 border-[#D4AF37]/50 text-[#D4AF37] font-bold text-sm tracking-widest hover:bg-[#D4AF37] hover:text-[#0a0a0a] transition-all duration-300 uppercase shadow-[0_0_15px_rgba(212,175,55,0)] hover:shadow-[0_0_20px_rgba(212,175,55,0.4)]">
+                            Join as Affiliate
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Section -->
+        <section class="py-24 border-y border-white/5 relative bg-[#111]">
+            <div class="max-w-7xl mx-auto px-6 md:px-8 w-full animate-slide-up" style="animation-delay: 0.4s">
+                <div class="text-center mb-16">
+                    <span class="text-[#D4AF37] font-bold tracking-[0.3em] uppercase text-[10px] mb-4 block">Ecosystem</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold font-headline text-white">Why Choose GOLDe5 Partnership</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 w-full max-w-4xl mx-auto">
+                    <div class="glass-card p-5 rounded-2xl flex items-center justify-center gap-4 group" cursor-pointer">
+                        <span class="material-symbols-outlined text-[#D4AF37] text-xl">check_circle</span>
+                        <span class="text-white font-medium text-sm md:text-base">Fast-growing digital gold platform</span>
+                    </div>
+                    
+                    <div class="glass-card p-5 rounded-2xl flex items-center justify-center gap-4 group" cursor-pointer">
+                        <span class="material-symbols-outlined text-[#D4AF37] text-xl">check_circle</span>
+                        <span class="text-white font-medium text-sm md:text-base">Trusted & transparent ecosystem</span>
+                    </div>
+                    
+                    <div class="glass-card p-5 rounded-2xl flex items-center justify-center gap-4 group" cursor-pointer">
+                        <span class="material-symbols-outlined text-[#D4AF37] text-xl">check_circle</span>
+                        <span class="text-white font-medium text-sm md:text-base">Multiple earning opportunities</span>
+                    </div>
+
+                    <div class="glass-card p-5 rounded-2xl flex items-center justify-center gap-4 group" cursor-pointer">
+                        <span class="material-symbols-outlined text-[#D4AF37] text-xl">check_circle</span>
+                        <span class="text-white font-medium text-sm md:text-base">Strong brand & marketing support</span>
+                    </div>
+                    
+                    <div class="glass-card p-5 rounded-2xl flex items-center justify-center gap-4 group" cursor-pointer lg:col-span-2">
+                        <span class="material-symbols-outlined text-[#D4AF37] text-xl">check_circle</span>
+                        <span class="text-white font-medium text-sm md:text-base">Future-ready product expansion</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form Section -->
+        <section id="partner-form" class="py-24 relative bg-[#0A0A0A]">
+            <!-- Subtle background grid -->
+            <div class="absolute inset-0 z-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdHRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjEyLCAxNzUsIDU1LCAwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')]"></div>
+
+            <div class="max-w-7xl mx-auto px-6 md:px-8 relative z-10 w-full animate-slide-up" style="animation-delay: 0.5s">
+                <div class="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
+                    
+                    <!-- Left Side text -->
+                    <div class="w-full lg:w-5/12 space-y-8">
+                        <h2 class="text-3xl md:text-5xl font-extrabold font-headline leading-tight text-white mb-6">
+                            Start Your Partnership <br/><span class="text-[#D4AF37]">Journey Today</span>
+                        </h2>
+                        <p class="text-on-surface-variant/80 text-lg leading-relaxed mb-8">
+                            Fill in your details and our team will connect with you.
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4 text-gray-300">
+                                <div class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shadow-md">
+                                    <span class="material-symbols-outlined text-[#D4AF37]">support_agent</span>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-uppercase tracking-widest text-[#D4AF37]">Support</p>
+                                    <p class="font-bold">partners@golde5.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 text-gray-300">
+                                <div class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shadow-md">
+                                    <span class="material-symbols-outlined text-[#D4AF37]">business</span>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-uppercase tracking-widest text-[#D4AF37]">Headquarters</p>
+                                    <p class="font-bold">Global Wealth Office</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Side Form -->
+                    <div class="w-full lg:w-7/12">
+                        <div class="glass-card rounded-[2rem] p-8 md:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.8)] relative overflow-hidden">
+                            <!-- Glow -->
+                            <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-[#D4AF37]/10 rounded-full blur-[60px] pointer-events-none"></div>
+
+                            <form class="space-y-6 relative z-10 w-full" onsubmit="event.preventDefault(); alert('Thank you! Our team will contact you shortly.');">
+                                
+                                <div class="space-y-2 w-full">
+                                    <label class="text-xs font-bold text-gray-400 uppercase tracking-widest pl-1" for="fullName">Full Name</label>
+                                    <input type="text" id="fullName" placeholder="Enter your full name" class="w-full bg-white/[0.03] border border-white/10 hover:border-white/20 hover:bg-white/[0.05] rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition-colors" required>
+                                </div>
+                                    
+                                <div class="space-y-2 w-full">
+                                    <label class="text-xs font-bold text-gray-400 uppercase tracking-widest pl-1" for="email">Email Address</label>
+                                    <input type="email" id="email" placeholder="Enter your email address" class="w-full bg-white/[0.03] border border-white/10 hover:border-white/20 hover:bg-white/[0.05] rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition-colors" required>
+                                </div>
+
+                                <div class="space-y-2 w-full">
+                                    <label class="text-xs font-bold text-gray-400 uppercase tracking-widest pl-1" for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" placeholder="Enter your phone number" class="w-full bg-white/[0.03] border border-white/10 hover:border-white/20 hover:bg-white/[0.05] rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition-colors" required>
+                                </div>
+
+                                <div class="space-y-2 w-full">
+                                    <label class="text-xs font-bold text-gray-400 uppercase tracking-widest pl-1" for="city">State / City</label>
+                                    <input type="text" id="city" placeholder="Enter your city/state" class="w-full bg-white/[0.03] border border-white/10 hover:border-white/20 hover:bg-white/[0.05] rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition-colors" required>
+                                </div>
+
+                                <div class="space-y-2 w-full">
+                                    <label class="text-xs font-bold text-gray-400 uppercase tracking-widest pl-1" for="partnerType">Partnership Type</label>
+                                    <select id="partnerType" class="w-full bg-white/[0.03] border border-white/10 hover:border-white/20 hover:bg-white/[0.05] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition-colors appearance-none" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23D4AF37%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem top 50%; background-size: 0.65rem auto;">
+                                        <option value="retail">Retail Partner</option>
+                                        <option value="affiliate">Affiliate Partner</option>
+                                        <option value="other">Other Inquiry</option>
+                                    </select>
+                                </div>
+
+                                <div class="space-y-2 w-full">
+                                    <label class="text-xs font-bold text-gray-400 uppercase tracking-widest pl-1" for="experience">Experience / Business Field (Optional)</label>
+                                    <input type="text" id="experience" placeholder="E.g. Financial Consultant, Real Estate" class="w-full bg-white/[0.03] border border-white/10 hover:border-white/20 hover:bg-white/[0.05] rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition-colors">
+                                </div>
+
+                                <div class="space-y-2 w-full">
+                                    <label class="text-xs font-bold text-gray-400 uppercase tracking-widest pl-1" for="message">Message / Additional Details</label>
+                                    <textarea id="message" rows="4" placeholder="Tell us about your experience or interest" class="w-full bg-white/[0.03] border border-white/10 hover:border-white/20 hover:bg-white/[0.05] rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition-colors resize-none" required></textarea>
+                                </div>
+
+                                <button type="submit" class="w-full mt-6 bullion-gradient text-[#111] py-4 rounded-xl font-headline font-extrabold text-sm md:text-base tracking-wide active:scale-[0.98] transition-all duration-300 shadow-[0_0_15px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.6)] hover:brightness-110 flex items-center justify-center gap-2 group">
+                                    Apply Now
+                                    <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">send</span>
+                                </button>
+                                
+                                <p class="text-gray-500 text-[11px] text-center w-full mt-4 flex justify-center gap-1 items-center font-medium">
+                                    <span class="material-symbols-outlined text-[13px]">lock</span> Your information is <span>सुरक्षित</span> and will not be shared.
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+        <!-- Premium Fintech Footer -->
+    <footer class="bg-[#0B0B0B] border-t border-[#D4AF37]/10 pt-24 pb-12 relative overflow-hidden">
+        
+        <!-- Subtle Glow Background for ultra-premium feel -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#D4AF37]/5 blur-[150px] pointer-events-none z-0"></div>
+
+        <div class="max-w-7xl mx-auto px-6 md:px-8 relative z-10 space-y-16">
+            
+            <!-- 5-Column Grid Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
+                
+                <!-- Column 1: Logo Section & Socials (Spans wider slightly or standard 1 col) -->
+                <div class="lg:col-span-1 space-y-8 ux-reveal">
+                    <div>
+                        <!-- Logo Placeholder space -->
+                        <a href="index.html" class="inline-block group focus:outline-none">
+                            <h2 class="text-3xl font-black text-[#D4AF37] font-headline tracking-tighter group-hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.6)] transition-all duration-300">GOLDe5</h2>
+                            <p class="text-[#d0c5af] text-[9px] font-medium tracking-[0.3em] font-body uppercase leading-tight mt-1 group-hover:text-white transition-colors duration-300">Grow in Grams</p>
+                        </a>
+                        <p class="text-gray-400 text-sm leading-relaxed mt-6">
+                            The pinnacle of private metal banking. Secure, liquid, and globally accessible.
+                        </p>
+                    </div>
+
+                    <!-- Social Icons -->
+                    <div class="flex flex-wrap gap-3">
+                        <!-- Facebook -->
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0B0B] hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] hover:scale-110 transition-all duration-300">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5c0-2.03 1.23-3.14 3.06-3.14.87 0 1.62.06 1.84.09v2.1l-1.26.01c-.99 0-1.18.47-1.18 1.16V12h2.46l-.32 3h-2.14v6.8C18.56 20.87 22 16.84 22 12z"/></svg>
+                        </a>
+                        <!-- Instagram -->
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0B0B] hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] hover:scale-110 transition-all duration-300">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.4 5.6 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.6 18.4 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 0 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+                        </a>
+                        <!-- Twitter (X) -->
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0B0B] hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] hover:scale-110 transition-all duration-300">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <!-- YouTube -->
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0B0B] hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] hover:scale-110 transition-all duration-300">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M21.582 6.186a2.665 2.665 0 0 0-1.876-1.884C18.04 3.864 12 3.864 12 3.864s-6.04 0-7.706.438a2.665 2.665 0 0 0-1.876 1.884C2 7.86 2 12 2 12s0 4.14.418 5.814a2.665 2.665 0 0 0 1.876 1.884c1.667.438 7.706.438 7.706.438s6.04 0 7.706-.438a2.665 2.665 0 0 0 1.876-1.884C22 16.14 22 12 22 12s0-4.14-.418-5.814zM9.99 15.422v-6.85l6.02 3.426-6.02 3.424z"/></svg>
+                        </a>
+                        <!-- LinkedIn -->
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0B0B] hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] hover:scale-110 transition-all duration-300">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.924 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <!-- WhatsApp -->
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0B0B] hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] hover:scale-110 transition-all duration-300">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.031 0C5.405 0 .016 5.39.016 12.016c0 2.122.553 4.195 1.603 6.012L.016 24l6.115-1.603a11.93 11.93 0 0 0 5.9 1.559h.005c6.626 0 12.015-5.39 12.015-12.016S18.657 0 12.031 0zm0 21.956c-1.787 0-3.535-.48-5.068-1.39l-.363-.215-3.766.988.997-3.673-.236-.375A9.972 9.972 0 0 1 2.022 12.01c0-5.516 4.49-10.007 10.01-10.007 5.516 0 10.006 4.49 10.006 10.006s-4.49 10.007-10.007 10.007zm5.502-7.518c-.302-.151-1.786-.883-2.064-.984-.277-.101-.48-.151-.682.151-.202.302-.782.984-.959 1.185-.176.202-.353.227-.655.076-1.464-.738-2.529-1.316-3.504-2.998-.176-.302.264-.265.852-1.439.076-.151.038-.277-.019-.428-.057-.151-.682-1.639-.933-2.244-.244-.589-.492-.51-.682-.519l-.58-.009c-.202 0-.53.076-.807.378-.277.302-1.06 1.034-1.06 2.518s1.085 2.915 1.236 3.116c.151.202 2.124 3.242 5.143 4.544 2.127.918 2.802.756 3.307.655.679-.136 1.786-.731 2.038-1.437.252-.706.252-1.311.176-1.438-.076-.126-.277-.202-.579-.353z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: COMPANY -->
+                <div class="lg:col-span-1 space-y-6 ux-reveal" style="animation-delay: 0.1s;">
+                    <h5 class="text-[#D4AF37] font-bold font-headline uppercase text-[11px] tracking-[0.2em] relative inline-block">Company<div class="absolute -bottom-2 left-0 w-8 h-px bg-[#D4AF37]"></div></h5>
+                    <ul class="space-y-4 text-sm text-gray-300 font-medium">
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="about.html">About Us</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="#">FAQ</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="#">Contact Us</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="#">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: EXPLORE -->
+                <div class="lg:col-span-1 space-y-6 ux-reveal" style="animation-delay: 0.2s;">
+                    <h5 class="text-[#D4AF37] font-bold font-headline uppercase text-[11px] tracking-[0.2em] relative inline-block">Explore<div class="absolute -bottom-2 left-0 w-8 h-px bg-[#D4AF37]"></div></h5>
+                    <ul class="space-y-4 text-sm text-gray-300 font-medium">
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="gold-sip.html">SIP</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="coins-bars.html">Shop</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="#">Marketplace</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: PARTNERS -->
+                <div class="lg:col-span-1 space-y-6 ux-reveal" style="animation-delay: 0.3s;">
+                    <h5 class="text-[#D4AF37] font-bold font-headline uppercase text-[11px] tracking-[0.2em] relative inline-block">Partners<div class="absolute -bottom-2 left-0 w-8 h-px bg-[#D4AF37]"></div></h5>
+                    <ul class="space-y-4 text-sm text-gray-300 font-medium">
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="investor.html">Investors</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="partner.html">Retail Partners</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="partner.html">Affiliate Partners</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 5: LEGAL -->
+                <div class="lg:col-span-1 space-y-6 ux-reveal" style="animation-delay: 0.4s;">
+                    <h5 class="text-[#D4AF37] font-bold font-headline uppercase text-[11px] tracking-[0.2em] relative inline-block">Legal<div class="absolute -bottom-2 left-0 w-8 h-px bg-[#D4AF37]"></div></h5>
+                    <ul class="space-y-4 text-sm text-gray-300 font-medium">
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="terms.html">Terms & Conditions</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="terms.html">Privacy Policy</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="terms.html">Cyber Advisory</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom Section (Copyright + Status) -->
+            <div class="pt-8 mt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 ux-reveal">
+                <p class="text-gray-400 text-xs font-semibold tracking-wider uppercase">
+                    © 2026 GOLDe5. All rights reserved.
+                </p>
+                <div class="flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/5 rounded-full cursor-default hover:bg-white/10 transition-colors">
+                    <span class="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_#22c55e] animate-pulse"></span>
+                    <span class="text-[10px] font-black text-gray-300 tracking-widest uppercase">Network Status: Operational</span>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="pt-4 text-center pb-8 ux-reveal">
+                <p class="text-gray-500 text-[10px] sm:text-xs font-medium max-w-4xl mx-auto leading-relaxed border-t border-white/5 pt-6">
+                    Investments are subject to market risks. Returns are not guaranteed and may vary. Please read all related documents carefully before investing.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Observer for slide-up scroll animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.animate-slide-up').forEach((el) => {
+                // Pre-configure elements before observing
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(40px)';
+                el.style.transition = 'all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)';
+                // Maintain any inline animation delays set on the element
+                if(el.style.animationDelay) {
+                    el.style.transitionDelay = el.style.animationDelay;
+                }
+                observer.observe(el);
+            });
+        });
+    </script>
+
+<!-- GLOBAL UX SCRIPT -->
+<script id="global-ux-script">
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Intersection Observer for Smooth Sequential Reveals
+    // Target sections, cards, and prominent text elements
+    const revealElements = document.querySelectorAll('section, .glass-card, h1, h2, h3, .ux-reveal');
+    
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        let delayCount = 0;
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                // Add staggered delay based on rapid succession
+                setTimeout(() => {
+                    entry.target.classList.add('ux-revealed');
+                }, delayCount * 100);
+                delayCount++;
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.05, rootMargin: "0px 0px -50px 0px" });
+
+    revealElements.forEach(el => {
+        // Prevent double revealing if it's already animated by existing classes
+        if(!el.classList.contains('animate-slide-up')) {
+            el.classList.add('ux-reveal');
+        }
+        revealObserver.observe(el);
+    });
+
+    // 2. Sticky Navbar advanced effect
+    const nav = document.querySelector('nav');
+    if(nav) {
+        window.addEventListener('scroll', () => {
+            if(window.scrollY > 40) {
+                nav.classList.add('nav-scrolled');
+            } else {
+                nav.classList.remove('nav-scrolled');
+            }
+        });
+    }
+
+    // 3. 3D Tilt Effect on Glass Cards
+    const cards = document.querySelectorAll('.glass-card');
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            // Only apply tilt on desktop devices
+            if(window.innerWidth > 768) {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                // Sensible degrees for tilt
+                const rotateX = ((y - centerY) / centerY) * -4; 
+                const rotateY = ((x - centerX) / centerX) * 4;
+                card.style.transform = `perspective(1000px) scale(1.02) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+                card.style.transition = 'none'; // Instant follow
+            }
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = ''; // Clear inline styles to allow CSS transition to take over
+            card.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease';
+        });
+    });
+
+    // 4. Form Input Focus Glow Logic
+    const inputs = document.querySelectorAll('input, textarea, select');
+    inputs.forEach(input => {
+        input.addEventListener('focus', () => {
+            if(input.parentElement && input.parentElement.classList.contains('space-y-2')) {
+                input.parentElement.classList.add('input-focused');
+            }
+        });
+        input.addEventListener('blur', () => {
+            if(input.parentElement) {
+                input.parentElement.classList.remove('input-focused');
+            }
+        });
+    });
+
+    // 5. Parallax Hero Effect (Optional gentle background shift)
+    const heroSection = document.querySelector('section:first-of-type');
+    window.addEventListener('scroll', () => {
+        if(heroSection && window.scrollY < window.innerHeight) {
+            const bgElement = heroSection.querySelector('.absolute.inset-0 img');
+            if(bgElement) {
+                const yPos = window.scrollY * 0.3; // 30% speed of scroll
+                bgElement.style.transform = `translateY(${yPos}px)`;
+            }
+        }
+    });
+
+});
+</script>
+
+</body>
+</html>

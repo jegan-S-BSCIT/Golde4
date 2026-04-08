@@ -1,0 +1,1950 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>GOLDe5 | Premium Wealth Management</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;800&amp;family=Inter:wght@300;400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#e5e2e1",
+                        "error": "#ffb4ab",
+                        "surface-container-high": "#2a2a2a",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-container": "#a5adff",
+                        "secondary-fixed": "#ffe080",
+                        "on-tertiary": "#1b247f",
+                        "secondary-fixed-dim": "#e4c45a",
+                        "outline": "#99907c",
+                        "outline-variant": "#4d4635",
+                        "inverse-on-surface": "#313030",
+                        "on-surface-variant": "#d0c5af",
+                        "primary-fixed-dim": "#e9c349",
+                        "surface-container-low": "#1c1b1b",
+                        "on-primary-container": "#554300",
+                        "on-background": "#e5e2e1",
+                        "background": "#131313",
+                        "surface-container-highest": "#353534",
+                        "on-secondary-fixed": "#231b00",
+                        "on-tertiary-fixed": "#000767",
+                        "on-secondary-container": "#ffefc6",
+                        "secondary-container": "#836b00",
+                        "on-tertiary-container": "#323b94",
+                        "primary-container": "#d4af37",
+                        "tertiary-fixed": "#e0e0ff",
+                        "surface-container-lowest": "#0e0e0e",
+                        "primary": "#f2ca50",
+                        "surface-container": "#201f1f",
+                        "on-secondary-fixed-variant": "#564500",
+                        "tertiary-fixed-dim": "#bdc2ff",
+                        "primary-fixed": "#ffe088",
+                        "surface-dim": "#131313",
+                        "surface-variant": "#353534",
+                        "on-surface": "#e5e2e1",
+                        "on-error": "#690005",
+                        "tertiary": "#c7cbff",
+                        "on-primary": "#3c2f00",
+                        "on-tertiary-fixed-variant": "#343d96",
+                        "on-primary-fixed": "#241a00",
+                        "secondary": "#e4c45a",
+                        "on-secondary": "#3c2f00",
+                        "surface-tint": "#e9c349",
+                        "inverse-primary": "#735c00",
+                        "surface-bright": "#3a3939",
+                        "on-primary-fixed-variant": "#574500",
+                        "surface": "#131313",
+                        "error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .bullion-gradient {
+            background: linear-gradient(135deg, #D4AF37 0%, #F2CA50 50%, #E6C65C 100%);
+        }
+
+        .glass-card {
+            background: rgba(42, 42, 42, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .gold-glow {
+            box-shadow: 0 4px 20px rgba(233, 195, 73, 0.1);
+        }
+
+        .active-glow {
+            box-shadow: 0 0 25px rgba(242, 202, 80, 0.6);
+        }
+
+        .bar-transition {
+            transition: height 1.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .bar-hover:hover {
+            filter: brightness(1.2);
+            box-shadow: 0 0 30px rgba(242, 202, 80, 0.8);
+        }
+    </style>
+
+    <!-- GLOBAL UX STYLES -->
+    <style id="global-ux-styles">
+        /* Reveal Animation Physics */
+        .ux-reveal {
+            opacity: 0;
+            transform: translateY(30px) scale(0.98);
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            will-change: opacity, transform;
+        }
+
+        .ux-revealed {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Sticky Navbar Enhancement */
+        nav {
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+        }
+
+        .nav-scrolled {
+            background: rgba(5, 5, 5, 0.98) !important;
+            height: 4.5rem !important;
+            /* Shrink height */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9), 0 1px 0 rgba(212, 175, 55, 0.15) !important;
+            backdrop-filter: blur(25px) !important;
+        }
+
+        /* Cards Global Hover & Tilt (Smooth overrides) */
+        .glass-card {
+            transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease, border-color 0.3s ease !important;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(212, 175, 55, 0.4) !important;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(212, 175, 55, 0.1) !important;
+            z-index: 10;
+        }
+
+        /* Input Animations */
+        .input-focused>label {
+            color: #D4AF37 !important;
+            transform: translateY(-2px);
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        input,
+        textarea,
+        select {
+            transition: all 0.3s ease !important;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2) !important;
+            border-color: #D4AF37 !important;
+        }
+
+        /* Buttons Interactive Glow */
+        button {
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+        }
+
+        button:hover {
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.6) !important;
+            transform: translateY(-2px) !important;
+        }
+
+        button:active {
+            transform: translateY(1px) scale(0.97) !important;
+        }
+
+        /* Nav Links Hover Underline */
+        .nav-hover-line {
+            position: relative;
+        }
+
+        .nav-hover-line::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #f2ca50;
+            transition: width 0.3s ease-out;
+        }
+
+        .nav-hover-line:hover::after {
+            width: 100%;
+        }
+
+        /* Page Fade-in Transition */
+        body {
+            animation: pageFadeIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        @keyframes pageFadeIn {
+            from {
+                opacity: 0;
+                filter: blur(10px);
+            }
+
+            to {
+                opacity: 1;
+                filter: blur(0px);
+            }
+        }
+
+        /* Live Price Ticker Overlay */
+        @keyframes tickerScroll {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+</head>
+
+<body
+    class="flex flex-col min-h-[100vh] bg-surface text-on-surface font-body selection:bg-primary/30 overflow-x-hidden">
+    <!-- Top Navigation Bar -->
+    <nav
+        class="sticky top-0 w-full z-50 bg-[#0B0B0B]/80 backdrop-blur-xl border-b border-white/5 shadow-[0_4px_20px_rgba(233,195,73,0.05)] h-20 flex items-center">
+        <div class="flex justify-between items-center max-w-7xl mx-auto px-6 md:px-8 w-full">
+            <!-- Left Side Logo -->
+            <a href="index.html"
+                class="flex flex-col items-center justify-center cursor-pointer group hover:-translate-y-[1px] transition-transform duration-300">
+                <div
+                    class="text-[28px] md:text-[30px] font-black text-[#D4AF37] font-headline tracking-tighter leading-none group-hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.8)] transition-all duration-300">
+                    GOLDe5
+                </div>
+                <div
+                    class="text-[#d0c5af] text-[13px] md:text-[14px] font-semibold tracking-normal font-headline leading-tight mt-[3px] group-hover:text-white transition-colors duration-300">
+                    Grow in Grams
+                </div>
+            </a>
+
+            <!-- Right Side Navigation -->
+            <div class="flex items-center gap-6 md:gap-10">
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a class="flex items-center text-[#f2ca50] font-bold border-b-2 border-[#f2ca50] pb-1 font-headline tracking-tight text-sm hover:text-[#f2ca50] transition-colors duration-300 cursor-pointer"
+                        href="index.html">Home</a>
+
+                    <!-- Products Dropdown Link -->
+                    <div class="relative group">
+                        <!-- ACTIVE LINK styling adjusted for standardization where needed -->
+                        <a class="flex items-center gap-1 text-gray-400 font-medium border-b-2 border-transparent pb-1 font-headline tracking-tight text-sm hover:text-[#f2ca50] hover:border-[#f2ca50] transition-all duration-300 cursor-pointer"
+                            href="#">
+                            Products
+                            <span
+                                class="material-symbols-outlined text-[16px] transition-transform duration-300 group-hover:rotate-180">expand_more</span>
+                        </a>
+
+                        <!-- Dropdown Menu -->
+                        <div
+                            class="absolute top-[calc(100%+10px)] left-[50%] -translate-x-1/2 w-48 bg-[#0B0B0B] rounded-xl border border-[#D4AF37]/20 shadow-[0_15px_30px_rgba(0,0,0,0.8)] flex flex-col py-2 opacity-0 invisible translate-y-3 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
+                            <!-- Invisible Hover Bridge -->
+                            <div class="absolute -top-[15px] left-0 w-full h-[15px] bg-transparent"></div>
+
+                            <a href="gold-sip.html"
+                                class="px-5 py-3 text-sm text-gray-300 font-medium hover:text-[#D4AF37] hover:bg-white/5 transition-all duration-200 cursor-pointer flex items-center gap-3">
+                                <span class="material-symbols-outlined text-[18px]">payments</span> Gold SIP
+                            </a>
+                            <a href="coins-bars.html"
+                                class="px-5 py-3 text-sm text-gray-300 font-medium hover:text-[#D4AF37] hover:bg-white/5 transition-all duration-200 cursor-pointer flex items-center gap-3">
+                                <span class="material-symbols-outlined text-[18px]">monetization_on</span> Coins & Bars
+                            </a>
+                            <a href="gift-voucher.html"
+                                class="px-5 py-3 text-sm text-gray-300 font-medium hover:text-[#D4AF37] hover:bg-white/5 transition-all duration-200 cursor-pointer flex items-center gap-3">
+                                <span class="material-symbols-outlined text-[18px]">card_giftcard</span> Gift Voucher
+                            </a>
+                            <a href="jewel-scheme.html"
+                                class="px-5 py-3 text-sm text-gray-300 font-medium hover:text-[#D4AF37] hover:bg-white/5 transition-all duration-200 cursor-pointer flex items-center gap-3">
+                                <span class="material-symbols-outlined text-[18px]">diamond</span> Jewel Scheme
+                            </a>
+                        </div>
+                    </div>
+                    <a class="flex items-center text-gray-400 font-medium border-b-2 border-transparent pb-1 font-headline tracking-tight text-sm hover:text-[#f2ca50] hover:border-[#f2ca50] transition-all duration-300 cursor-pointer"
+                        href="investor.html">Investor</a>
+                    <a class="flex items-center text-gray-400 font-medium border-b-2 border-transparent pb-1 font-headline tracking-tight text-sm hover:text-[#f2ca50] hover:border-[#f2ca50] transition-all duration-300 cursor-pointer"
+                        href="partner.html">Partner</a>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex items-center gap-4 md:gap-6">
+                    <button
+                        class="bullion-gradient text-[#111] px-6 md:px-8 py-2 md:py-2.5 rounded-xl font-headline font-extrabold text-xs md:text-sm tracking-wide active:scale-95 transition-all duration-300 shadow-[0_0_15px_rgba(212,175,55,0.3)] hover:shadow-[0_0_25px_rgba(212,175,55,0.6)] hover:brightness-110">
+                        Login
+                    </button>
+                    <!-- Mobile Hamburger -->
+                    <button class="md:hidden text-white hover:text-[#D4AF37] transition-colors p-1"
+                        onclick="document.getElementById('mobile-menu').classList.remove('hidden')">
+                        <span class="material-symbols-outlined text-3xl">menu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="hidden fixed inset-0 z-[100] bg-[#0B0B0B]/95 backdrop-blur-xl pt-24 px-6 flex flex-col gap-6 items-center border-b border-[#D4AF37]/20 shadow-[0_20px_50px_rgba(0,0,0,0.9)] overflow-y-auto pb-10">
+        <a class="text-[#f2ca50] font-bold pb-1 font-headline tracking-tighter text-xl active:scale-95 transition-all"
+            href="index.html">Home</a>
+        <div class="w-full h-px bg-white/5 max-w-xs"></div>
+        <div class="flex flex-col items-center gap-4">
+            <span class="text-gray-400 font-medium font-headline tracking-tighter text-xl">Products</span>
+            <a href="gold-sip.html"
+                class="text-sm text-gray-300 hover:text-[#D4AF37] transition-colors text-center">Gold SIP</a>
+            <a href="coins-bars.html"
+                class="text-sm text-gray-300 hover:text-[#D4AF37] transition-colors text-center">Coins & Bars</a>
+            <a href="gift-voucher.html"
+                class="text-sm text-gray-300 hover:text-[#D4AF37] transition-colors text-center">Gift Voucher</a>
+            <a href="jewel-scheme.html"
+                class="text-sm text-gray-300 hover:text-[#D4AF37] transition-colors text-center">Jewel Scheme</a>
+        </div>
+        <div class="w-full h-px bg-white/5 max-w-xs"></div>
+        <a class="text-gray-400 font-medium font-headline tracking-tighter text-xl active:scale-95 transition-all"
+            href="investor.html">Investor</a>
+        <div class="w-full h-px bg-white/5 max-w-xs"></div>
+        <a class="text-gray-400 font-medium font-headline tracking-tighter text-xl active:scale-95 transition-all"
+            href="partner.html">Partner</a>
+        <button class="absolute top-6 right-6 text-white"
+            onclick="document.getElementById('mobile-menu').classList.add('hidden')">
+            <span class="material-symbols-outlined text-3xl">close</span>
+        </button>
+    </div>
+
+    <!-- Live Financial Ticker -->
+    <div
+        class="w-full bg-[#D4AF37] h-10 flex items-center overflow-hidden border-b border-[#B8962E] relative z-40 group shadow-[0_2px_15px_rgba(212,175,55,0.2)]">
+        <!-- Static Left Container (Prices) -->
+        <div
+            class="bg-[#0B0B0B] text-[#D4AF37] px-4 md:px-8 h-full flex items-center shadow-[10px_0_20px_rgba(0,0,0,0.8)] z-20 font-black tracking-wider text-[10px] md:text-xs uppercase border-r border-[#D4AF37]/30 shrink-0 relative">
+            <span class="flex items-center gap-2 md:gap-3">
+                <span
+                    class="w-2 h-2 rounded-full bg-red-500 animate-pulse drop-shadow-[0_0_5px_rgba(239,68,68,1)]"></span>
+                <span>Live Price: Gold ₹74,000/gm <span class="text-white/30 px-1 hidden md:inline">|</span> Silver
+                    ₹90/gm</span>
+            </span>
+            <!-- Slanted decorative edge -->
+            <div
+                class="absolute right-[-15px] top-0 h-full w-[30px] bg-[#0B0B0B] -skew-x-[25deg] z-[-1] border-r border-[#D4AF37]/40 shadow-[5px_0_15px_rgba(0,0,0,0.5)]">
+            </div>
+        </div>
+
+        <!-- Scrolling Right Container (Quotes) -->
+        <div class="flex-1 relative overflow-hidden h-full flex items-center justify-end md:pr-10 pr-4"
+            id="quote-container">
+            <div id="quote-slider"
+                class="text-[#222] font-black text-[11px] md:text-[13px] font-headline tracking-wide absolute w-full flex items-center justify-end gap-2 transform translate-x-8 opacity-0 text-right drop-shadow-[0_1px_1px_rgba(255,255,255,0.3)]">
+                <span id="quote-text">Save in Gold. Grow in Grams</span>
+            </div>
+            <script>
+                    (function () {
+                        if (window.quotesRightToLeftInit) return;
+                        window.quotesRightToLeftInit = true;
+
+                        const quotes = [
+                            "Save in Gold. Grow in Grams",
+                            "Your Assets are Fully Protected",
+                            "Start Investing from ₹100",
+                            "Smart Gold Plans for Everyone"
+                        ];
+
+                        let currentIndex = 0;
+                        const slider = document.getElementById('quote-slider');
+                        const textEl = document.getElementById('quote-text');
+                        const container = document.getElementById('quote-container');
+
+                        let isHovered = false;
+                        if (container) {
+                            container.addEventListener('mouseenter', () => isHovered = true);
+                            container.addEventListener('mouseleave', () => isHovered = false);
+                        }
+
+                        function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+                        async function runAnimation() {
+                            if (!slider || !textEl) return;
+
+                            while (true) {
+                                if (isHovered) {
+                                    await sleep(500);
+                                    continue;
+                                }
+
+                                // Ready state (off-screen right slightly)
+                                textEl.innerText = quotes[currentIndex];
+                                slider.style.transition = "none";
+                                slider.style.transform = "translateX(25px)";
+                                slider.style.opacity = "0";
+                                slider.style.filter = "blur(3px)";
+
+                                void slider.offsetWidth; // Force reflow
+
+                                // Slide in smoothly
+                                slider.style.transition = "all 0.9s cubic-bezier(0.25, 0.8, 0.25, 1)";
+                                slider.style.transform = "translateX(0)";
+                                slider.style.opacity = "1";
+                                slider.style.filter = "blur(0px)";
+
+                                // Stay duration (2-5s)
+                                await sleep(3500);
+
+                                // Hold if hovered
+                                while (isHovered) {
+                                    await sleep(500);
+                                }
+
+                                // Slide out smoothly
+                                slider.style.transition = "all 0.8s cubic-bezier(0.4, 0, 0.2, 1)";
+                                slider.style.transform = "translateX(-25px)";
+                                slider.style.opacity = "0";
+                                slider.style.filter = "blur(3px)";
+
+                                await sleep(900); // Wait for exit to complete
+
+                                currentIndex = (currentIndex + 1) % quotes.length;
+                            }
+                        }
+
+                        // Start animation right away
+                        runAnimation();
+                    })();
+            </script>
+        </div>
+    </div>
+
+    <main class="flex-1 w-full">
+        <!-- Hero Section -->
+        <section
+            class="relative min-h-[90vh] md:min-h-[850px] flex flex-col items-center justify-center overflow-hidden">
+
+            <!-- Full size video background -->
+            <div class="absolute inset-0 w-full h-full z-0">
+                <div class="absolute inset-0 bg-gradient-to-b from-[#0B0B0B]/70 via-transparent to-[#0E1628]/90 z-10">
+                </div>
+                <!-- Vignette Edge Shadow -->
+                <div
+                    class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_40%,_rgba(0,0,0,0.8)_100%)] pointer-events-none z-20">
+                </div>
+                <video autoplay muted loop playsinline
+                    class="w-full h-full object-cover scale-[1.02] transform transition-transform duration-[10s] ease-out z-0 relative"
+                    poster="https://lh3.googleusercontent.com/aida-public/AB6AXuD_C8VJA_X99WzC58IWZJHBnT5qBXac6JLYpRJoLqrs05dhgRahdL4anlA-V9BE0aaqbMqESflXxlDQDhRz2IJvfXgJSyCu1_gpKBYUyB0TuIrkjX0oOwg6e_H0EE9DyQQTxCmPwYu2NOAfqTrJ5711oBZDPrSrVklmqThHCG4yrsI3UYw95HZOLzc7U0tfbXZmYO3mTBjPFi0fagHPl7qcq2Hw7pdtpqzzEHMqJVCzKsbnn5T9DE_xN1IxKBvl0JtLo-3CxVkOG5Wl">
+                    <source
+                        src="https://assets.mixkit.co/videos/preview/mixkit-golden-particles-floating-on-a-black-background-42171-large.mp4"
+                        type="video/mp4">
+                </video>
+            </div>
+
+            <!-- Massive ambient gold glow radiating from the center -->
+            <div
+                class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full md:w-[70%] h-[80%] bg-[#D4AF37]/10 blur-[150px] rounded-full pointer-events-none z-10">
+            </div>
+
+            <div class="relative z-30 max-w-[1100px] mx-auto px-6 w-full flex flex-col items-center">
+                <!-- Massive Hero Text -->
+                <h1
+                    class="text-[#D4AF37] font-headline font-black tracking-tight leading-[0.9] text-5xl md:text-7xl lg:text-8xl mb-8 text-center drop-shadow-[0_0_25px_rgba(212,175,55,0.8)] animate-fade-in mix-blend-plus-lighter uppercase">
+                    Save in Gold.<br />Grow in Grams.
+                </h1>
+
+                <p class="text-white/90 text-lg md:text-2xl font-body max-w-2xl text-center mb-12 drop-shadow-md">
+                    Secure your future with precision crafted wealth management and premium bullion assets.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center gap-6">
+                    <button
+                        class="bullion-gradient text-[#111] px-10 py-4 rounded-xl font-headline font-extrabold text-lg tracking-wide hover:scale-105 transition-all shadow-[0_0_30px_rgba(212,175,55,0.4)] hover:shadow-[0_0_50px_rgba(212,175,55,0.7)] hover:brightness-110">
+                        Start Investing Now
+                    </button>
+                    <a href="coins-bars.html"
+                        class="text-[#D4AF37] font-headline font-bold text-lg hover:underline transition-all hover:text-white drop-shadow-md">
+                        Explore Bullion
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- Services Section -->
+        <section class="py-32 bg-surface-container-lowest overflow-hidden">
+            <div class="max-w-[1200px] mx-auto px-5">
+                <div class="mb-24 text-center">
+                    <h2 class="text-4xl md:text-6xl font-black font-headline tracking-tighter mb-4 text-on-surface">
+                        Explore Our Products</h2>
+                    <!-- Removed distinct ways text securely -->
+                </div>
+
+                <div class="space-y-24 md:space-y-32">
+
+                    <!-- Gold SIP (Digital Dashboard Illustration) -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center group">
+
+                        <!-- Left Side: Digital Gold Dashboard Illustration -->
+                        <div
+                            class="relative rounded-2xl overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.8)] group-hover:shadow-[0_15px_50px_rgba(212,175,55,0.15)] transition-all duration-500 border border-white/5 bg-gradient-to-br from-[#111] to-[#050505] aspect-video md:aspect-[4/3] flex items-center justify-center p-6 w-full cursor-pointer">
+
+                            <!-- Premium dynamic background gradient -->
+                            <div
+                                class="absolute w-[150%] h-[150%] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#D4AF37]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl pointer-events-none">
+                            </div>
+
+                            <!-- Badge -->
+                            <div
+                                class="absolute top-5 left-5 z-20 bg-black/60 backdrop-blur-md border border-[#D4AF37]/30 text-[#D4AF37] px-4 py-1.5 rounded-full font-headline font-bold text-sm tracking-wide shadow-[0_0_15px_rgba(212,175,55,0.1)]">
+                                ✨ Start from ₹100
+                            </div>
+
+                            <!-- Glassmorphic Dashboard Card -->
+                            <div
+                                class="relative z-10 w-full max-w-[85%] h-[75%] bg-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-6 flex flex-col justify-between shadow-2xl group-hover:scale-[1.05] group-hover:border-[#D4AF37]/30 transition-all duration-300">
+
+                                <div class="flex justify-between items-start">
+                                    <div class="space-y-1 z-20">
+                                        <p
+                                            class="text-white/50 text-[10px] md:text-xs font-semibold tracking-wider uppercase flex items-center gap-1.5">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse"></span>
+                                            Live Gold Portfolio
+                                        </p>
+                                        <p
+                                            class="text-white text-3xl md:text-4xl font-black font-headline tracking-tighter drop-shadow-md">
+                                            45.02<span class="text-[#D4AF37] text-xl md:text-2xl ml-1">g</span></p>
+                                    </div>
+                                    <div
+                                        class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#D4AF37] to-[#B38728] flex items-center justify-center shadow-[0_0_15px_rgba(212,175,55,0.4)] z-20">
+                                        <span
+                                            class="material-symbols-outlined text-[#111] text-xl font-bold">diamond</span>
+                                    </div>
+                                </div>
+
+                                <div class="z-20 mt-2">
+                                    <p
+                                        class="text-[#4ade80] text-sm md:text-base font-semibold flex items-center gap-1 bg-[#4ade80]/15 w-max px-2.5 py-1 rounded-md border border-[#4ade80]/30 shadow-sm backdrop-blur-sm">
+                                        <span class="material-symbols-outlined text-[16px]">trending_up</span> +12.4%
+                                        <span class="text-white/60 font-medium ml-1 text-xs">(30d)</span>
+                                    </p>
+                                </div>
+
+                                <!-- Animated Graph Area -->
+                                <div
+                                    class="absolute bottom-0 left-0 right-0 h-[65%] flex items-end overflow-hidden rounded-b-2xl opacity-80 pointer-events-none">
+                                    <svg class="w-full h-full drop-shadow-[0_0_10px_rgba(212,175,55,0.3)]"
+                                        viewBox="0 0 200 80" preserveAspectRatio="none">
+                                        <defs>
+                                            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                                <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.35" />
+                                                <stop offset="100%" stop-color="#D4AF37" stop-opacity="0" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path d="M0,80 L0,50 C30,60 50,40 80,45 C110,50 140,20 170,25 L200,10 L200,80 Z"
+                                            fill="url(#goldGrad)"
+                                            class="group-hover:opacity-100 transition-opacity duration-500" />
+                                        <path d="M0,50 C30,60 50,40 80,45 C110,50 140,20 170,25 L200,10" fill="none"
+                                            stroke="#D4AF37" stroke-width="2.5" vector-effect="non-scaling-stroke" />
+                                        <!-- Glowing dots on the graph points -->
+                                        <circle cx="50" cy="45" r="2.5" fill="#FFF" class="animate-pulse" />
+                                        <circle cx="140" cy="28" r="2.5" fill="#FFF" class="animate-pulse" />
+                                        <circle cx="200" cy="10" r="4.5" fill="#D4AF37"
+                                            filter="drop-shadow(0 0 6px #D4AF37)" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Floating Gold Particles -->
+                            <div
+                                class="absolute w-2 h-2 bg-[#D4AF37] rounded-full top-[15%] left-[82%] animate-pulse shadow-[0_0_12px_#D4AF37]">
+                            </div>
+                            <div
+                                class="absolute w-1.5 h-1.5 bg-[#D4AF37] rounded-full bottom-[20%] left-[8%] animate-ping opacity-30">
+                            </div>
+                            <div
+                                class="absolute w-3 h-3 bg-white/20 rounded-full top-[45%] right-[12%] backdrop-blur-md">
+                            </div>
+                        </div>
+
+                        <!-- Right Side: Content -->
+                        <div class="space-y-6 flex flex-col justify-center">
+                            <h3 class="text-4xl font-headline font-bold text-on-surface">Gold SIP</h3>
+                            <p class="text-on-surface-variant text-lg font-light leading-relaxed">Invest in gold
+                                systematically with flexible daily, weekly, or monthly plans.</p>
+                            <a href="gold-sip.html"
+                                class="inline-flex items-center w-max gap-3 text-[#111] bg-gradient-to-r from-[#F2CA50] to-[#B38728] px-8 py-4 rounded-xl font-headline font-bold text-lg hover:brightness-110 hover:shadow-[0_0_25px_rgba(212,175,55,0.4)] transition-all duration-300 group/btn">
+                                Start Investing
+                                <span
+                                    class="material-symbols-outlined font-bold transform group-hover/btn:translate-x-1.5 transition-transform">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Coins & Bars (Text Left, Image Right) -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center group">
+                        <div class="space-y-6 md:pr-8 order-2 md:order-1">
+                            <h3 class="text-4xl font-headline font-bold text-on-surface">Coins &amp; Bars</h3>
+                            <p class="text-on-surface-variant text-lg font-light leading-relaxed">Hallmarked 24K
+                                physical assets. Securely minted GOLDe5 authentic gold bars, fully insured delivery
+                                directly to your doorstep, or institutional vaulting options.</p>
+                            <a href="coins-bars.html"
+                                class="inline-flex items-center gap-3 text-[#111] bg-[#D4AF37] px-8 py-4 rounded-xl font-headline font-bold text-lg hover:brightness-110 hover:scale-105 transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)]">Shop
+                                Bullion <span class="material-symbols-outlined">arrow_forward</span></a>
+                        </div>
+                        <div
+                            class="relative rounded-3xl overflow-hidden shadow-[0_0_40px_rgba(212,175,55,0.15)] group-hover:shadow-[0_0_60px_rgba(212,175,55,0.25)] transition-all duration-500 order-1 md:order-2 border border-white/5">
+                            <div class="aspect-video md:aspect-[4/3] bg-[#111] relative">
+                                <img src="assets/images/golde5_minted_bar.png"
+                                    onerror="this.src='https://images.pexels.com/photos/366551/pexels-photo-366551.jpeg?auto=compress&cs=tinysrgb&w=800'"
+                                    alt="Coins and Bars"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-transparent to-transparent opacity-80">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gift Voucher (Image Left, Text Right) -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center group">
+                        <div
+                            class="relative rounded-3xl overflow-hidden shadow-[0_0_40px_rgba(212,175,55,0.15)] group-hover:shadow-[0_0_60px_rgba(212,175,55,0.25)] transition-all duration-500 border border-white/5">
+                            <div class="aspect-video md:aspect-[4/3] bg-[#111] relative">
+                                <img src="assets/images/gift_voucher.png"
+                                    onerror="this.src='https://images.pexels.com/photos/544971/pexels-photo-544971.jpeg?auto=compress&cs=tinysrgb&w=800'"
+                                    alt="Gift Voucher"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-transparent to-transparent opacity-80">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-6 md:pl-8">
+                            <h3 class="text-4xl font-headline font-bold text-on-surface">Gift Voucher</h3>
+                            <p class="text-on-surface-variant text-lg font-light leading-relaxed">The ultimate gift of
+                                appreciating value. Send instant digital gold vouchers to your loved ones for weddings,
+                                birthdays, and milestones.</p>
+                            <a href="gift-voucher.html"
+                                class="inline-flex items-center gap-3 text-[#111] bg-[#D4AF37] px-8 py-4 rounded-xl font-headline font-bold text-lg hover:brightness-110 hover:scale-105 transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)]">Send
+                                a Gift <span class="material-symbols-outlined">arrow_forward</span></a>
+                        </div>
+                    </div>
+
+                    <!-- Gold Schemes (Text Left, Image Right) -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center group">
+                        <div class="space-y-6 md:pr-8 order-2 md:order-1">
+                            <h3 class="text-4xl font-headline font-bold text-on-surface">Gold Schemes</h3>
+                            <p class="text-on-surface-variant text-lg font-light leading-relaxed">Exclusive bespoke
+                                jewelry accumulation schemes. Enjoy bonus payouts, fixed return benefits, and maximize
+                                your savings effortlessly.</p>
+                            <a href="jewel-scheme.html"
+                                class="inline-flex items-center gap-3 text-[#111] bg-[#D4AF37] px-8 py-4 rounded-xl font-headline font-bold text-lg hover:brightness-110 hover:scale-105 transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)]">Explore
+                                Plans <span class="material-symbols-outlined">arrow_forward</span></a>
+                        </div>
+                        <div
+                            class="relative rounded-3xl overflow-hidden shadow-[0_0_40px_rgba(212,175,55,0.15)] group-hover:shadow-[0_0_60px_rgba(212,175,55,0.25)] transition-all duration-500 order-1 md:order-2 border border-white/5">
+                            <div class="aspect-video md:aspect-[4/3] bg-[#111] relative">
+                                <img src="assets/images/gold_schemes.png"
+                                    onerror="this.src='https://images.pexels.com/photos/2735970/pexels-photo-2735970.jpeg?auto=compress&cs=tinysrgb&w=800'"
+                                    alt="Gold Schemes"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-transparent to-transparent opacity-80">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- Historical Performance Section - Cinematic Full Width -->
+        <section class="py-32 bg-surface overflow-hidden w-full">
+            <div class="max-w-[1200px] mx-auto px-5 box-border w-full">
+                <div class="mb-14 text-center flex flex-col items-center w-full">
+                    <div
+                        class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/20 mb-6 shadow-[0_0_15px_rgba(212,175,55,0.15)]">
+                        <span class="material-symbols-outlined text-[#D4AF37] text-sm">history</span>
+                        <span class="text-[#D4AF37] text-xs font-bold uppercase tracking-widest">Historical
+                            Performance</span>
+                    </div>
+                    <h2
+                        class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black font-headline tracking-tight text-on-surface whitespace-nowrap">
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-[#F2CA50] via-[#D4AF37] to-[#B38728] drop-shadow-[0_0_15px_rgba(212,175,55,0.4)]">100
+                            Years</span> of Gold Prices in India
+                    </h2>
+                    <p
+                        class="text-[#E7DFBA] opacity-80 text-sm md:text-base tracking-widest uppercase font-semibold mt-4">
+                        (Approx. 24K price per 10 grams)
+                    </p>
+                    <div
+                        class="w-32 h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mt-8 opacity-60 rounded-full">
+                    </div>
+                </div>
+                <!-- Wide Cinematic Bar Chart -->
+                <div
+                    class="bg-[#0E1628]/40 p-4 md:p-10 lg:p-16 rounded-[2rem] shadow-2xl border border-white/5 relative glass-card w-full overflow-hidden box-border">
+                    <div class="absolute top-8 left-10 flex flex-col gap-1">
+                        <span class="text-on-surface font-headline font-black text-xl tracking-tighter">GOLD PERFORMANCE
+                            INDEX</span>
+                    </div>
+                    <div class="h-[500px] md:h-[600px] flex items-end justify-between gap-1 md:gap-4 px-0 pb-16 border-b border-white/10 mt-6 pt-20 relative w-full box-border overflow-hidden"
+                        id="chart-container">
+                        <!-- 1925 -->
+                        <div class="flex-1 flex flex-col items-center relative h-full justify-end cursor-pointer bar-item"
+                            onclick="activateBar(this)" onmouseenter="activateBar(this)"
+                            onmouseleave="deactivateBar(this)">
+                            <div class="w-full bullion-gradient rounded-t-sm bar-transition bar-visual relative flex justify-center origin-bottom"
+                                style="height: 0%;" data-height="0.5%">
+                                <div class="absolute bottom-full mb-[10px] opacity-0 transform -translate-x-1/2 left-1/2 translate-y-3 transition-all duration-300 z-40 tooltip bg-[#D4AF37] text-black text-[10px] md:text-sm px-3 md:px-4 py-1.5 rounded-full shadow-lg pointer-events-none font-bold"
+                                    style="width: max-content; white-space: nowrap; text-align: center;">₹18 (1925)
+                                </div>
+                            </div>
+                            <span
+                                class="absolute -bottom-8 text-[10px] text-primary font-bold tracking-tighter drop-shadow-[0_0_8px_rgba(242,202,80,0.8)] year-label transition-opacity duration-300">1925</span>
+                        </div>
+                        <!-- 1935 -->
+                        <div class="flex-1 flex flex-col items-center relative h-full justify-end cursor-pointer bar-item"
+                            onclick="activateBar(this)" onmouseenter="activateBar(this)"
+                            onmouseleave="deactivateBar(this)">
+                            <div class="w-full bullion-gradient rounded-t-sm bar-transition bar-visual relative flex justify-center origin-bottom"
+                                style="height: 0%;" data-height="0.8%">
+                                <div class="absolute bottom-full mb-[10px] opacity-0 transform -translate-x-1/2 left-1/2 translate-y-3 transition-all duration-300 z-40 tooltip bg-[#D4AF37] text-black text-[10px] md:text-sm px-3 md:px-4 py-1.5 rounded-full shadow-lg pointer-events-none font-bold"
+                                    style="width: max-content; white-space: nowrap; text-align: center;">₹32 (1935)
+                                </div>
+                            </div>
+                            <span
+                                class="absolute -bottom-8 text-[10px] text-primary font-bold tracking-tighter drop-shadow-[0_0_8px_rgba(242,202,80,0.8)] year-label transition-opacity duration-300">1935</span>
+                        </div>
+                        <!-- 1945 -->
+                        <div class="flex-1 flex flex-col items-center relative h-full justify-end cursor-pointer bar-item"
+                            onclick="activateBar(this)" onmouseenter="activateBar(this)"
+                            onmouseleave="deactivateBar(this)">
+                            <div class="w-full bullion-gradient rounded-t-sm bar-transition bar-visual relative flex justify-center origin-bottom"
+                                style="height: 0%;" data-height="1.2%">
+                                <div class="absolute bottom-full mb-[10px] opacity-0 transform -translate-x-1/2 left-1/2 translate-y-3 transition-all duration-300 z-40 tooltip bg-[#D4AF37] text-black text-[10px] md:text-sm px-3 md:px-4 py-1.5 rounded-full shadow-lg pointer-events-none font-bold"
+                                    style="width: max-content; white-space: nowrap; text-align: center;">₹88 (1945)
+                                </div>
+                            </div>
+                            <span
+                                class="absolute -bottom-8 text-[10px] text-primary font-bold tracking-tighter drop-shadow-[0_0_8px_rgba(242,202,80,0.8)] year-label transition-opacity duration-300">1945</span>
+                        </div>
+                        <!-- 1955 -->
+                        <div class="flex-1 flex flex-col items-center relative h-full justify-end cursor-pointer bar-item"
+                            onclick="activateBar(this)" onmouseenter="activateBar(this)"
+                            onmouseleave="deactivateBar(this)">
+                            <div class="w-full bullion-gradient rounded-t-sm bar-transition bar-visual relative flex justify-center origin-bottom"
+                                style="height: 0%;" data-height="1.0%">
+                                <div class="absolute bottom-full mb-[10px] opacity-0 transform -translate-x-1/2 left-1/2 translate-y-3 transition-all duration-300 z-40 tooltip bg-[#D4AF37] text-black text-[10px] md:text-sm px-3 md:px-4 py-1.5 rounded-full shadow-lg pointer-events-none font-bold"
+                                    style="width: max-content; white-space: nowrap; text-align: center;">₹63 (1955)
+                                </div>
+                            </div>
+                            <span
+                                class="absolute -bottom-8 text-[10px] text-primary font-bold tracking-tighter drop-shadow-[0_0_8px_rgba(242,202,80,0.8)] year-label transition-opacity duration-300">1955</span>
+                        </div>
+                        <!-- 1965 -->
+                        <div class="flex-1 flex flex-col items-center relative h-full justify-end cursor-pointer bar-item"
+                            onclick="activateBar(this)" onmouseenter="activateBar(this)"
+                            onmouseleave="deactivateBar(this)">
+                            <div class="w-full bullion-gradient rounded-t-sm bar-transition bar-visual relative flex justify-center origin-bottom"
+                                style="height: 0%;" data-height="1.1%">
+                                <div class="absolute bottom-full mb-[10px] opacity-0 transform -translate-x-1/2 left-1/2 translate-y-3 transition-all duration-300 z-40 tooltip bg-[#D4AF37] text-black text-[10px] md:text-sm px-3 md:px-4 py-1.5 rounded-full shadow-lg pointer-events-none font-bold"
+                                    style="width: max-content; white-space: nowrap; text-align: center;">₹71 (1965)
+                                </div>
+                            </div>
+                            <span
+                                class="absolute -bottom-8 text-[10px] text-primary font-bold tracking-tighter drop-shadow-[0_0_8px_rgba(242,202,80,0.8)] year-label transition-opacity duration-300">1965</span>
+                        </div>
+                        <!-- 1970 -->
+                        <div class="flex-1 flex flex-col items-center relative h-full justify-end cursor-pointer bar-item"
+                            onclick="activateBar(this)" onmouseenter="activateBar(this)"
+                            onmouseleave="deactivateBar(this)">
+                            <div class="w-full bullion-gradient rounded-t-sm bar-transition bar-visual relative flex justify-center origin-bottom"
+                                style="height: 0%;" data-height="2.0%">
+                                <div class="absolute bottom-full mb-[10px] opacity-0 transform -translate-x-1/2 left-1/2 translate-y-3 transition-all duration-300 z-40 tooltip bg-[#D4AF37] text-black text-[10px] md:text-sm px-3 md:px-4 py-1.5 rounded-full shadow-lg pointer-events-none font-bold"
+                                    style="width: max-content; white-space: nowrap; text-align: center;">₹184 (1970)
+                                </div>
+                            </div>
+                            <span
+                                class="absolute -bottom-8 text-[10px] text-primary font-bold tracking-tighter drop-shadow-[0_0_8px_rgba(242,202,80,0.8)] year-label transition-opacity duration-300">1970</span>
+                        </div>
+                        <!-- 1980 -->
+                        <div class="flex-1 flex flex-col items-center relative h-full justify-end cursor-pointer bar-item"
+                            onclick="activateBar(this)" onmouseenter="activateBar(this)"
+                            onmouseleave="deactivateBar(this)">
+                            <div class="w-full bullion-gradient rounded-t-sm bar-transition bar-visual relative flex justify-center origin-bottom"
+                                style="height: 0%;" data-height="4.0%">
+                                <div class="absolute bottom-full mb-[10px] opacity-0 transform -translate-x-1/2 left-1/2 translate-y-3 transition-all duration-300 z-40 tooltip bg-[#D4AF37] text-black text-[10px] md:text-sm px-3 md:px-4 py-1.5 rounded-full shadow-lg pointer-events-none font-bold"
+                                    style="width: max-content; white-space: nowrap; text-align: center;">₹1,330 (1980)
+                                </div>
+                            </div>
+                            <span
+                                class="absolute -bottom-8 text-[10px] text-primary font-bold tracking-tighter drop-shadow-[0_0_8px_rgba(242,202,80,0.8)] year-label transition-opacity duration-300">1980</span>
+                        </div>
+                        <!-- 1990 -->
+                        <div class="flex-1 flex flex-col items-center relative h-full justify-end cursor-pointer bar-item"
+                            onclick="activateBar(this)" onmouseenter="activateBar(this)"
+                            onmouseleave="deactivateBar(this)">
+                            <div class="w-full bullion-gradient rounded-t-sm bar-transition bar-visual relative flex justify-center origin-bottom"
+                                style="height: 0%;" data-height="8.0%">
+                                <div class="absolute bottom-full mb-[10px] opacity-0 transform -translate-x-1/2 left-1/2 translate-y-3 transition-all duration-300 z-40 tooltip bg-[#D4AF37] text-black text-[10px] md:text-sm px-3 md:px-4 py-1.5 rounded-full shadow-lg pointer-events-none font-bold"
+                                    style="width: max-content; white-space: nowrap; text-align: center;">₹3,200 (1990)
+                                </div>
+                            </div>
+                            <span
+                                class="absolute -bottom-8 text-[10px] text-primary font-bold tracking-tighter drop-shadow-[0_0_8px_rgba(242,202,80,0.8)] year-label transition-opacity duration-300">1990</span>
+                        </div>
+                        <!-- 2000 -->
+                        <div class="flex-1 flex flex-col items-center relative h-full justify-end cursor-pointer bar-item"
+                            onclick="activateBar(this)" onmouseenter="activateBar(this)"
+                            onmouseleave="deactivateBar(this)">
+                            <div class="w-full bullion-gradient rounded-t-sm bar-transition bar-visual relative flex justify-center origin-bottom"
+                                style="height: 0%;" data-height="12.0%">
+                                <div class="absolute bottom-full mb-[10px] opacity-0 transform -translate-x-1/2 left-1/2 translate-y-3 transition-all duration-300 z-40 tooltip bg-[#D4AF37] text-black text-[10px] md:text-sm px-3 md:px-4 py-1.5 rounded-full shadow-lg pointer-events-none font-bold"
+                                    style="width: max-content; white-space: nowrap; text-align: center;">₹4,400 (2000)
+                                </div>
+                            </div>
+                            <span
+                                class="absolute -bottom-8 text-[10px] text-primary font-bold tracking-tighter drop-shadow-[0_0_8px_rgba(242,202,80,0.8)] year-label transition-opacity duration-300">2000</span>
+                        </div>
+                        <!-- 2010 -->
+                        <div class="flex-1 flex flex-col items-center relative h-full justify-end cursor-pointer bar-item"
+                            onclick="activateBar(this)" onmouseenter="activateBar(this)"
+                            onmouseleave="deactivateBar(this)">
+                            <div class="w-full bullion-gradient rounded-t-sm bar-transition bar-visual relative flex justify-center origin-bottom"
+                                style="height: 0%;" data-height="28.0%">
+                                <div class="absolute bottom-full mb-[10px] opacity-0 transform -translate-x-1/2 left-1/2 translate-y-3 transition-all duration-300 z-40 tooltip bg-[#D4AF37] text-black text-[10px] md:text-sm px-3 md:px-4 py-1.5 rounded-full shadow-lg pointer-events-none font-bold"
+                                    style="width: max-content; white-space: nowrap; text-align: center;">₹18,500 (2010)
+                                </div>
+                            </div>
+                            <span
+                                class="absolute -bottom-8 text-[10px] text-primary font-bold tracking-tighter drop-shadow-[0_0_8px_rgba(242,202,80,0.8)] year-label transition-opacity duration-300">2010</span>
+                        </div>
+                        <!-- 2020 -->
+                        <div class="flex-1 flex flex-col items-center relative h-full justify-end cursor-pointer bar-item"
+                            onclick="activateBar(this)" onmouseenter="activateBar(this)"
+                            onmouseleave="deactivateBar(this)">
+                            <div class="w-full bullion-gradient rounded-t-sm bar-transition bar-visual relative flex justify-center origin-bottom"
+                                style="height: 0%;" data-height="45.0%">
+                                <div class="absolute bottom-full mb-[10px] opacity-0 transform -translate-x-1/2 left-1/2 translate-y-3 transition-all duration-300 z-40 tooltip bg-[#D4AF37] text-black text-[10px] md:text-sm px-3 md:px-4 py-1.5 rounded-full shadow-lg pointer-events-none font-bold"
+                                    style="width: max-content; white-space: nowrap; text-align: center;">₹47,000 (2020)
+                                </div>
+                            </div>
+                            <span
+                                class="absolute -bottom-8 text-[10px] text-primary font-bold tracking-tighter drop-shadow-[0_0_8px_rgba(242,202,80,0.8)] year-label transition-opacity duration-300">2020</span>
+                        </div>
+                        <!-- 2024 -->
+                        <div class="flex-1 flex flex-col items-center relative h-full justify-end cursor-pointer bar-item"
+                            onclick="activateBar(this)" onmouseenter="activateBar(this)"
+                            onmouseleave="deactivateBar(this)">
+                            <div class="w-full bullion-gradient rounded-t-sm bar-transition bar-visual relative flex justify-center origin-bottom"
+                                style="height: 0%;" data-height="60.0%">
+                                <div class="absolute bottom-full mb-[10px] opacity-0 transform -translate-x-1/2 left-1/2 translate-y-3 transition-all duration-300 z-40 tooltip bg-[#D4AF37] text-black text-[10px] md:text-sm px-3 md:px-4 py-1.5 rounded-full shadow-lg pointer-events-none font-bold"
+                                    style="width: max-content; white-space: nowrap; text-align: center;">₹74,000+ (2024)
+                                </div>
+                            </div>
+                            <span
+                                class="absolute -bottom-8 text-[10px] text-primary font-bold tracking-tighter drop-shadow-[0_0_8px_rgba(242,202,80,0.8)] year-label transition-opacity duration-300">2024</span>
+                        </div>
+                        <!-- 2025 -->
+                        <div class="flex-1 flex flex-col items-center relative h-full justify-end cursor-pointer bar-item"
+                            onclick="activateBar(this)" onmouseenter="activateBar(this)"
+                            onmouseleave="deactivateBar(this)">
+                            <div class="w-full bullion-gradient rounded-t-sm bar-transition bar-visual relative flex justify-center origin-bottom"
+                                style="height: 0%;" data-height="75.0%">
+                                <div class="absolute bottom-full mb-[10px] opacity-0 transform -translate-x-1/2 left-1/2 translate-y-3 transition-all duration-300 z-40 tooltip bg-[#D4AF37] text-black text-[10px] md:text-sm px-3 md:px-4 py-1.5 rounded-full shadow-lg pointer-events-none font-bold"
+                                    style="width: max-content; white-space: nowrap; text-align: center;">₹98,000+ (2025)
+                                </div>
+                            </div>
+                            <span
+                                class="absolute -bottom-8 text-[10px] text-primary font-bold tracking-tighter drop-shadow-[0_0_8px_rgba(242,202,80,0.8)] year-label transition-opacity duration-300">2025</span>
+                        </div>
+                        <!-- 2026 PEAK -->
+                        <div class="flex-1 flex flex-col items-center relative h-full justify-end cursor-pointer bar-item"
+                            onclick="activateBar(this)" onmouseenter="activateBar(this)"
+                            onmouseleave="deactivateBar(this)">
+                            <div class="w-full bullion-gradient rounded-t-xl bar-transition active-glow border-t-2 border-white/20 bar-visual brightness-110 relative flex justify-center origin-bottom"
+                                style="height: 0%;" data-height="100%">
+                                <div class="absolute bottom-full mb-[10px] opacity-0 transform -translate-x-1/2 left-1/2 translate-y-3 transition-all duration-300 z-40 tooltip bg-[#D4AF37] text-black text-[10px] md:text-sm px-3 md:px-4 py-1.5 rounded-full shadow-lg pointer-events-none font-bold"
+                                    style="width: max-content; white-space: nowrap; text-align: center;">₹1,50,000+
+                                    (PEAK)</div>
+                            </div>
+                            <span
+                                class="absolute -bottom-8 text-[10px] text-primary font-black tracking-tighter drop-shadow-[0_0_8px_rgba(242,202,80,0.8)] year-label transition-opacity duration-300">2026</span>
+                        </div>
+                    </div>
+                    <!-- Disclaimer -->
+                    <div
+                        class="mt-5 text-center text-xs md:text-sm text-[#F2CA50] opacity-80 italic font-medium tracking-wide w-full px-4 mb-2">
+                        * Prices before 1970 are indicative estimates based on historical data.
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Basics of Precious Metals Comparison Section -->
+        <section class="py-32 bg-[#0B0B0B] relative overflow-hidden">
+            <!-- Decorative Glow -->
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-[400px] bg-[#D4AF37]/5 blur-[120px] rounded-[100%] pointer-events-none">
+            </div>
+
+            <div class="max-w-[1200px] mx-auto px-5 relative z-10">
+                <!-- Header -->
+                <div class="text-center space-y-6 max-w-4xl mx-auto mb-20">
+                    <h2
+                        class="text-5xl md:text-6xl font-black font-headline tracking-tighter text-on-surface leading-tight">
+                        Basics of Precious Metals
+                    </h2>
+                    <p
+                        class="text-primary text-2xl md:text-3xl font-black font-headline drop-shadow-[0_0_10px_rgba(242,202,80,0.3)]">
+                        Precious metals are more than traditional assets — they represent trust, value, and security.
+                    </p>
+                    <p class="text-on-surface-variant text-lg font-light leading-relaxed max-w-3xl mx-auto">
+                        At GOLDe5, we focus on Gold and Silver, the two pillars of long-term wealth and industrial
+                        growth. Both metals complement each other — Gold offers stability, while Silver adds versatility
+                        and growth.
+                    </p>
+                </div>
+
+                <!-- Table Container -->
+                <div
+                    class="bg-[#0E1628]/60 rounded-3xl p-4 md:p-8 border border-[#D4AF37]/20 shadow-[0_10px_40px_rgba(0,0,0,0.5)] backdrop-blur-md">
+                    <h3 class="text-3xl font-headline font-bold text-center text-on-surface mb-10 tracking-tight">
+                        Gold and Silver Overview
+                    </h3>
+
+                    <!-- Desktop Header Row -->
+                    <div
+                        class="hidden md:grid grid-cols-[1.5fr_1fr_1fr] gap-6 mb-6 px-4 border-b border-[#D4AF37]/30 pb-4">
+                        <div class="text-on-surface-variant font-bold text-lg uppercase tracking-widest">Feature</div>
+                        <div
+                            class="text-[#D4AF37] font-black text-xl text-center drop-shadow-[0_0_5px_rgba(212,175,55,0.5)]">
+                            Gold</div>
+                        <div
+                            class="text-gray-200 font-black text-xl text-center drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]">
+                            Silver</div>
+                    </div>
+
+                    <!-- Comparison Rows -->
+                    <div class="space-y-4 md:space-y-3 relative z-10">
+
+                        <!-- Row 1 -->
+                        <div
+                            class="group grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr] gap-3 md:gap-6 bg-[#151D30]/40 hover:bg-[#1A233A]/90 p-5 md:px-5 md:py-4 rounded-2xl border border-white/5 hover:border-[#D4AF37]/50 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(212,175,55,0.15)] hover:-translate-y-1">
+                            <div
+                                class="flex items-center text-white font-semibold text-xl md:text-base border-b border-white/10 md:border-none pb-3 md:pb-0 mb-2 md:mb-0 group-hover:text-[#D4AF37] transition-colors">
+                                <span
+                                    class="material-symbols-outlined text-[#D4AF37] opacity-80 mr-3 hidden md:block group-hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.8)] transition-all">diamond</span>
+                                Symbolism
+                            </div>
+                            <div
+                                class="flex flex-col justify-center text-[#E6C65C] text-[15px] group-hover:brightness-125 transition-all text-left md:text-center p-3 md:p-0 rounded-xl bg-[#D4AF37]/10 md:bg-transparent">
+                                <span
+                                    class="md:hidden text-[10px] text-[#D4AF37] uppercase tracking-widest font-black opacity-80 mb-2 flex items-center gap-2"><span
+                                        class="w-1.5 h-1.5 rounded-full bg-[#D4AF37]"></span>Gold</span>
+                                Wealth, stability, trust
+                            </div>
+                            <div
+                                class="flex flex-col justify-center text-gray-300 text-[15px] group-hover:text-white transition-all text-left md:text-center p-3 md:p-0 rounded-xl bg-white/5 md:bg-transparent mt-1 md:mt-0">
+                                <span
+                                    class="md:hidden text-[10px] text-gray-400 uppercase tracking-widest font-black opacity-80 mb-2 flex items-center gap-2"><span
+                                        class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>Silver</span>
+                                Growth, innovation, versatility
+                            </div>
+                        </div>
+
+                        <!-- Row 2 -->
+                        <div
+                            class="group grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr] gap-3 md:gap-6 bg-transparent hover:bg-[#1A233A]/90 p-5 md:px-5 md:py-4 rounded-2xl border border-transparent hover:border-[#D4AF37]/50 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(212,175,55,0.15)] hover:-translate-y-1">
+                            <div
+                                class="flex items-center text-white font-semibold text-xl md:text-base border-b border-white/10 md:border-none pb-3 md:pb-0 mb-2 md:mb-0 group-hover:text-[#D4AF37] transition-colors">
+                                <span
+                                    class="material-symbols-outlined text-[#D4AF37] opacity-80 mr-3 hidden md:block group-hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.8)] transition-all">payments</span>
+                                Market Value
+                            </div>
+                            <div
+                                class="flex flex-col justify-center text-[#E6C65C] text-[15px] group-hover:brightness-125 transition-all text-left md:text-center p-3 md:p-0 rounded-xl bg-[#D4AF37]/10 md:bg-transparent">
+                                <span
+                                    class="md:hidden text-[10px] text-[#D4AF37] uppercase tracking-widest font-black opacity-80 mb-2 flex items-center gap-2"><span
+                                        class="w-1.5 h-1.5 rounded-full bg-[#D4AF37]"></span>Gold</span>
+                                Higher, premium metal
+                            </div>
+                            <div
+                                class="flex flex-col justify-center text-gray-300 text-[15px] group-hover:text-white transition-all text-left md:text-center p-3 md:p-0 rounded-xl bg-white/5 md:bg-transparent mt-1 md:mt-0">
+                                <span
+                                    class="md:hidden text-[10px] text-gray-400 uppercase tracking-widest font-black opacity-80 mb-2 flex items-center gap-2"><span
+                                        class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>Silver</span>
+                                Lower, more affordable
+                            </div>
+                        </div>
+
+                        <!-- Row 3 -->
+                        <div
+                            class="group grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr] gap-3 md:gap-6 bg-[#151D30]/40 hover:bg-[#1A233A]/90 p-5 md:px-5 md:py-4 rounded-2xl border border-white/5 hover:border-[#D4AF37]/50 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(212,175,55,0.15)] hover:-translate-y-1">
+                            <div
+                                class="flex items-center text-white font-semibold text-xl md:text-base border-b border-white/10 md:border-none pb-3 md:pb-0 mb-2 md:mb-0 group-hover:text-[#D4AF37] transition-colors">
+                                <span
+                                    class="material-symbols-outlined text-[#D4AF37] opacity-80 mr-3 hidden md:block group-hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.8)] transition-all">show_chart</span>
+                                Volatility
+                            </div>
+                            <div
+                                class="flex flex-col justify-center text-[#E6C65C] text-[15px] group-hover:brightness-125 transition-all text-left md:text-center p-3 md:p-0 rounded-xl bg-[#D4AF37]/10 md:bg-transparent">
+                                <span
+                                    class="md:hidden text-[10px] text-[#D4AF37] uppercase tracking-widest font-black opacity-80 mb-2 flex items-center gap-2"><span
+                                        class="w-1.5 h-1.5 rounded-full bg-[#D4AF37]"></span>Gold</span>
+                                Low – stable long-term asset
+                            </div>
+                            <div
+                                class="flex flex-col justify-center text-gray-300 text-[15px] group-hover:text-white transition-all text-left md:text-center p-3 md:p-0 rounded-xl bg-white/5 md:bg-transparent mt-1 md:mt-0">
+                                <span
+                                    class="md:hidden text-[10px] text-gray-400 uppercase tracking-widest font-black opacity-80 mb-2 flex items-center gap-2"><span
+                                        class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>Silver</span>
+                                High – faster price movements
+                            </div>
+                        </div>
+
+                        <!-- Row 4 -->
+                        <div
+                            class="group grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr] gap-3 md:gap-6 bg-transparent hover:bg-[#1A233A]/90 p-5 md:px-5 md:py-4 rounded-2xl border border-transparent hover:border-[#D4AF37]/50 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(212,175,55,0.15)] hover:-translate-y-1">
+                            <div
+                                class="flex items-center text-white font-semibold text-xl md:text-base border-b border-white/10 md:border-none pb-3 md:pb-0 mb-2 md:mb-0 group-hover:text-[#D4AF37] transition-colors">
+                                <span
+                                    class="material-symbols-outlined text-[#D4AF37] opacity-80 mr-3 hidden md:block group-hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.8)] transition-all">water_drop</span>
+                                Liquidity
+                            </div>
+                            <div
+                                class="flex flex-col justify-center text-[#E6C65C] text-[15px] group-hover:brightness-125 transition-all text-left md:text-center p-3 md:p-0 rounded-xl bg-[#D4AF37]/10 md:bg-transparent">
+                                <span
+                                    class="md:hidden text-[10px] text-[#D4AF37] uppercase tracking-widest font-black opacity-80 mb-2 flex items-center gap-2"><span
+                                        class="w-1.5 h-1.5 rounded-full bg-[#D4AF37]"></span>Gold</span>
+                                Highly liquid globally
+                            </div>
+                            <div
+                                class="flex flex-col justify-center text-gray-300 text-[15px] group-hover:text-white transition-all text-left md:text-center p-3 md:p-0 rounded-xl bg-white/5 md:bg-transparent mt-1 md:mt-0">
+                                <span
+                                    class="md:hidden text-[10px] text-gray-400 uppercase tracking-widest font-black opacity-80 mb-2 flex items-center gap-2"><span
+                                        class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>Silver</span>
+                                Moderately liquid, strong retail demand
+                            </div>
+                        </div>
+
+                        <!-- Row 5 -->
+                        <div
+                            class="group grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr] gap-3 md:gap-6 bg-[#151D30]/40 hover:bg-[#1A233A]/90 p-5 md:px-5 md:py-4 rounded-2xl border border-white/5 hover:border-[#D4AF37]/50 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(212,175,55,0.15)] hover:-translate-y-1">
+                            <div
+                                class="flex items-center text-white font-semibold text-xl md:text-base border-b border-white/10 md:border-none pb-3 md:pb-0 mb-2 md:mb-0 group-hover:text-[#D4AF37] transition-colors">
+                                <span
+                                    class="material-symbols-outlined text-[#D4AF37] opacity-80 mr-3 hidden md:block group-hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.8)] transition-all">precision_manufacturing</span>
+                                Industrial Demand
+                            </div>
+                            <div
+                                class="flex flex-col justify-center text-[#E6C65C] text-[15px] group-hover:brightness-125 transition-all text-left md:text-center p-3 md:p-0 rounded-xl bg-[#D4AF37]/10 md:bg-transparent">
+                                <span
+                                    class="md:hidden text-[10px] text-[#D4AF37] uppercase tracking-widest font-black opacity-80 mb-2 flex items-center gap-2"><span
+                                        class="w-1.5 h-1.5 rounded-full bg-[#D4AF37]"></span>Gold</span>
+                                Limited – mainly jewelry, finance
+                            </div>
+                            <div
+                                class="flex flex-col justify-center text-gray-300 text-[15px] group-hover:text-white transition-all text-left md:text-center p-3 md:p-0 rounded-xl bg-white/5 md:bg-transparent mt-1 md:mt-0">
+                                <span
+                                    class="md:hidden text-[10px] text-gray-400 uppercase tracking-widest font-black opacity-80 mb-2 flex items-center gap-2"><span
+                                        class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>Silver</span>
+                                High – solar, EVs, electronics, medicine
+                            </div>
+                        </div>
+
+                        <!-- Row 6 -->
+                        <div
+                            class="group grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr] gap-3 md:gap-6 bg-transparent hover:bg-[#1A233A]/90 p-5 md:px-5 md:py-4 rounded-2xl border border-transparent hover:border-[#D4AF37]/50 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(212,175,55,0.15)] hover:-translate-y-1">
+                            <div
+                                class="flex items-center text-white font-semibold text-xl md:text-base border-b border-white/10 md:border-none pb-3 md:pb-0 mb-2 md:mb-0 group-hover:text-[#D4AF37] transition-colors">
+                                <span
+                                    class="material-symbols-outlined text-[#D4AF37] opacity-80 mr-3 hidden md:block group-hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.8)] transition-all">savings</span>
+                                Affordability
+                            </div>
+                            <div
+                                class="flex flex-col justify-center text-[#E6C65C] text-[15px] group-hover:brightness-125 transition-all text-left md:text-center p-3 md:p-0 rounded-xl bg-[#D4AF37]/10 md:bg-transparent">
+                                <span
+                                    class="md:hidden text-[10px] text-[#D4AF37] uppercase tracking-widest font-black opacity-80 mb-2 flex items-center gap-2"><span
+                                        class="w-1.5 h-1.5 rounded-full bg-[#D4AF37]"></span>Gold</span>
+                                Suited for large investors
+                            </div>
+                            <div
+                                class="flex flex-col justify-center text-gray-300 text-[15px] group-hover:text-white transition-all text-left md:text-center p-3 md:p-0 rounded-xl bg-white/5 md:bg-transparent mt-1 md:mt-0">
+                                <span
+                                    class="md:hidden text-[10px] text-gray-400 uppercase tracking-widest font-black opacity-80 mb-2 flex items-center gap-2"><span
+                                        class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>Silver</span>
+                                Ideal for new investors and SIPs
+                            </div>
+                        </div>
+
+                        <!-- Row 7 -->
+                        <div
+                            class="group grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr] gap-3 md:gap-6 bg-[#151D30]/40 hover:bg-[#1A233A]/90 p-5 md:px-5 md:py-4 rounded-2xl border border-white/5 hover:border-[#D4AF37]/50 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(212,175,55,0.15)] hover:-translate-y-1">
+                            <div
+                                class="flex items-center text-white font-semibold text-xl md:text-base border-b border-white/10 md:border-none pb-3 md:pb-0 mb-2 md:mb-0 group-hover:text-[#D4AF37] transition-colors">
+                                <span
+                                    class="material-symbols-outlined text-[#D4AF37] opacity-80 mr-3 hidden md:block group-hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.8)] transition-all">shield</span>
+                                Inflation Hedge
+                            </div>
+                            <div
+                                class="flex flex-col justify-center text-[#E6C65C] text-[15px] group-hover:brightness-125 transition-all text-left md:text-center p-3 md:p-0 rounded-xl bg-[#D4AF37]/10 md:bg-transparent">
+                                <span
+                                    class="md:hidden text-[10px] text-[#D4AF37] uppercase tracking-widest font-black opacity-80 mb-2 flex items-center gap-2"><span
+                                        class="w-1.5 h-1.5 rounded-full bg-[#D4AF37]"></span>Gold</span>
+                                Excellent protection
+                            </div>
+                            <div
+                                class="flex flex-col justify-center text-gray-300 text-[15px] group-hover:text-white transition-all text-left md:text-center p-3 md:p-0 rounded-xl bg-white/5 md:bg-transparent mt-1 md:mt-0">
+                                <span
+                                    class="md:hidden text-[10px] text-gray-400 uppercase tracking-widest font-black opacity-80 mb-2 flex items-center gap-2"><span
+                                        class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>Silver</span>
+                                Moderate protection
+                            </div>
+                        </div>
+
+                        <!-- Row 8 -->
+                        <div
+                            class="group grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr] gap-3 md:gap-6 bg-transparent hover:bg-[#1A233A]/90 p-5 md:px-5 md:py-4 rounded-2xl border border-transparent hover:border-[#D4AF37]/50 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(212,175,55,0.15)] hover:-translate-y-1">
+                            <div
+                                class="flex items-center text-white font-semibold text-xl md:text-base border-b border-white/10 md:border-none pb-3 md:pb-0 mb-2 md:mb-0 group-hover:text-[#D4AF37] transition-colors">
+                                <span
+                                    class="material-symbols-outlined text-[#D4AF37] opacity-80 mr-3 hidden md:block group-hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.8)] transition-all">inventory_2</span>
+                                Storage Options
+                            </div>
+                            <div
+                                class="flex flex-col justify-center text-[#E6C65C] text-[15px] group-hover:brightness-125 transition-all text-left md:text-center p-3 md:p-0 rounded-xl bg-[#D4AF37]/10 md:bg-transparent">
+                                <span
+                                    class="md:hidden text-[10px] text-[#D4AF37] uppercase tracking-widest font-black opacity-80 mb-2 flex items-center gap-2"><span
+                                        class="w-1.5 h-1.5 rounded-full bg-[#D4AF37]"></span>Gold</span>
+                                Digital gold, coins, bars
+                            </div>
+                            <div
+                                class="flex flex-col justify-center text-gray-300 text-[15px] group-hover:text-white transition-all text-left md:text-center p-3 md:p-0 rounded-xl bg-white/5 md:bg-transparent mt-1 md:mt-0">
+                                <span
+                                    class="md:hidden text-[10px] text-gray-400 uppercase tracking-widest font-black opacity-80 mb-2 flex items-center gap-2"><span
+                                        class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>Silver</span>
+                                Digital silver, coins, bars
+                            </div>
+                        </div>
+
+                        <!-- Row 9 -->
+                        <div
+                            class="group grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr] gap-3 md:gap-6 bg-[#151D30]/40 hover:bg-[#1A233A]/90 p-5 md:px-5 md:py-4 rounded-2xl border border-white/5 hover:border-[#D4AF37]/50 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(212,175,55,0.15)] hover:-translate-y-1">
+                            <div
+                                class="flex items-center text-white font-semibold text-xl md:text-base border-b border-white/10 md:border-none pb-3 md:pb-0 mb-2 md:mb-0 group-hover:text-[#D4AF37] transition-colors">
+                                <span
+                                    class="material-symbols-outlined text-[#D4AF37] opacity-80 mr-3 hidden md:block group-hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.8)] transition-all">monitoring</span>
+                                Return Potential
+                            </div>
+                            <div
+                                class="flex flex-col justify-center text-[#E6C65C] text-[15px] group-hover:brightness-125 transition-all text-left md:text-center p-3 md:p-0 rounded-xl bg-[#D4AF37]/10 md:bg-transparent">
+                                <span
+                                    class="md:hidden text-[10px] text-[#D4AF37] uppercase tracking-widest font-black opacity-80 mb-2 flex items-center gap-2"><span
+                                        class="w-1.5 h-1.5 rounded-full bg-[#D4AF37]"></span>Gold</span>
+                                Steady, stable appreciation
+                            </div>
+                            <div
+                                class="flex flex-col justify-center text-gray-300 text-[15px] group-hover:text-white transition-all text-left md:text-center p-3 md:p-0 rounded-xl bg-white/5 md:bg-transparent mt-1 md:mt-0">
+                                <span
+                                    class="md:hidden text-[10px] text-gray-400 uppercase tracking-widest font-black opacity-80 mb-2 flex items-center gap-2"><span
+                                        class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>Silver</span>
+                                Dynamic, higher short-term potential
+                            </div>
+                        </div>
+
+                        <!-- Row 10 -->
+                        <div
+                            class="group grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr] gap-3 md:gap-6 bg-transparent hover:bg-[#1A233A]/90 p-5 md:px-5 md:py-4 rounded-2xl border border-transparent hover:border-[#D4AF37]/50 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(212,175,55,0.15)] hover:-translate-y-1">
+                            <div
+                                class="flex items-center text-white font-semibold text-xl md:text-base border-b border-white/10 md:border-none pb-3 md:pb-0 mb-2 md:mb-0 group-hover:text-[#D4AF37] transition-colors">
+                                <span
+                                    class="material-symbols-outlined text-[#D4AF37] opacity-80 mr-3 hidden md:block group-hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.8)] transition-all">pie_chart</span>
+                                Portfolio Role
+                            </div>
+                            <div
+                                class="flex flex-col justify-center text-[#E6C65C] text-[15px] group-hover:brightness-125 transition-all text-left md:text-center p-3 md:p-0 rounded-xl bg-[#D4AF37]/10 md:bg-transparent">
+                                <span
+                                    class="md:hidden text-[10px] text-[#D4AF37] uppercase tracking-widest font-black opacity-80 mb-2 flex items-center gap-2"><span
+                                        class="w-1.5 h-1.5 rounded-full bg-[#D4AF37]"></span>Gold</span>
+                                Core stability asset
+                            </div>
+                            <div
+                                class="flex flex-col justify-center text-gray-300 text-[15px] group-hover:text-white transition-all text-left md:text-center p-3 md:p-0 rounded-xl bg-white/5 md:bg-transparent mt-1 md:mt-0">
+                                <span
+                                    class="md:hidden text-[10px] text-gray-400 uppercase tracking-widest font-black opacity-80 mb-2 flex items-center gap-2"><span
+                                        class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>Silver</span>
+                                Growth and diversification asset
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Metals Matrix Section -->
+        <section class="py-32 bg-[#0E1628] relative border-t border-white/5">
+            <div class="max-w-[1200px] mx-auto px-5">
+
+                <!-- Header -->
+                <div class="text-center space-y-6 mb-16">
+                    <h2 class="text-4xl md:text-5xl font-black font-headline tracking-tighter text-on-surface">Metals
+                        Matrix</h2>
+                    <p class="text-on-surface-variant text-lg font-light max-w-2xl mx-auto leading-relaxed">
+                        A comparative overview of key precious metals and their investment characteristics.
+                    </p>
+                </div>
+
+                <!-- Table Container -->
+                <div
+                    class="bg-[#0B0B0B] rounded-[16px] p-4 md:p-6 shadow-[0_15px_40px_rgba(0,0,0,0.5)] border border-[#D4AF37]/20 relative z-10 overflow-hidden">
+
+                    <!-- Desktop Header Row -->
+                    <div
+                        class="hidden md:grid grid-cols-[1.1fr_1fr_1.4fr_0.9fr_1.2fr_1.4fr] gap-4 bg-[#D4AF37] text-black font-bold p-4 lg:px-6 rounded-xl mb-4 shadow-[0_2px_10px_rgba(212,175,55,0.3)]">
+                        <div>Metal</div>
+                        <div>Risk Level</div>
+                        <div>Primary Use</div>
+                        <div>Liquidity</div>
+                        <div>Investment Appeal</div>
+                        <div>Industrial Demand</div>
+                    </div>
+
+                    <!-- Content Rows -->
+                    <div class="space-y-6 md:space-y-2">
+
+                        <!-- Gold Row -->
+                        <div
+                            class="group grid grid-cols-1 md:grid-cols-[1.1fr_1fr_1.4fr_0.9fr_1.2fr_1.4fr] gap-3 md:gap-4 bg-[#151D30]/40 md:bg-transparent hover:bg-[#1A233A] p-5 md:p-4 lg:px-6 rounded-xl border border-white/5 md:border-transparent hover:border-[#D4AF37]/50 hover:shadow-[0_5px_25px_rgba(212,175,55,0.15)] transition-all duration-300 hover:-translate-y-1 items-center">
+                            <div
+                                class="text-2xl md:text-lg font-black text-[#D4AF37] drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] mb-3 md:mb-0 pb-3 md:pb-0 border-b border-white/10 md:border-transparent flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-[#D4AF37] shadow-[0_0_8px_#D4AF37]"></span> Gold
+                            </div>
+                            <div>
+                                <span
+                                    class="md:hidden text-[10px] text-gray-500 uppercase tracking-widest font-black block mb-1">Risk
+                                    Level</span>
+                                <span class="text-white text-sm md:text-base font-medium">Very Low</span>
+                            </div>
+                            <div>
+                                <span
+                                    class="md:hidden text-[10px] text-gray-500 uppercase tracking-widest font-black block mb-1">Primary
+                                    Use</span>
+                                <span class="text-gray-300 text-sm md:text-base">Wealth storage, jewelry</span>
+                            </div>
+                            <div>
+                                <span
+                                    class="md:hidden text-[10px] text-gray-500 uppercase tracking-widest font-black block mb-1">Liquidity</span>
+                                <span class="text-white text-sm md:text-base font-medium">High</span>
+                            </div>
+                            <div>
+                                <span
+                                    class="md:hidden text-[10px] text-gray-500 uppercase tracking-widest font-black block mb-1">Investment
+                                    Appeal</span>
+                                <span class="text-white text-sm md:text-base font-medium">Very High</span>
+                            </div>
+                            <div>
+                                <span
+                                    class="md:hidden text-[10px] text-gray-500 uppercase tracking-widest font-black block mb-1">Industrial
+                                    Demand</span>
+                                <span class="text-gray-300 text-sm md:text-base">Moderate</span>
+                            </div>
+                        </div>
+
+                        <!-- Silver Row -->
+                        <div
+                            class="group grid grid-cols-1 md:grid-cols-[1.1fr_1fr_1.4fr_0.9fr_1.2fr_1.4fr] gap-3 md:gap-4 bg-[#151D30]/20 md:bg-[#111827]/40 hover:bg-[#1A233A] p-5 md:p-4 lg:px-6 rounded-xl border border-white/5 md:border-transparent hover:border-gray-400/50 hover:shadow-[0_5px_25px_rgba(156,163,175,0.1)] transition-all duration-300 hover:-translate-y-1 items-center">
+                            <div
+                                class="text-2xl md:text-lg font-black text-gray-300 mb-3 md:mb-0 pb-3 md:pb-0 border-b border-white/10 md:border-transparent flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-gray-400"></span> Silver
+                            </div>
+                            <div>
+                                <span
+                                    class="md:hidden text-[10px] text-gray-500 uppercase tracking-widest font-black block mb-1">Risk
+                                    Level</span>
+                                <span class="text-white text-sm md:text-base font-medium">Medium</span>
+                            </div>
+                            <div>
+                                <span
+                                    class="md:hidden text-[10px] text-gray-500 uppercase tracking-widest font-black block mb-1">Primary
+                                    Use</span>
+                                <span class="text-gray-300 text-sm md:text-base">Industrial, ornaments</span>
+                            </div>
+                            <div>
+                                <span
+                                    class="md:hidden text-[10px] text-gray-500 uppercase tracking-widest font-black block mb-1">Liquidity</span>
+                                <span class="text-white text-sm md:text-base font-medium">High</span>
+                            </div>
+                            <div>
+                                <span
+                                    class="md:hidden text-[10px] text-gray-500 uppercase tracking-widest font-black block mb-1">Investment
+                                    Appeal</span>
+                                <span class="text-white text-sm md:text-base font-medium">High</span>
+                            </div>
+                            <div>
+                                <span
+                                    class="md:hidden text-[10px] text-gray-500 uppercase tracking-widest font-black block mb-1">Industrial
+                                    Demand</span>
+                                <span class="text-white text-sm md:text-base font-medium">High</span>
+                            </div>
+                        </div>
+
+                        <!-- Platinum Row -->
+                        <div
+                            class="group grid grid-cols-1 md:grid-cols-[1.1fr_1fr_1.4fr_0.9fr_1.2fr_1.4fr] gap-3 md:gap-4 bg-[#151D30]/40 md:bg-transparent hover:bg-[#1A233A] p-5 md:p-4 lg:px-6 rounded-xl border border-white/5 md:border-transparent hover:border-white/40 hover:shadow-[0_5px_25px_rgba(255,255,255,0.1)] transition-all duration-300 hover:-translate-y-1 items-center">
+                            <div
+                                class="text-2xl md:text-lg font-black text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.5)] mb-3 md:mb-0 pb-3 md:pb-0 border-b border-white/10 md:border-transparent flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-white shadow-[0_0_5px_#fff]"></span> Platinum
+                            </div>
+                            <div>
+                                <span
+                                    class="md:hidden text-[10px] text-gray-500 uppercase tracking-widest font-black block mb-1">Risk
+                                    Level</span>
+                                <span class="text-white text-sm md:text-base font-medium">Medium</span>
+                            </div>
+                            <div>
+                                <span
+                                    class="md:hidden text-[10px] text-gray-500 uppercase tracking-widest font-black block mb-1">Primary
+                                    Use</span>
+                                <span class="text-gray-300 text-sm md:text-base">Automotive, jewelry</span>
+                            </div>
+                            <div>
+                                <span
+                                    class="md:hidden text-[10px] text-gray-500 uppercase tracking-widest font-black block mb-1">Liquidity</span>
+                                <span class="text-gray-300 text-sm md:text-base">Medium</span>
+                            </div>
+                            <div>
+                                <span
+                                    class="md:hidden text-[10px] text-gray-500 uppercase tracking-widest font-black block mb-1">Investment
+                                    Appeal</span>
+                                <span class="text-white text-sm md:text-base font-medium">Strong</span>
+                            </div>
+                            <div>
+                                <span
+                                    class="md:hidden text-[10px] text-gray-500 uppercase tracking-widest font-black block mb-1">Industrial
+                                    Demand</span>
+                                <span class="text-white text-sm md:text-base font-medium">High</span>
+                            </div>
+                        </div>
+
+                        <!-- Palladium Row -->
+                        <div
+                            class="group grid grid-cols-1 md:grid-cols-[1.1fr_1fr_1.4fr_0.9fr_1.2fr_1.4fr] gap-3 md:gap-4 bg-[#151D30]/20 md:bg-[#111827]/40 hover:bg-[#1A233A] p-5 md:p-4 lg:px-6 rounded-xl border border-white/5 md:border-transparent hover:border-[#8E9EAB]/50 hover:shadow-[0_5px_25px_rgba(142,158,171,0.15)] transition-all duration-300 hover:-translate-y-1 items-center">
+                            <div
+                                class="text-2xl md:text-lg font-black text-[#8E9EAB] mb-3 md:mb-0 pb-3 md:pb-0 border-b border-white/10 md:border-transparent flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-[#8E9EAB]"></span> Palladium
+                            </div>
+                            <div>
+                                <span
+                                    class="md:hidden text-[10px] text-gray-500 uppercase tracking-widest font-black block mb-1">Risk
+                                    Level</span>
+                                <span class="text-white text-sm md:text-base font-medium">Medium</span>
+                            </div>
+                            <div>
+                                <span
+                                    class="md:hidden text-[10px] text-gray-500 uppercase tracking-widest font-black block mb-1">Primary
+                                    Use</span>
+                                <span class="text-gray-300 text-sm md:text-base">Automotive, electronics</span>
+                            </div>
+                            <div>
+                                <span
+                                    class="md:hidden text-[10px] text-gray-500 uppercase tracking-widest font-black block mb-1">Liquidity</span>
+                                <span class="text-gray-300 text-sm md:text-base">Medium</span>
+                            </div>
+                            <div>
+                                <span
+                                    class="md:hidden text-[10px] text-gray-500 uppercase tracking-widest font-black block mb-1">Investment
+                                    Appeal</span>
+                                <span class="text-gray-300 text-sm md:text-base">Emerging</span>
+                            </div>
+                            <div>
+                                <span
+                                    class="md:hidden text-[10px] text-gray-500 uppercase tracking-widest font-black block mb-1">Industrial
+                                    Demand</span>
+                                <span class="text-white text-sm md:text-base font-medium">Very High</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Future of Metal Investments Section -->
+        <section class="py-32 bg-[#0B0B0B] relative border-t border-white/5 overflow-hidden">
+            <!-- Ambient Glow -->
+            <div
+                class="absolute right-0 bottom-0 w-1/2 h-[500px] bg-[#D4AF37]/5 blur-[150px] rounded-full pointer-events-none">
+            </div>
+
+            <div class="max-w-[1200px] mx-auto px-5 relative z-10">
+                <!-- Header -->
+                <div class="text-center space-y-6 max-w-4xl mx-auto mb-20">
+                    <h2 class="text-4xl md:text-5xl font-black font-headline tracking-tighter text-on-surface">
+                        The Future of Metal Investments
+                    </h2>
+                    <p
+                        class="text-[#D4AF37] text-xl md:text-2xl font-bold font-headline drop-shadow-[0_0_8px_rgba(212,175,55,0.4)] leading-snug">
+                        The next era of precious metals like Gold and Silver are no longer just traditional assets —
+                        they are now part of the digital, industrial, and sustainable future of global finance.
+                    </p>
+                </div>
+
+                <!-- 2-Column Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                    <!-- Card 1 -->
+                    <div
+                        class="group bg-[#0E1628] p-6 lg:p-8 rounded-[16px] border border-[#D4AF37]/20 hover:border-[#D4AF37]/60 hover:shadow-[0_10px_30px_rgba(212,175,55,0.15)] transition-all duration-300 hover:-translate-y-2 flex flex-col gap-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center border border-[#D4AF37]/30 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-[#D4AF37]">currency_exchange</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-[#D4AF37] transition-colors">Digital
+                            Transformation of Metals</h3>
+                        <p class="text-gray-400 font-light leading-relaxed">Metals are now tokenized and traded
+                            digitally through secure platforms like GOLDe5.</p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div
+                        class="group bg-[#0E1628] p-6 lg:p-8 rounded-[16px] border border-[#D4AF37]/20 hover:border-[#D4AF37]/60 hover:shadow-[0_10px_30px_rgba(212,175,55,0.15)] transition-all duration-300 hover:-translate-y-2 flex flex-col gap-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center border border-[#D4AF37]/30 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-[#D4AF37]">auto_graph</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-[#D4AF37] transition-colors">Smart
+                            Investment Platforms</h3>
+                        <p class="text-gray-400 font-light leading-relaxed">AI and automation personalize gold and
+                            silver investments using real-time analysis.</p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div
+                        class="group bg-[#0E1628] p-6 lg:p-8 rounded-[16px] border border-[#D4AF37]/20 hover:border-[#D4AF37]/60 hover:shadow-[0_10px_30px_rgba(212,175,55,0.15)] transition-all duration-300 hover:-translate-y-2 flex flex-col gap-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center border border-[#D4AF37]/30 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-[#D4AF37]">enhanced_encryption</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-[#D4AF37] transition-colors">
+                            Blockchain-Based Ownership</h3>
+                        <p class="text-gray-400 font-light leading-relaxed">Blockchain ensures secure, transparent, and
+                            tamper-proof ownership.</p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div
+                        class="group bg-[#0E1628] p-6 lg:p-8 rounded-[16px] border border-[#D4AF37]/20 hover:border-[#D4AF37]/60 hover:shadow-[0_10px_30px_rgba(212,175,55,0.15)] transition-all duration-300 hover:-translate-y-2 flex flex-col gap-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center border border-[#D4AF37]/30 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-[#D4AF37]">payments</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-[#D4AF37] transition-colors">Global
+                            Payment Integration</h3>
+                        <p class="text-gray-400 font-light leading-relaxed">Digital gold and silver can be used like
+                            currency in future systems.</p>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div
+                        class="group bg-[#0E1628] p-6 lg:p-8 rounded-[16px] border border-[#D4AF37]/20 hover:border-[#D4AF37]/60 hover:shadow-[0_10px_30px_rgba(212,175,55,0.15)] transition-all duration-300 hover:-translate-y-2 flex flex-col gap-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center border border-[#D4AF37]/30 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-[#D4AF37]">precision_manufacturing</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-[#D4AF37] transition-colors">Industrial
+                            Growth & Innovation</h3>
+                        <p class="text-gray-400 font-light leading-relaxed">Silver demand is growing in EVs, solar, 5G,
+                            and medical tech.</p>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div
+                        class="group bg-[#0E1628] p-6 lg:p-8 rounded-[16px] border border-[#D4AF37]/20 hover:border-[#D4AF37]/60 hover:shadow-[0_10px_30px_rgba(212,175,55,0.15)] transition-all duration-300 hover:-translate-y-2 flex flex-col gap-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center border border-[#D4AF37]/30 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-[#D4AF37]">psychology</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-[#D4AF37] transition-colors">AI
+                            Portfolio Diversification</h3>
+                        <p class="text-gray-400 font-light leading-relaxed">AI auto-balances metal investments based on
+                            market conditions.</p>
+                    </div>
+
+                    <!-- Card 7 -->
+                    <div
+                        class="group bg-[#0E1628] p-6 lg:p-8 rounded-[16px] border border-[#D4AF37]/20 hover:border-[#D4AF37]/60 hover:shadow-[0_10px_30px_rgba(212,175,55,0.15)] transition-all duration-300 hover:-translate-y-2 flex flex-col gap-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center border border-[#D4AF37]/30 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-[#D4AF37]">eco</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-[#D4AF37] transition-colors">
+                            Sustainable Mining</h3>
+                        <p class="text-gray-400 font-light leading-relaxed">Eco-friendly mining and recycling ensure
+                            long-term supply.</p>
+                    </div>
+
+                    <!-- Card 8 -->
+                    <div
+                        class="group bg-[#0E1628] p-6 lg:p-8 rounded-[16px] border border-[#D4AF37]/20 hover:border-[#D4AF37]/60 hover:shadow-[0_10px_30px_rgba(212,175,55,0.15)] transition-all duration-300 hover:-translate-y-2 flex flex-col gap-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center border border-[#D4AF37]/30 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-[#D4AF37]">account_balance</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-[#D4AF37] transition-colors">Digital
+                            Collateral</h3>
+                        <p class="text-gray-400 font-light leading-relaxed">Metals can be used as loan security or DeFi
+                            assets.</p>
+                    </div>
+
+                    <!-- Card 9 -->
+                    <div
+                        class="group bg-[#0E1628] p-6 lg:p-8 rounded-[16px] border border-[#D4AF37]/20 hover:border-[#D4AF37]/60 hover:shadow-[0_10px_30px_rgba(212,175,55,0.15)] transition-all duration-300 hover:-translate-y-2 flex flex-col gap-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center border border-[#D4AF37]/30 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-[#D4AF37]">cloud_done</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-[#D4AF37] transition-colors">Smart
+                            Storage</h3>
+                        <p class="text-gray-400 font-light leading-relaxed">Cloud vaulting enables instant access and
+                            redemption globally.</p>
+                    </div>
+
+                    <!-- Card 10 -->
+                    <div
+                        class="group bg-[#0E1628] p-6 lg:p-8 rounded-[16px] border border-[#D4AF37]/20 hover:border-[#D4AF37]/60 hover:shadow-[0_10px_30px_rgba(212,175,55,0.15)] transition-all duration-300 hover:-translate-y-2 flex flex-col gap-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center border border-[#D4AF37]/30 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-[#D4AF37]">lightbulb</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-[#D4AF37] transition-colors">Future
+                            Intelligence</h3>
+                        <p class="text-gray-400 font-light leading-relaxed">AI + global data = smarter, faster,
+                            borderless investing.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Partner / Trust Logos Banner -->
+    <div class="border-t border-white/5 bg-[#0a0f18] py-10 relative overflow-hidden">
+        <div
+            class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#D4AF37]/5 via-transparent to-transparent opacity-50">
+        </div>
+        <div
+            class="max-w-7xl mx-auto px-8 flex justify-center items-center gap-10 md:gap-16 flex-wrap opacity-60 grayscale hover:grayscale-0 transition-all duration-700 relative z-10">
+            <!-- SVG Partner 1 -->
+            <div
+                class="text-white font-black text-lg md:text-xl tracking-widest flex items-center gap-2 drop-shadow-md">
+                <span class="material-symbols-outlined text-[#D4AF37]">shield</span> BRINKS
+            </div>
+            <!-- SVG Partner 2 -->
+            <div
+                class="text-white font-black text-lg md:text-xl tracking-widest flex items-center gap-2 drop-shadow-md">
+                <span class="material-symbols-outlined text-[#D4AF37]">enhanced_encryption</span> SSL SECURE
+            </div>
+            <!-- SVG Partner 3 -->
+            <div
+                class="text-white font-black text-lg md:text-xl tracking-widest flex items-center gap-2 drop-shadow-md">
+                <span class="material-symbols-outlined text-[#D4AF37]">verified</span> BIS HALLMARK
+            </div>
+        </div>
+    </div>
+
+    <!-- Premium Fintech Footer -->
+    <footer class="bg-[#0B0B0B] border-t border-[#D4AF37]/10 pt-24 pb-12 relative overflow-hidden">
+
+        <!-- Subtle Glow Background for ultra-premium feel -->
+        <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#D4AF37]/5 blur-[150px] pointer-events-none z-0">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 md:px-8 relative z-10 space-y-16">
+
+            <!-- 5-Column Grid Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
+
+                <!-- Column 1: Logo Section & Socials (Spans wider slightly or standard 1 col) -->
+                <div class="lg:col-span-1 space-y-8 ux-reveal">
+                    <div>
+                        <!-- Logo Placeholder space -->
+                        <a href="index.html" class="inline-block group focus:outline-none">
+                            <h2
+                                class="text-3xl font-black text-[#D4AF37] font-headline tracking-tighter group-hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.6)] transition-all duration-300">
+                                GOLDe5</h2>
+                            <p
+                                class="text-[#d0c5af] text-[9px] font-medium tracking-[0.3em] font-body uppercase leading-tight mt-1 group-hover:text-white transition-colors duration-300">
+                                Grow in Grams</p>
+                        </a>
+                        <p class="text-gray-400 text-sm leading-relaxed mt-6">
+                            The pinnacle of private metal banking. Secure, liquid, and globally accessible.
+                        </p>
+                    </div>
+
+                    <!-- Social Icons -->
+                    <div class="flex flex-wrap gap-3">
+                        <!-- Facebook -->
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0B0B] hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] hover:scale-110 transition-all duration-300">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5c0-2.03 1.23-3.14 3.06-3.14.87 0 1.62.06 1.84.09v2.1l-1.26.01c-.99 0-1.18.47-1.18 1.16V12h2.46l-.32 3h-2.14v6.8C18.56 20.87 22 16.84 22 12z" />
+                            </svg>
+                        </a>
+                        <!-- Instagram -->
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0B0B] hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] hover:scale-110 transition-all duration-300">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.4 5.6 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.6 18.4 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 0 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" />
+                            </svg>
+                        </a>
+                        <!-- Twitter (X) -->
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0B0B] hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] hover:scale-110 transition-all duration-300">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg>
+                        </a>
+                        <!-- YouTube -->
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0B0B] hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] hover:scale-110 transition-all duration-300">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M21.582 6.186a2.665 2.665 0 0 0-1.876-1.884C18.04 3.864 12 3.864 12 3.864s-6.04 0-7.706.438a2.665 2.665 0 0 0-1.876 1.884C2 7.86 2 12 2 12s0 4.14.418 5.814a2.665 2.665 0 0 0 1.876 1.884c1.667.438 7.706.438 7.706.438s6.04 0 7.706-.438a2.665 2.665 0 0 0 1.876-1.884C22 16.14 22 12 22 12s0-4.14-.418-5.814zM9.99 15.422v-6.85l6.02 3.426-6.02 3.424z" />
+                            </svg>
+                        </a>
+                        <!-- LinkedIn -->
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0B0B] hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] hover:scale-110 transition-all duration-300">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.924 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                        </a>
+                        <!-- WhatsApp -->
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0B0B] hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] hover:scale-110 transition-all duration-300">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M12.031 0C5.405 0 .016 5.39.016 12.016c0 2.122.553 4.195 1.603 6.012L.016 24l6.115-1.603a11.93 11.93 0 0 0 5.9 1.559h.005c6.626 0 12.015-5.39 12.015-12.016S18.657 0 12.031 0zm0 21.956c-1.787 0-3.535-.48-5.068-1.39l-.363-.215-3.766.988.997-3.673-.236-.375A9.972 9.972 0 0 1 2.022 12.01c0-5.516 4.49-10.007 10.01-10.007 5.516 0 10.006 4.49 10.006 10.006s-4.49 10.007-10.007 10.007zm5.502-7.518c-.302-.151-1.786-.883-2.064-.984-.277-.101-.48-.151-.682.151-.202.302-.782.984-.959 1.185-.176.202-.353.227-.655.076-1.464-.738-2.529-1.316-3.504-2.998-.176-.302.264-.265.852-1.439.076-.151.038-.277-.019-.428-.057-.151-.682-1.639-.933-2.244-.244-.589-.492-.51-.682-.519l-.58-.009c-.202 0-.53.076-.807.378-.277.302-1.06 1.034-1.06 2.518s1.085 2.915 1.236 3.116c.151.202 2.124 3.242 5.143 4.544 2.127.918 2.802.756 3.307.655.679-.136 1.786-.731 2.038-1.437.252-.706.252-1.311.176-1.438-.076-.126-.277-.202-.579-.353z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: COMPANY -->
+                <div class="lg:col-span-1 space-y-6 ux-reveal" style="animation-delay: 0.1s;">
+                    <h5
+                        class="text-[#D4AF37] font-bold font-headline uppercase text-[11px] tracking-[0.2em] relative inline-block">
+                        Company<div class="absolute -bottom-2 left-0 w-8 h-px bg-[#D4AF37]"></div>
+                    </h5>
+                    <ul class="space-y-4 text-sm text-gray-300 font-medium">
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300"
+                                href="about.html">About Us</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300"
+                                href="#">FAQ</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300"
+                                href="#">Contact Us</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300"
+                                href="#">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: EXPLORE -->
+                <div class="lg:col-span-1 space-y-6 ux-reveal" style="animation-delay: 0.2s;">
+                    <h5
+                        class="text-[#D4AF37] font-bold font-headline uppercase text-[11px] tracking-[0.2em] relative inline-block">
+                        Explore<div class="absolute -bottom-2 left-0 w-8 h-px bg-[#D4AF37]"></div>
+                    </h5>
+                    <ul class="space-y-4 text-sm text-gray-300 font-medium">
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300"
+                                href="gold-sip.html">SIP</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300"
+                                href="coins-bars.html">Shop</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300"
+                                href="#">Marketplace</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: PARTNERS -->
+                <div class="lg:col-span-1 space-y-6 ux-reveal" style="animation-delay: 0.3s;">
+                    <h5
+                        class="text-[#D4AF37] font-bold font-headline uppercase text-[11px] tracking-[0.2em] relative inline-block">
+                        Partners<div class="absolute -bottom-2 left-0 w-8 h-px bg-[#D4AF37]"></div>
+                    </h5>
+                    <ul class="space-y-4 text-sm text-gray-300 font-medium">
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300"
+                                href="investor.html">Investors</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300"
+                                href="partner.html">Retail Partners</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300"
+                                href="partner.html">Affiliate Partners</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 5: LEGAL -->
+                <div class="lg:col-span-1 space-y-6 ux-reveal" style="animation-delay: 0.4s;">
+                    <h5
+                        class="text-[#D4AF37] font-bold font-headline uppercase text-[11px] tracking-[0.2em] relative inline-block">
+                        Legal<div class="absolute -bottom-2 left-0 w-8 h-px bg-[#D4AF37]"></div>
+                    </h5>
+                    <ul class="space-y-4 text-sm text-gray-300 font-medium">
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300"
+                                href="terms.html">Terms & Conditions</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300"
+                                href="terms.html">Privacy Policy</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300"
+                                href="terms.html">Cyber Advisory</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom Section (Copyright + Status) -->
+            <div
+                class="pt-8 mt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 ux-reveal">
+                <p class="text-gray-400 text-xs font-semibold tracking-wider uppercase">
+                    © 2026 GOLDe5. All rights reserved.
+                </p>
+                <div
+                    class="flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/5 rounded-full cursor-default hover:bg-white/10 transition-colors">
+                    <span class="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_#22c55e] animate-pulse"></span>
+                    <span class="text-[10px] font-black text-gray-300 tracking-widest uppercase">Network Status:
+                        Operational</span>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="pt-4 text-center pb-8 ux-reveal">
+                <p
+                    class="text-gray-500 text-[10px] sm:text-xs font-medium max-w-4xl mx-auto leading-relaxed border-t border-white/5 pt-6">
+                    Investments are subject to market risks. Returns are not guaranteed and may vary. Please read all
+                    related documents carefully before investing.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+    <script>
+        function activateBar(element) {
+            document.querySelectorAll('.bar-item').forEach(el => {
+                if (el !== element) deactivateBar(el);
+            });
+
+            const tooltip = element.querySelector('.tooltip');
+            const yearLabel = element.querySelector('.year-label');
+            const barVisual = element.querySelector('.bar-visual');
+
+            // Force maximum z-index so this bar's tooltip floats above all other adjacent bars
+            element.style.zIndex = '9999';
+
+            if (tooltip) {
+                tooltip.classList.remove('opacity-0', 'translate-y-3');
+                tooltip.classList.add('opacity-100', 'translate-y-0');
+
+                // Dynamic Boundary Handling Logic
+                tooltip.style.transform = ''; // Reset to tailwind baseline
+                setTimeout(() => {
+                    const chartWrapper = document.getElementById('chart-container');
+                    const cRect = chartWrapper.getBoundingClientRect();
+                    const tRect = tooltip.getBoundingClientRect();
+
+                    let tx = 0;
+                    let ty = 0;
+
+                    // Horizontal Bounds Constraint
+                    if (tRect.right > cRect.right) {
+                        tx = -(tRect.right - cRect.right + 10);
+                    } else if (tRect.left < cRect.left) {
+                        tx = (cRect.left - tRect.left + 10);
+                    }
+
+                    // Vertical Bounds Constraint (Top edge)
+                    if (tRect.top < cRect.top) {
+                        ty = (cRect.top - tRect.top + 10);
+                    }
+
+                    // Override transform combining default offset with dynamic clamp vectors
+                    tooltip.style.transform = `translate(calc(-50% + ${tx}px), ${ty}px)`;
+                }, 10);
+            }
+            if (barVisual) {
+                barVisual.classList.add('scale-[1.05]');
+                barVisual.style.boxShadow = '0 0 20px rgba(242,202,80,0.6)';
+            }
+        }
+
+        function deactivateBar(element) {
+            const tooltip = element.querySelector('.tooltip');
+            const yearLabel = element.querySelector('.year-label');
+            const barVisual = element.querySelector('.bar-visual');
+
+            // Reset z-index
+            element.style.zIndex = '1';
+
+            if (tooltip) {
+                tooltip.style.transform = ''; // Remove inline override explicitly
+                tooltip.classList.remove('opacity-100', 'translate-y-0');
+                tooltip.classList.add('opacity-0', 'translate-y-3');
+            }
+            if (barVisual) {
+                barVisual.classList.remove('scale-[1.05]');
+                if (!barVisual.classList.contains('active-glow')) {
+                    barVisual.style.boxShadow = 'none';
+                } else {
+                    barVisual.style.boxShadow = '';
+                }
+            }
+        }
+
+        // Animate bars on load
+        setTimeout(() => {
+            document.querySelectorAll('.bar-visual').forEach(bar => {
+                const h = bar.getAttribute('data-height');
+                if (h) bar.style.height = h;
+            });
+        }, 100);
+
+        // Global clear for clicks outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.bar-item')) {
+                document.querySelectorAll('.bar-item').forEach(el => deactivateBar(el));
+            }
+        });
+    </script>
+
+    <!-- GLOBAL UX SCRIPT -->
+    <script id="global-ux-script">
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1. Intersection Observer for Smooth Sequential Reveals
+            // Target sections, cards, and prominent text elements
+            const revealElements = document.querySelectorAll('section, .glass-card, h1, h2, h3, .ux-reveal');
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                let delayCount = 0;
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add staggered delay based on rapid succession
+                        setTimeout(() => {
+                            entry.target.classList.add('ux-revealed');
+                        }, delayCount * 100);
+                        delayCount++;
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.05, rootMargin: "0px 0px -50px 0px" });
+
+            revealElements.forEach(el => {
+                // Prevent double revealing if it's already animated by existing classes
+                if (!el.classList.contains('animate-slide-up')) {
+                    el.classList.add('ux-reveal');
+                }
+                revealObserver.observe(el);
+            });
+
+            // 2. Sticky Navbar advanced effect
+            const nav = document.querySelector('nav');
+            if (nav) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 40) {
+                        nav.classList.add('nav-scrolled');
+                    } else {
+                        nav.classList.remove('nav-scrolled');
+                    }
+                });
+            }
+
+            // 3. 3D Tilt Effect on Glass Cards
+            const cards = document.querySelectorAll('.glass-card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    // Only apply tilt on desktop devices
+                    if (window.innerWidth > 768) {
+                        const rect = card.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        const centerX = rect.width / 2;
+                        const centerY = rect.height / 2;
+                        // Sensible degrees for tilt
+                        const rotateX = ((y - centerY) / centerY) * -4;
+                        const rotateY = ((x - centerX) / centerX) * 4;
+                        card.style.transform = `perspective(1000px) scale(1.02) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+                        card.style.transition = 'none'; // Instant follow
+                    }
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = ''; // Clear inline styles to allow CSS transition to take over
+                    card.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease';
+                });
+            });
+
+            // 4. Form Input Focus Glow Logic
+            const inputs = document.querySelectorAll('input, textarea, select');
+            inputs.forEach(input => {
+                input.addEventListener('focus', () => {
+                    if (input.parentElement && input.parentElement.classList.contains('space-y-2')) {
+                        input.parentElement.classList.add('input-focused');
+                    }
+                });
+                input.addEventListener('blur', () => {
+                    if (input.parentElement) {
+                        input.parentElement.classList.remove('input-focused');
+                    }
+                });
+            });
+
+            // 5. Parallax Hero Effect (Optional gentle background shift)
+            const heroSection = document.querySelector('section:first-of-type');
+            window.addEventListener('scroll', () => {
+                if (heroSection && window.scrollY < window.innerHeight) {
+                    const bgElement = heroSection.querySelector('.absolute.inset-0 img');
+                    if (bgElement) {
+                        const yPos = window.scrollY * 0.3; // 30% speed of scroll
+                        bgElement.style.transform = `translateY(${yPos}px)`;
+                    }
+                }
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>
