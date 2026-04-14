@@ -1,255 +1,10 @@
-<!DOCTYPE html>
+import io
 
-<html class="dark" lang="en"><head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+def fix_investor_html():
+    with io.open('investor.html', 'r', encoding='utf-8') as f:
+        lines = f.readlines()
 
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>GOLDe5 | Premium Metal Investing</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "on-surface-variant": "#d0c5af",
-                        "primary-container": "#d4af37",
-                        "on-tertiary": "#1b247f",
-                        "primary-fixed": "#ffe088",
-                        "on-background": "#e5e2e1",
-                        "surface-dim": "#131313",
-                        "surface-tint": "#e9c349",
-                        "on-tertiary-container": "#323b94",
-                        "on-surface": "#e5e2e1",
-                        "primary-fixed-dim": "#e9c349",
-                        "on-primary-fixed": "#241a00",
-                        "surface-container": "#1a1a1a",
-                        "surface-bright": "#3a3939",
-                        "error": "#ffb4ab",
-                        "secondary-fixed-dim": "#e4c45a",
-                        "on-primary-fixed-variant": "#574500",
-                        "outline-variant": "#4d4635",
-                        "tertiary-fixed-dim": "#bdc2ff",
-                        "secondary": "#e4c45a",
-                        "outline": "#99907c",
-                        "on-error-container": "#ffdad6",
-                        "on-error": "#690005",
-                        "error-container": "#93000a",
-                        "surface-container-lowest": "#0a0a0a",
-                        "on-tertiary-fixed": "#000767",
-                        "on-secondary-fixed": "#231b00",
-                        "surface": "#131313",
-                        "surface-container-low": "#111111",
-                        "background": "#0a0a0a",
-                        "inverse-primary": "#735c00",
-                        "inverse-surface": "#e5e2e1",
-                        "secondary-container": "#836b00",
-                        "on-secondary": "#3c2f00",
-                        "on-secondary-fixed-variant": "#564500",
-                        "tertiary-container": "#a5adff",
-                        "inverse-on-surface": "#313030",
-                        "tertiary": "#c7cbff",
-                        "primary": "#f2ca50",
-                        "surface-container-highest": "#2d2d2c",
-                        "surface-container-high": "#222222",
-                        "on-primary-container": "#554300",
-                        "on-primary": "#3c2f00",
-                        "on-secondary-container": "#ffefc6",
-                        "secondary-fixed": "#ffe080",
-                        "on-tertiary-fixed-variant": "#343d96",
-                        "tertiary-fixed": "#e0e0ff",
-                        "surface-variant": "#353534"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.375rem",
-                        "xl": "0.5rem",
-                        "full": "0.95rem"
-                    },
-                    "fontFamily": {
-                        "headline": ["Manrope", "sans-serif"],
-                        "body": ["Inter", "sans-serif"],
-                        "label": ["Inter", "sans-serif"]
-                    }
-                },
-            },
-        }
-    </script>
-<style>
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-        @keyframes slideUpFade {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes ticker {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .animate-slide-up {
-            animation: slideUpFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-        }
-        .shimmer-btn {
-            position: relative;
-            overflow: hidden;
-        }
-        .shimmer-btn::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transform: skewX(-20deg);
-            animation: shimmer 3s infinite;
-        }
-        .glass-card {
-            background: rgba(30, 30, 30, 0.4);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(212, 175, 55, 0.1);
-            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-        .glass-card:hover {
-            border-color: rgba(212, 175, 55, 0.3);
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
-            transform: translateY(-5px) scale(1.02);
-        }
-        .bullion-gradient {
-            background: linear-gradient(135deg, #D4AF37, #F2CA50, #D4AF37);
-            background-size: 200% 200%;
-        }
-        .dark-radial-bg {
-            background: radial-gradient(circle at top right, #1a1a1a 0%, #0a0a0a 100%);
-        }
-        .ticker-content {
-            display: inline-flex;
-            animation: ticker 40s linear infinite;
-        }
-        .text-glow {
-            text-shadow: 0 0 20px rgba(242, 202, 80, 0.4);
-        }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-        }
-    </style>
-
-<!-- GLOBAL UX STYLES -->
-<style id="global-ux-styles">
-    /* Reveal Animation Physics */
-    .ux-reveal {
-        opacity: 0;
-        transform: translateY(30px) scale(0.98);
-        transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-        will-change: transform, opacity;
-    }
-    .ux-revealed {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-    
-    /* Sticky Navbar Enhancement */
-    nav { transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) !important; }
-    .nav-scrolled {
-        background: rgba(5, 5, 5, 0.98) !important;
-        height: 4.5rem !important; /* Shrink height */
-        box-shadow: 0 15px 40px rgba(0,0,0,0.9), 0 1px 0 rgba(212,175,55,0.15) !important;
-        backdrop-filter: blur(25px) !important;
-    }
-    
-    /* Cards Global Hover & Tilt (Smooth overrides) */
-    .glass-card {
-        transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease, border-color 0.3s ease !important;
-    }
-    .glass-card:hover {
-        border-color: rgba(212, 175, 55, 0.4) !important;
-        box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(212,175,55,0.1) !important;
-        z-index: 10;
-    }
-    
-    /* Input Animations */
-    .input-focused > label { 
-        color: #D4AF37 !important; 
-        transform: translateY(-2px); 
-        transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); 
-    }
-    input, textarea, select { transition: all 0.3s ease !important; }
-    input:focus, textarea:focus, select:focus { 
-        box-shadow: 0 0 20px rgba(212,175,55,0.2) !important; 
-        border-color: #D4AF37 !important;
-    }
-    
-    /* Buttons Interactive Glow */
-    button { transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) !important; }
-    button:hover { 
-        box-shadow: 0 0 25px rgba(212, 175, 55, 0.6) !important; 
-        transform: translateY(-2px) !important; 
-    }
-    button:active { transform: translateY(1px) scale(0.97) !important; }
-
-    /* Nav Links Hover Underline */
-    .nav-hover-line { position: relative; }
-    .nav-hover-line::after {
-        content: ''; position: absolute; width: 0; height: 2px;
-        bottom: 0; left: 0; background-color: #f2ca50;
-        transition: width 0.3s ease-out;
-    }
-    .nav-hover-line:hover::after { width: 100%; }
-
-    /* Page Fade-in Transition */
-    body { animation: pageFadeIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
-    @keyframes pageFadeIn { from { opacity: 0; filter: blur(10px); } to { opacity: 1; filter: blur(0px); } }
-    
-    /* Live Price Ticker Overlay */
-    @keyframes tickerScroll {
-        0% { transform: translateX(100%); }
-        100% { transform: translateX(-100%); }
-    }
-</style>
-</head>
-<body class="flex flex-col min-h-[100vh] bg-surface-container-lowest text-on-surface font-body selection:bg-primary selection:text-on-primary antialiased">
-<!-- GLOBAL HEADER INJECTED -->
-    <div id="header-placeholder"></div>
-    <script>
-      fetch("components/header.html")
-        .then(res => res.text())
-        .then(data => {
-          document.getElementById("header-placeholder").innerHTML = data;
-          
-          // Execute script tags inside fetched HTML (the quote slider JS)
-          const scripts = document.getElementById("header-placeholder").querySelectorAll("script");
-          scripts.forEach(oldScript => {
-            const newScript = document.createElement("script");
-            Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
-            newScript.appendChild(document.createTextNode(oldScript.innerHTML));
-            oldScript.parentNode.replaceChild(newScript, oldScript);
-          });
-          
-          // Add active class logic
-          const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-          const navLinks = document.querySelectorAll('#header-placeholder a');
-          navLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            // Basic matching, drop trailing slashes/hashes
-            const cleanHref = href ? href.split('#')[0].split('?')[0] : '';
-            if (cleanHref && currentPath === cleanHref) {
-              link.classList.add('text-[#f2ca50]', 'border-[#f2ca50]');
-              link.classList.remove('text-gray-400', 'border-transparent');
-            } else if (cleanHref) {
-              link.classList.remove('text-[#f2ca50]', 'border-[#f2ca50]');
-              link.classList.add('text-gray-400', 'border-transparent');
-            }
-          });
-        });
-    </script>
-<main class="flex-1 w-full bg-[#0B0B0B] overflow-x-hidden">
+    new_content = """<main class="flex-1 w-full bg-[#0B0B0B] overflow-x-hidden">
     <!-- SECTION 1: SMART GOLD PLANS -->
     <section class="max-w-7xl mx-auto px-6 md:px-8 py-20 animate-slide-up relative mt-10">
         <div class="flex flex-col md:flex-row gap-12 lg:gap-20 items-center">
@@ -279,7 +34,7 @@
             
             <!-- Right Image Area -->
             <div class="w-full md:w-1/2 relative h-[400px] md:h-[500px] flex items-center justify-end rounded-3xl overflow-hidden glass-card group">
-                <img decoding="async" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZSmlN1AQgBOZL3N-ju7q3N7tLeRfWeCcMk1J1JLqeBPcwvazMBBR9Zi92ciyDxluw81xTCS_T-LG4H9JHq606Fj1IZj7NFgGrBXp_4mWJ6g0CGeXcS-sKLjIpyKoCtE4i7hlGAhSMUMB2qWtafPUZ8SLRvBpTz2zGhgasQEzfjEoH0CgsEyTKTZ_3PkVEQFxbz6RLS4AMPd6hTNpjzTImiMEW2fM4sICEj2M3J5bbiu0RSVj0rePew42u_art9hyx6kPPMvEac8ec" alt="Smart Gold Plans Visual" class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-[2s] mix-blend-screen opacity-90"/>
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZSmlN1AQgBOZL3N-ju7q3N7tLeRfWeCcMk1J1JLqeBPcwvazMBBR9Zi92ciyDxluw81xTCS_T-LG4H9JHq606Fj1IZj7NFgGrBXp_4mWJ6g0CGeXcS-sKLjIpyKoCtE4i7hlGAhSMUMB2qWtafPUZ8SLRvBpTz2zGhgasQEzfjEoH0CgsEyTKTZ_3PkVEQFxbz6RLS4AMPd6hTNpjzTImiMEW2fM4sICEj2M3J5bbiu0RSVj0rePew42u_art9hyx6kPPMvEac8ec" alt="Smart Gold Plans Visual" class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-[2s] mix-blend-screen opacity-90"/>
                 <div class="absolute inset-0 bg-gradient-to-r from-[#0B0B0B] via-[#0B0B0B]/30 to-transparent pointer-events-none"></div>
                 <div class="absolute inset-0 border border-white/5 rounded-3xl"></div>
             </div>
@@ -324,7 +79,7 @@
         <!-- Right Image -->
         <div class="w-full md:w-1/2 relative h-[450px] md:h-[550px] rounded-[2.5rem] overflow-hidden group shadow-[-20px_0_60px_rgba(0,0,0,0.8)]">
             <div class="absolute inset-0 bg-[#D4AF37]/5 animate-pulse"></div>
-            <img decoding="async" loading="lazy" class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 opacity-80 mix-blend-screen object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_E2gAQ5ybNqnEbwXwcj_ZzRyxSpL7KdN7JYAvMUNBh5Q95Ft5F-0I98FvAwPCLg-O2DfkSJa8zw3aCxammEAHccRArHcR77viUG_EaOLS5vSZZXahZIlo90mgOegO0PbxCAil4MOBuWF4kDWHN78i4E2J1hbhs9A8affQsXsLEOAWfu2vIm7Re_6_upLGXlIAymuy6JL6bKHqOoPCfHB6eJ3ZRHoFTq9hAH1lrJ-AIBSsCn6tDQbSjpTK0y_9d7POwvf3-wibRSZM" alt="Digital Gold Interface"/>
+            <img class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 opacity-80 mix-blend-screen object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_E2gAQ5ybNqnEbwXwcj_ZzRyxSpL7KdN7JYAvMUNBh5Q95Ft5F-0I98FvAwPCLg-O2DfkSJa8zw3aCxammEAHccRArHcR77viUG_EaOLS5vSZZXahZIlo90mgOegO0PbxCAil4MOBuWF4kDWHN78i4E2J1hbhs9A8affQsXsLEOAWfu2vIm7Re_6_upLGXlIAymuy6JL6bKHqOoPCfHB6eJ3ZRHoFTq9hAH1lrJ-AIBSsCn6tDQbSjpTK0y_9d7POwvf3-wibRSZM" alt="Digital Gold Interface"/>
             <div class="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-transparent to-transparent opacity-90 pointer-events-none"></div>
             <div class="absolute inset-0 border border-white/10 rounded-[2.5rem] mix-blend-overlay"></div>
         </div>
@@ -559,7 +314,7 @@
             <div class="lg:col-span-1 space-y-6 ux-reveal" style="animation-delay: 0.1s;">
                 <h5 class="text-[#D4AF37] font-bold font-headline uppercase text-[11px] tracking-[0.2em] relative inline-block">Company<div class="absolute -bottom-2 left-0 w-8 h-px bg-[#D4AF37]"></div></h5>
                 <ul class="space-y-4 text-sm text-[#777] font-medium transition-colors">
-                    <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="about.html">About Us</a></li>
+                    <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="#">About Us</a></li>
                     <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="#">FAQ</a></li>
                     <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="#">Contact Us</a></li>
                     <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="#">Careers</a></li>
@@ -602,121 +357,11 @@
         </div>
     </div>
 </footer>
+"""
+    lines = lines[:247] + [new_content + "\n"] + lines[628:]
 
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        // Observer for slide-up scroll animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.1 });
+    with io.open('investor.html', 'w', encoding='utf-8') as f:
+        f.writelines(lines)
 
-        document.querySelectorAll('.animate-slide-up').forEach((el) => {
-            el.style.opacity = 0;
-            el.style.transform = 'translateY(40px)';
-            el.style.transition = 'all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)';
-            observer.observe(el);
-        });
-    });
-</script>
-
-<!-- GLOBAL UX SCRIPT -->
-<script id="global-ux-script">
-document.addEventListener("DOMContentLoaded", () => {
-    // 1. Intersection Observer for Smooth Sequential Reveals
-    // Target sections, cards, and prominent text elements
-    const revealElements = document.querySelectorAll('section, .glass-card, h1, h2, h3, .ux-reveal');
-    
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-        let delayCount = 0;
-        entries.forEach(entry => {
-            if(entry.isIntersecting) {
-                // Add staggered delay based on rapid succession
-                setTimeout(() => {
-                    entry.target.classList.add('ux-revealed');
-                }, delayCount * 100);
-                delayCount++;
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.05, rootMargin: "0px 0px -50px 0px" });
-
-    revealElements.forEach(el => {
-        // Prevent double revealing if it's already animated by existing classes
-        if(!el.classList.contains('animate-slide-up')) {
-            el.classList.add('ux-reveal');
-        }
-        revealObserver.observe(el);
-    });
-
-    // 2. Sticky Navbar advanced effect
-    const nav = document.querySelector('nav');
-    if(nav) {
-        window.addEventListener('scroll', () => {
-            if(window.scrollY > 40) {
-                nav.classList.add('nav-scrolled');
-            } else {
-                nav.classList.remove('nav-scrolled');
-            }
-        });
-    }
-
-    // 3. 3D Tilt Effect on Glass Cards
-    const cards = document.querySelectorAll('.glass-card');
-    cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            // Only apply tilt on desktop devices
-            if(window.innerWidth > 768) {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                // Sensible degrees for tilt
-                const rotateX = ((y - centerY) / centerY) * -4; 
-                const rotateY = ((x - centerX) / centerX) * 4;
-                card.style.transform = `perspective(1000px) scale(1.02) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
-                card.style.transition = 'none'; // Instant follow
-            }
-        });
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = ''; // Clear inline styles to allow CSS transition to take over
-            card.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease';
-        });
-    });
-
-    // 4. Form Input Focus Glow Logic
-    const inputs = document.querySelectorAll('input, textarea, select');
-    inputs.forEach(input => {
-        input.addEventListener('focus', () => {
-            if(input.parentElement && input.parentElement.classList.contains('space-y-2')) {
-                input.parentElement.classList.add('input-focused');
-            }
-        });
-        input.addEventListener('blur', () => {
-            if(input.parentElement) {
-                input.parentElement.classList.remove('input-focused');
-            }
-        });
-    });
-
-    // 5. Parallax Hero Effect (Optional gentle background shift)
-    const heroSection = document.querySelector('section:first-of-type');
-    window.addEventListener('scroll', () => {
-        if(heroSection && window.scrollY < window.innerHeight) {
-            const bgElement = heroSection.querySelector('.absolute.inset-0 img');
-            if(bgElement) {
-                const yPos = window.scrollY * 0.3; // 30% speed of scroll
-                bgElement.style.transform = `translateY(${yPos}px)`;
-            }
-        }
-    });
-
-});
-</script>
-
-</body></html>
+if __name__ == '__main__':
+    fix_investor_html()

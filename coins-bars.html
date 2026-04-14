@@ -1,498 +1,527 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>AURUM | Minted Coins &amp; Bars</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Inter:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<html class="dark" lang="en">
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>AURUM | Minted Coins &amp; Bars</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Inter:wght@300;400;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
         tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              "colors": {
-                      "surface-bright": "#3a3939",
-                      "on-surface": "#e5e2e1",
-                      "on-secondary": "#3c2f00",
-                      "on-error-container": "#ffdad6",
-                      "surface-container-high": "#2a2a2a",
-                      "inverse-surface": "#e5e2e1",
-                      "on-secondary-fixed-variant": "#564500",
-                      "on-primary-container": "#554300",
-                      "secondary-fixed-dim": "#e4c45a",
-                      "on-tertiary-fixed-variant": "#343d96",
-                      "on-background": "#e5e2e1",
-                      "surface-container-low": "#1c1b1b",
-                      "surface-tint": "#e9c349",
-                      "surface-container": "#201f1f",
-                      "error": "#ffb4ab",
-                      "primary-fixed-dim": "#e9c349",
-                      "on-surface-variant": "#d0c5af",
-                      "on-primary-fixed-variant": "#574500",
-                      "tertiary": "#c7cbff",
-                      "inverse-on-surface": "#313030",
-                      "background": "#131313",
-                      "error-container": "#93000a",
-                      "tertiary-fixed": "#e0e0ff",
-                      "secondary-fixed": "#ffe080",
-                      "outline-variant": "#4d4635",
-                      "secondary": "#e4c45a",
-                      "primary-container": "#d4af37",
-                      "surface-container-highest": "#353534",
-                      "on-primary": "#3c2f00",
-                      "on-primary-fixed": "#241a00",
-                      "tertiary-container": "#a5adff",
-                      "primary-fixed": "#ffe088",
-                      "surface-dim": "#131313",
-                      "primary": "#f2ca50",
-                      "outline": "#99907c",
-                      "on-tertiary-container": "#323b94",
-                      "inverse-primary": "#735c00",
-                      "surface-container-lowest": "#0e0e0e",
-                      "on-secondary-fixed": "#231b00",
-                      "on-error": "#690005",
-                      "tertiary-fixed-dim": "#bdc2ff",
-                      "surface": "#131313",
-                      "secondary-container": "#836b00",
-                      "on-tertiary": "#1b247f",
-                      "on-tertiary-fixed": "#000767",
-                      "surface-variant": "#353534",
-                      "on-secondary-container": "#ffefc6"
-              },
-              "borderRadius": {
-                      "DEFAULT": "0.125rem",
-                      "lg": "0.25rem",
-                      "xl": "0.5rem",
-                      "full": "0.75rem"
-              },
-              "fontFamily": {
-                      "headline": ["Manrope"],
-                      "body": ["Inter"],
-                      "label": ["Inter"]
-              }
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#3a3939",
+                        "on-surface": "#e5e2e1",
+                        "on-secondary": "#3c2f00",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-high": "#2a2a2a",
+                        "inverse-surface": "#e5e2e1",
+                        "on-secondary-fixed-variant": "#564500",
+                        "on-primary-container": "#554300",
+                        "secondary-fixed-dim": "#e4c45a",
+                        "on-tertiary-fixed-variant": "#343d96",
+                        "on-background": "#e5e2e1",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-tint": "#e9c349",
+                        "surface-container": "#201f1f",
+                        "error": "#ffb4ab",
+                        "primary-fixed-dim": "#e9c349",
+                        "on-surface-variant": "#d0c5af",
+                        "on-primary-fixed-variant": "#574500",
+                        "tertiary": "#c7cbff",
+                        "inverse-on-surface": "#313030",
+                        "background": "#131313",
+                        "error-container": "#93000a",
+                        "tertiary-fixed": "#e0e0ff",
+                        "secondary-fixed": "#ffe080",
+                        "outline-variant": "#4d4635",
+                        "secondary": "#e4c45a",
+                        "primary-container": "#d4af37",
+                        "surface-container-highest": "#353534",
+                        "on-primary": "#3c2f00",
+                        "on-primary-fixed": "#241a00",
+                        "tertiary-container": "#a5adff",
+                        "primary-fixed": "#ffe088",
+                        "surface-dim": "#131313",
+                        "primary": "#f2ca50",
+                        "outline": "#99907c",
+                        "on-tertiary-container": "#323b94",
+                        "inverse-primary": "#735c00",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-secondary-fixed": "#231b00",
+                        "on-error": "#690005",
+                        "tertiary-fixed-dim": "#bdc2ff",
+                        "surface": "#131313",
+                        "secondary-container": "#836b00",
+                        "on-tertiary": "#1b247f",
+                        "on-tertiary-fixed": "#000767",
+                        "surface-variant": "#353534",
+                        "on-secondary-container": "#ffefc6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
             },
-          },
         }
     </script>
-<style>
+    <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+
         .bullion-gradient {
             background: linear-gradient(135deg, #D4AF37 0%, #F2CA50 50%, #E6C65C 100%);
         }
+
         .glass-card {
             background: rgba(42, 42, 42, 0.4);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
         }
+
         .ticker-scroll {
             display: flex;
             white-space: nowrap;
             animation: scroll 30s linear infinite;
         }
+
         @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
         }
+
         .gold-shimmer {
             background: linear-gradient(135deg, #D4AF37 0%, #E6C65C 50%, #D4AF37 100%);
             background-size: 200% auto;
             transition: 0.5s;
         }
+
         .gold-shimmer:hover {
             background-position: right center;
         }
     </style>
 
-<!-- GLOBAL UX STYLES -->
-<style id="global-ux-styles">
-    /* Reveal Animation Physics */
-    .ux-reveal {
-        opacity: 0;
-        transform: translateY(30px) scale(0.98);
-        transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-        will-change: opacity, transform;
-    }
-    .ux-revealed {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-    
-    /* Sticky Navbar Enhancement */
-    nav { transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) !important; }
-    .nav-scrolled {
-        background: rgba(5, 5, 5, 0.98) !important;
-        height: 4.5rem !important; /* Shrink height */
-        box-shadow: 0 15px 40px rgba(0,0,0,0.9), 0 1px 0 rgba(212,175,55,0.15) !important;
-        backdrop-filter: blur(25px) !important;
-    }
-    
-    /* Cards Global Hover & Tilt (Smooth overrides) */
-    .glass-card {
-        transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease, border-color 0.3s ease !important;
-    }
-    .glass-card:hover {
-        border-color: rgba(212, 175, 55, 0.4) !important;
-        box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(212,175,55,0.1) !important;
-        z-index: 10;
-    }
-    
-    /* Input Animations */
-    .input-focused > label { 
-        color: #D4AF37 !important; 
-        transform: translateY(-2px); 
-        transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); 
-    }
-    input, textarea, select { transition: all 0.3s ease !important; }
-    input:focus, textarea:focus, select:focus { 
-        box-shadow: 0 0 20px rgba(212,175,55,0.2) !important; 
-        border-color: #D4AF37 !important;
-    }
-    
-    /* Buttons Interactive Glow */
-    button { transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) !important; }
-    button:hover { 
-        box-shadow: 0 0 25px rgba(212, 175, 55, 0.6) !important; 
-        transform: translateY(-2px) !important; 
-    }
-    button:active { transform: translateY(1px) scale(0.97) !important; }
+    <!-- GLOBAL UX STYLES -->
+    <style id="global-ux-styles">
+        /* Reveal Animation Physics */
+        .ux-reveal {
+            opacity: 0;
+            transform: translateY(30px) scale(0.98);
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            will-change: transform, opacity;
+        }
 
-    /* Nav Links Hover Underline */
-    .nav-hover-line { position: relative; }
-    .nav-hover-line::after {
-        content: ''; position: absolute; width: 0; height: 2px;
-        bottom: 0; left: 0; background-color: #f2ca50;
-        transition: width 0.3s ease-out;
-    }
-    .nav-hover-line:hover::after { width: 100%; }
+        .ux-revealed {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
 
-    /* Page Fade-in Transition */
-    body { animation: pageFadeIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
-    @keyframes pageFadeIn { from { opacity: 0; filter: blur(10px); } to { opacity: 1; filter: blur(0px); } }
-    
-    /* Live Price Ticker Overlay */
-    @keyframes tickerScroll {
-        0% { transform: translateX(100%); }
-        100% { transform: translateX(-100%); }
-    }
-</style>
+        /* Sticky Navbar Enhancement */
+        nav {
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+        }
+
+        .nav-scrolled {
+            background: rgba(5, 5, 5, 0.98) !important;
+            height: 4.5rem !important;
+            /* Shrink height */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9), 0 1px 0 rgba(212, 175, 55, 0.15) !important;
+            backdrop-filter: blur(25px) !important;
+        }
+
+        /* Cards Global Hover & Tilt (Smooth overrides) */
+        .glass-card {
+            transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease, border-color 0.3s ease !important;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(212, 175, 55, 0.4) !important;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(212, 175, 55, 0.1) !important;
+            z-index: 10;
+        }
+
+        /* Input Animations */
+        .input-focused>label {
+            color: #D4AF37 !important;
+            transform: translateY(-2px);
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        input,
+        textarea,
+        select {
+            transition: all 0.3s ease !important;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2) !important;
+            border-color: #D4AF37 !important;
+        }
+
+        /* Buttons Interactive Glow */
+        button {
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+        }
+
+        button:hover {
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.6) !important;
+            transform: translateY(-2px) !important;
+        }
+
+        button:active {
+            transform: translateY(1px) scale(0.97) !important;
+        }
+
+        /* Nav Links Hover Underline */
+        .nav-hover-line {
+            position: relative;
+        }
+
+        .nav-hover-line::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #f2ca50;
+            transition: width 0.3s ease-out;
+        }
+
+        .nav-hover-line:hover::after {
+            width: 100%;
+        }
+
+        /* Page Fade-in Transition */
+        body {
+            animation: pageFadeIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        @keyframes pageFadeIn {
+            from {
+                opacity: 0;
+                filter: blur(10px);
+            }
+
+            to {
+                opacity: 1;
+                filter: blur(0px);
+            }
+        }
+
+        /* Live Price Ticker Overlay */
+        @keyframes tickerScroll {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
 </head>
-<body class="flex flex-col min-h-[100vh] bg-background text-on-surface font-body selection:bg-primary/30">
-    <!-- Top Navigation Bar -->
-    <!-- Top Navigation Bar -->
-    <nav class="sticky top-0 w-full z-50 bg-[#0B0B0B]/80 backdrop-blur-xl border-b border-white/5 shadow-[0_4px_20px_rgba(233,195,73,0.05)] h-20 flex items-center">
-        <div class="flex justify-between items-center max-w-7xl mx-auto px-6 md:px-8 w-full">
-            <!-- Left Side Logo -->
-            <a href="index.html" class="flex flex-col items-center justify-center cursor-pointer group hover:-translate-y-[1px] transition-transform duration-300">
-                <div class="text-[28px] md:text-[30px] font-black text-[#D4AF37] font-headline tracking-tighter leading-none group-hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.8)] transition-all duration-300">
-                    GOLDe5
-                </div>
-                <div class="text-[#d0c5af] text-[13px] md:text-[14px] font-semibold tracking-normal font-headline leading-tight mt-[3px] group-hover:text-white transition-colors duration-300">
-                    Grow in Grams
-                </div>
-            </a>
-            
-            <!-- Right Side Navigation -->
-            <div class="flex items-center gap-6 md:gap-10">
-                <!-- Desktop Nav -->
-                <div class="hidden md:flex items-center gap-8">
-                    <a class="flex items-center text-gray-400 font-medium border-b-2 border-transparent pb-1 font-headline tracking-tight text-sm hover:text-[#f2ca50] hover:border-[#f2ca50] transition-all duration-300 cursor-pointer" href="index.html">Home</a>
-                    
-                    <!-- Products Dropdown Link -->
-                    <div class="relative group">
-                        <!-- ACTIVE LINK -->
-                        <a class="flex items-center gap-1 text-[#f2ca50] font-bold border-b-2 border-[#f2ca50] pb-1 font-headline tracking-tight text-sm hover:text-[#f2ca50] transition-colors duration-300 cursor-pointer" href="#">
-                            Products
-                            <span class="material-symbols-outlined text-[16px] transition-transform duration-300 group-hover:rotate-180">expand_more</span>
-                        </a>
 
-                        <!-- Dropdown Menu -->
-                        <div class="absolute top-[calc(100%+10px)] left-[50%] -translate-x-1/2 w-48 bg-[#0B0B0B] rounded-xl border border-[#D4AF37]/20 shadow-[0_15px_30px_rgba(0,0,0,0.8)] flex flex-col py-2 opacity-0 invisible translate-y-3 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
-                            <!-- Invisible Hover Bridge -->
-                            <div class="absolute -top-[15px] left-0 w-full h-[15px] bg-transparent"></div>
+<body class="flex flex-col min-h-[100vh] bg-background text-on-surface font-body selection:bg-primary/30 overflow-x-hidden">
+    <!-- GLOBAL HEADER INJECTED -->
+    <div id="header-placeholder"></div>
+    <script>
+        fetch("components/header.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("header-placeholder").innerHTML = data;
 
-                            <a href="gold-sip.html" class="px-5 py-3 text-sm text-gray-300 font-medium hover:text-[#D4AF37] hover:bg-white/5 transition-all duration-200 cursor-pointer flex items-center gap-3">
-                                <span class="material-symbols-outlined text-[18px]">payments</span> Gold SIP
-                            </a>
-                            <a href="coins-bars.html" class="px-5 py-3 text-sm text-[#D4AF37] font-bold hover:bg-white/5 transition-all duration-200 cursor-pointer flex items-center gap-3">
-                                <span class="material-symbols-outlined text-[18px]">monetization_on</span> Coins & Bars
-                            </a>
-                            <a href="gift-voucher.html" class="px-5 py-3 text-sm text-gray-300 font-medium hover:text-[#D4AF37] hover:bg-white/5 transition-all duration-200 cursor-pointer flex items-center gap-3">
-                                <span class="material-symbols-outlined text-[18px]">card_giftcard</span> Gift Voucher
-                            </a>
-                            <a href="jewel-scheme.html" class="px-5 py-3 text-sm text-gray-300 font-medium hover:text-[#D4AF37] hover:bg-white/5 transition-all duration-200 cursor-pointer flex items-center gap-3">
-                                <span class="material-symbols-outlined text-[18px]">diamond</span> Jewel Scheme
-                            </a>
-                        </div>
-                    </div>
-                    <a class="flex items-center text-gray-400 font-medium border-b-2 border-transparent pb-1 font-headline tracking-tight text-sm hover:text-[#f2ca50] hover:border-[#f2ca50] transition-all duration-300 cursor-pointer" href="investor.html">Investor</a>
-                    <a class="flex items-center text-gray-400 font-medium border-b-2 border-transparent pb-1 font-headline tracking-tight text-sm hover:text-[#f2ca50] hover:border-[#f2ca50] transition-all duration-300 cursor-pointer" href="partner.html">Partner</a>
-                </div>
-                
-                <!-- Action Buttons -->
-                <div class="flex items-center gap-4 md:gap-6">
-                    <button class="bullion-gradient text-[#111] px-6 md:px-8 py-2 md:py-2.5 rounded-xl font-headline font-extrabold text-xs md:text-sm tracking-wide active:scale-95 transition-all duration-300 shadow-[0_0_15px_rgba(212,175,55,0.3)] hover:shadow-[0_0_25px_rgba(212,175,55,0.6)] hover:brightness-110">
-                        Login
-                    </button>
-                    <!-- Mobile Hamburger -->
-                    <button class="md:hidden text-white hover:text-[#D4AF37] transition-colors p-1" onclick="document.getElementById('mobile-menu').classList.remove('hidden')">
-                        <span class="material-symbols-outlined text-3xl">menu</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
+                // Execute script tags inside fetched HTML (the quote slider JS)
+                const scripts = document.getElementById("header-placeholder").querySelectorAll("script");
+                scripts.forEach(oldScript => {
+                    const newScript = document.createElement("script");
+                    Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                    newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                    oldScript.parentNode.replaceChild(newScript, oldScript);
+                });
 
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="hidden fixed inset-0 z-[100] bg-[#0B0B0B]/95 backdrop-blur-xl pt-24 px-6 flex flex-col gap-6 items-center border-b border-[#D4AF37]/20 shadow-[0_20px_50px_rgba(0,0,0,0.9)] overflow-y-auto pb-10">
-        <a class="text-gray-400 font-medium font-headline tracking-tighter text-xl active:scale-95 transition-all" href="index.html">Home</a>
-        <div class="w-full h-px bg-white/5 max-w-xs"></div>
-        <div class="flex flex-col items-center gap-4">
-            <!-- ACTIVE LINK -->
-            <span class="text-[#f2ca50] font-bold font-headline tracking-tighter text-xl">Products</span>
-            <a href="gold-sip.html" class="text-sm text-gray-300 hover:text-[#D4AF37] transition-colors text-center">Gold SIP</a>
-            <a href="coins-bars.html" class="text-sm text-[#D4AF37] font-bold hover:text-[#D4AF37] transition-colors text-center">Coins & Bars</a>
-            <a href="gift-voucher.html" class="text-sm text-gray-300 hover:text-[#D4AF37] transition-colors text-center">Gift Voucher</a>
-            <a href="jewel-scheme.html" class="text-sm text-gray-300 hover:text-[#D4AF37] transition-colors text-center">Jewel Scheme</a>
-        </div>
-        <div class="w-full h-px bg-white/5 max-w-xs"></div>
-        <a class="text-gray-400 font-medium font-headline tracking-tighter text-xl active:scale-95 transition-all" href="investor.html">Investor</a>
-        <div class="w-full h-px bg-white/5 max-w-xs"></div>
-        <a class="text-gray-400 font-medium font-headline tracking-tighter text-xl active:scale-95 transition-all" href="partner.html">Partner</a>
-        <button class="absolute top-6 right-6 text-white" onclick="document.getElementById('mobile-menu').classList.add('hidden')">
-            <span class="material-symbols-outlined text-3xl">close</span>
-        </button>
-    </div>
-
-    <!-- Live Financial Ticker -->
-    <div class="w-full bg-[#D4AF37] h-10 flex items-center overflow-hidden border-b border-[#B8962E] relative z-40 group shadow-[0_2px_15px_rgba(212,175,55,0.2)]">
-        <!-- Static Left Container (Prices) -->
-        <div class="bg-[#0B0B0B] text-[#D4AF37] px-4 md:px-8 h-full flex items-center shadow-[10px_0_20px_rgba(0,0,0,0.8)] z-20 font-black tracking-wider text-[10px] md:text-xs uppercase border-r border-[#D4AF37]/30 shrink-0 relative">
-            <span class="flex items-center gap-2 md:gap-3">
-                <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse drop-shadow-[0_0_5px_rgba(239,68,68,1)]"></span>
-                <span>Live Price: Gold ₹74,000/gm <span class="text-white/30 px-1 hidden md:inline">|</span> Silver ₹90/gm</span>
-            </span>
-            <!-- Slanted decorative edge -->
-            <div class="absolute right-[-15px] top-0 h-full w-[30px] bg-[#0B0B0B] -skew-x-[25deg] z-[-1] border-r border-[#D4AF37]/40 shadow-[5px_0_15px_rgba(0,0,0,0.5)]"></div>
-        </div>
-
-        <!-- Scrolling Right Container (Quotes) -->
-        <div class="flex-1 relative overflow-hidden h-full flex items-center ml-2 md:ml-6 justify-center md:justify-start">
-            <div id="quote-slider" class="text-[#111] font-bold text-[11px] md:text-sm tracking-wide absolute w-full transition-all duration-500 transform translate-y-0 opacity-100 flex items-center gap-2">
-                <span class="w-1.5 h-1.5 bg-[#4d3d0f] rounded-full hidden md:inline-block"></span>
-                <span id="quote-text">Start a Gold SIP and grow wealth gram by gram.</span>
-            </div>
-            <script>
-                (function(){
-                    if (window.quotesInitialized) return;
-                    window.quotesInitialized = true;
-                    const quotes = [
-                        "Start a Gold SIP and grow wealth gram by gram.",
-                        "Never Say Never to Gold.",
-                        "Central banks store gold as reserves.",
-                        "Gold has protected wealth for over 5,000 years.",
-                        "Silver is used in solar panels and electronics.",
-                        "Gold is a symbol of lasting wealth.",
-                        "A little gold every month creates a powerful future.",
-                        "Silver combines industrial demand with investment value.",
-                        "Smart investors always keep gold in their portfolio."
-                    ];
-                    let currentQuoteIndex = 0;
-                    const quoteSlider = document.getElementById('quote-slider');
-                    const quoteText = document.getElementById('quote-text');
-                    
-                    if(quoteSlider && quoteText) {
-                        setInterval(() => {
-                            quoteSlider.style.transform = 'translateY(-20px)';
-                            quoteSlider.style.opacity = '0';
-                            
-                            setTimeout(() => {
-                                currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
-                                quoteText.innerText = quotes[currentQuoteIndex];
-                                quoteSlider.style.transition = 'none';
-                                quoteSlider.style.transform = 'translateY(20px)';
-                                void quoteSlider.offsetWidth;
-                                quoteSlider.style.transition = 'all 0.5s ease-out';
-                                quoteSlider.style.transform = 'translateY(0)';
-                                quoteSlider.style.opacity = '1';
-                            }, 500);
-                        }, 4000); 
+                // Add active class logic
+                const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+                const navLinks = document.querySelectorAll('#header-placeholder a');
+                navLinks.forEach(link => {
+                    const href = link.getAttribute('href');
+                    // Basic matching, drop trailing slashes/hashes
+                    const cleanHref = href ? href.split('#')[0].split('?')[0] : '';
+                    if (cleanHref && currentPath === cleanHref) {
+                        link.classList.add('text-[#f2ca50]', 'border-[#f2ca50]');
+                        link.classList.remove('text-gray-400', 'border-transparent');
+                    } else if (cleanHref) {
+                        link.classList.remove('text-[#f2ca50]', 'border-[#f2ca50]');
+                        link.classList.add('text-gray-400', 'border-transparent');
                     }
-                })();
-            </script>
-        </div>
-    </div>
-
-<main class="flex-1 w-full">
-<!-- Hero Section -->
-<section class="relative min-h-[819px] flex items-center px-8 md:px-24 overflow-hidden">
-<div class="grid md:grid-cols-2 gap-16 items-center max-w-[1440px] mx-auto w-full">
-<div class="z-10 space-y-8">
-<div class="inline-block px-4 py-1 rounded-full bg-primary/10 border border-primary/20">
-<span class="text-primary font-headline text-[10px] uppercase tracking-[0.2em] font-bold">Tangible Assets</span>
-</div>
-<h1 class="text-display-lg md:text-7xl font-headline font-extrabold text-on-surface leading-tight tracking-tighter">
-                        MINTED <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">COINS &amp; BARS</span>
-</h1>
-<p class="text-on-surface-variant text-lg max-w-lg font-light leading-relaxed">
-                        Transcend the digital divide. Secure your wealth in physical bullion with our master-crafted gold and silver assets. Each piece is hallmarked for absolute purity and held to global investment standards.
+                });
+            });
+    </script>
+    <main class="flex-1 w-full">
+        <!-- Hero Section -->
+        <section class="relative min-h-[819px] flex items-center px-8 md:px-24 overflow-hidden">
+            <div class="grid md:grid-cols-2 gap-16 items-center max-w-[1440px] mx-auto w-full">
+                <div class="z-10 space-y-8">
+                    <div class="inline-block px-4 py-1 rounded-full bg-primary/10 border border-primary/20">
+                        <span
+                            class="text-primary font-headline text-[10px] uppercase tracking-[0.2em] font-bold">Tangible
+                            Assets</span>
+                    </div>
+                    <h1
+                        class="text-display-lg md:text-7xl font-headline font-extrabold text-on-surface leading-tight tracking-tighter">
+                        MINTED <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">COINS &amp;
+                            BARS</span>
+                    </h1>
+                    <p class="text-on-surface-variant text-lg max-w-lg font-light leading-relaxed">
+                        Transcend the digital divide. Secure your wealth in physical bullion with our master-crafted
+                        gold and silver assets. Each piece is hallmarked for absolute purity and held to global
+                        investment standards.
                     </p>
-<div class="border-l-2 border-primary pl-6 italic text-primary/80 font-medium">
+                    <div class="border-l-2 border-primary pl-6 italic text-primary/80 font-medium">
                         "From 1 gram coins to 1 kg bars — purity you can trust"
                     </div>
-<div class="pt-4">
-<button onclick="scrollToProducts()" class="gold-shimmer px-10 py-4 text-on-primary font-headline font-extrabold text-sm uppercase tracking-widest rounded-lg shadow-lg hover:shadow-primary/20 transition-all transform active:scale-95">
+                    <div class="pt-4">
+                        <button onclick="scrollToProducts()"
+                            class="gold-shimmer px-10 py-4 text-on-primary font-headline font-extrabold text-sm uppercase tracking-widest rounded-lg shadow-lg hover:shadow-primary/20 transition-all transform active:scale-95">
                             Explore Products
                         </button>
-</div>
-</div>
-<div class="relative group">
-<div class="absolute -inset-4 bg-primary/20 blur-3xl rounded-full opacity-30 group-hover:opacity-50 transition-opacity"></div>
-<img alt="Gold Bullion" class="relative w-full h-auto object-cover rounded-2xl shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]" data-alt="Cinematic close-up of heavy gold bars and minted gold coins with soft golden glow reflecting off polished metallic surfaces in a dark premium setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoDlByOTG5qI11eMyUaxcM9NecS4T46W0LhGfwGUEXC36893p0Oj3qRcteNzfuwCgsm34d0i_ioyCqcr-6LdQ3SoXvDxX0AEeD76feiBTUWyRpOoqP6V4DGCSJqrnKkSv5QHpLNz1p9xWWSGqQXKe8yxGopn-UkTQ_E5n7zM82tDVQSqhpjclL3c_BiG-C-W9noci_fe7NQZ61i7vfEIb670FOR3y11k5RQ9zI4IMTs8ZnXMzf4LpOg5wr7WamScUU_yt55y5r1cIq"/>
-</div>
-</div>
-</section>
-<!-- Featured Products -->
-<section id="investment-selection" class="py-24 px-8 md:px-24 bg-surface-container-lowest">
-<div class="max-w-[1440px] mx-auto">
-<div class="flex justify-between items-end mb-16">
-<div>
-<h2 class="text-4xl font-headline font-bold text-on-surface mb-4">Investment Selection</h2>
-<p class="text-on-surface-variant">The benchmark of physical asset accumulation.</p>
-</div>
-<div class="flex gap-4">
-<button onclick="scrollProducts('left')" class="p-2 border border-outline-variant hover:border-primary transition-colors text-primary active:scale-95">
-<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
-</button>
-<button onclick="scrollProducts('right')" class="p-2 border border-outline-variant hover:border-primary transition-colors text-primary active:scale-95">
-<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
-</button>
-</div>
-</div>
-<div id="product-container" class="grid grid-flow-col auto-cols-[85%] md:auto-cols-[calc(50%-1rem)] lg:auto-cols-[calc(25%-1.5rem)] gap-8 overflow-x-auto snap-x snap-mandatory pt-4 pb-8 -mx-4 px-4 md:mx-0 md:px-0 scroll-smooth" style="scrollbar-width: none;">
-<!-- Product 1 -->
-<div class="snap-start shrink-0 glass-card p-1 rounded-xl group transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(212,175,55,0.15)]">
-<div class="bg-surface-container-high rounded-lg p-6 h-full flex flex-col">
-<div class="mb-6 relative overflow-hidden rounded-lg aspect-square">
-<img alt="1g Gold Coin" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A single 1 gram gold coin with intricate engravings isolated on a dark textured surface with dramatic top lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP3ZEwXBDDVfgk2LpFdLKF8XmHE7lH1TtdtaN2lbFl09rtIUVa7I5uSRcbcIemOKO3N2onSWHFxOKCd0F1OUORW9Rl14cP3rBIKbSp-wIWWEtfo1lm8J1ZgLZIrFydLGx9bURvUDxek0C3oN4lZ0790KlOuEf24zgUrWmsQceHix8yMP_sRBqu0taeumEoVnf8pzWoiaScDO2Y2x0x-Ad9au-1I9PWXMslT-bPmLryAMDIeuybcwlkjxxVqPodz7eTIocUsOT1z9uS"/>
-<div class="absolute top-4 right-4 bg-primary px-2 py-1 rounded text-[10px] font-bold text-on-primary">24K / 999</div>
-</div>
-<h3 class="text-xl font-headline font-bold text-on-surface mb-1">Standard Gold Coin</h3>
-<p class="text-on-surface-variant text-sm mb-4">Weight: 1g</p>
-<div class="mt-auto">
-<div class="text-2xl font-headline font-extrabold text-primary mb-4">₹7,850</div>
-<button class="w-full py-3 border border-primary/30 hover:bg-primary hover:text-on-primary transition-all text-primary font-headline text-xs font-bold uppercase tracking-widest rounded">View Details</button>
-</div>
-</div>
-</div>
-<!-- Product 2 -->
-<div class="snap-start shrink-0 glass-card p-1 rounded-xl group transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(212,175,55,0.15)]">
-<div class="bg-surface-container-high rounded-lg p-6 h-full flex flex-col">
-<div class="mb-6 relative overflow-hidden rounded-lg aspect-square">
-<img alt="10g Gold Bar" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A small 10 gram gold bar with stamped purity logos resting on black velvet with elegant side lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtNW3rbnNNbCMp8ZwII7pI3-xfdjMyGTtp8KD2qK9A0UuDq1QB4SGkVK5ydQE19EeHuBEPvpERT7mMchOGPrcLgx8qub3CKRrDfSOhyAbsgOaDrjoJL2LAcXNaDZQwL9H86wpOjaiZAEwNt-xxuDZL-E8cBhQA0rF_3f28lvyTe8DO_4pRfn3b7N8JxMx_AvzypXWUW2nQgdgzxP-1NoSB-sVlwx9phojwhCHmO8-72qxqmiRR-Wif21OwP9TGwL2myhfvnBJHtY3o"/>
-<div class="absolute top-4 right-4 bg-primary px-2 py-1 rounded text-[10px] font-bold text-on-primary">24K / 999</div>
-</div>
-<h3 class="text-xl font-headline font-bold text-on-surface mb-1">Bullion Gold Bar</h3>
-<p class="text-on-surface-variant text-sm mb-4">Weight: 10g</p>
-<div class="mt-auto">
-<div class="text-2xl font-headline font-extrabold text-primary mb-4">₹76,400</div>
-<button class="w-full py-3 border border-primary/30 hover:bg-primary hover:text-on-primary transition-all text-primary font-headline text-xs font-bold uppercase tracking-widest rounded">View Details</button>
-</div>
-</div>
-</div>
-<!-- Product 3 -->
-<div class="snap-start shrink-0 glass-card p-1 rounded-xl group transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(212,175,55,0.15)]">
-<div class="bg-surface-container-high rounded-lg p-6 h-full flex flex-col">
-<div class="mb-6 relative overflow-hidden rounded-lg aspect-square">
-<img alt="100g Silver Bar" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A 100 gram silver bar with a high-polish chrome finish reflecting soft light in a minimalist dark environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd9uhUvbUwaHoAKLCqqr-68BOv9HT81dvRnzMlB2iPCnn-ZaqRJ7W1OjayeWgWSsoG1DwSQJ9beFtz8pNCCU523SBmgNGV3D5X1fbyIxzD4U6fZ3sM5IDRo-6VEcdNjI02AZWcYQ1rAsm9cGgGhf9giHvNjiaH0sMojC7Aa-ge5r4OCqq2tkyk5mLU7fQ5juIu3fTVIkDUNRT8nkp0r3unmXHagx9TZMDsSj9FlgdrUwpbV6rZEyTgfj07FbhxUyKgcHj9gSrXYsoU"/>
-<div class="absolute top-4 right-4 bg-tertiary text-[#000767] px-2 py-1 rounded text-[10px] font-bold">999 PURE</div>
-</div>
-<h3 class="text-xl font-headline font-bold text-on-surface mb-1">Sterling Silver Bar</h3>
-<p class="text-on-surface-variant text-sm mb-4">Weight: 100g</p>
-<div class="mt-auto">
-<div class="text-2xl font-headline font-extrabold text-primary mb-4">₹9,240</div>
-<button class="w-full py-3 border border-primary/30 hover:bg-primary hover:text-on-primary transition-all text-primary font-headline text-xs font-bold uppercase tracking-widest rounded">View Details</button>
-</div>
-</div>
-</div>
-<!-- Product 4 -->
-<div class="snap-start shrink-0 glass-card p-1 rounded-xl group transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(212,175,55,0.15)]">
-<div class="bg-surface-container-high rounded-lg p-6 h-full flex flex-col">
-<div class="mb-6 relative overflow-hidden rounded-lg aspect-square">
-<img alt="100g Gold Bar" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A substantial 100 gram gold investment bar with deep relief markings on a black granite surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuAIlZ13G0N8yTZPYKQMJ8b93qgo8MGFbktbXgCmK0pWI6GLQCmyDIZVKDAAzv6Cta_9V49-sEn6Dp107KxH8Scb7LsEHFpiSGnpzGx4b27D6OBMdGHTrhj3HY9Y2fOXXYYijbq8A2w4LewlrnikgGzCOGdPzoL4fnYoBmkGajhAPZswQXikIUrXtArhN5zDfNgU8jyTt2AKFhlFnZOGeEiHmEcSviHyQ14ntQcCiJpPBabvi1W0zgaePZ2SJJBIJHqFtu3QZEhAnD"/>
-<div class="absolute top-4 right-4 bg-primary px-2 py-1 rounded text-[10px] font-bold text-on-primary">24K / 999</div>
-</div>
-<h3 class="text-xl font-headline font-bold text-on-surface mb-1">Classic Gold Ingot</h3>
-<p class="text-on-surface-variant text-sm mb-4">Weight: 100g</p>
-<div class="mt-auto">
-<div class="text-2xl font-headline font-extrabold text-primary mb-4">₹7,54,200</div>
-<button class="w-full py-3 border border-primary/30 hover:bg-primary hover:text-on-primary transition-all text-primary font-headline text-xs font-bold uppercase tracking-widest rounded">View Details</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Coming Soon Section -->
-<section class="relative py-40 overflow-hidden text-center flex flex-col items-center justify-center">
-<div class="absolute inset-0 z-0">
-<div class="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background z-10"></div>
-<div class="w-full h-full opacity-30" style="background-image: radial-gradient(#d4af37 0.5px, transparent 0.5px); background-size: 24px 24px;"></div>
-</div>
-<div class="relative z-20 max-w-2xl px-8">
-<h2 class="text-primary font-headline font-black text-6xl md:text-8xl tracking-widest mb-6 opacity-20 filter blur-[2px] absolute inset-0 flex items-center justify-center select-none">COMING SOON</h2>
-<div class="space-y-4">
-<h3 class="text-primary font-headline font-extrabold text-4xl md:text-6xl uppercase tracking-[0.3em] drop-shadow-[0_0_15px_rgba(242,202,80,0.6)]">COMING SOON</h3>
-<p class="text-on-surface text-xl font-light tracking-widest">Shaping Something Golden</p>
-<div class="w-24 h-px bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mt-8"></div>
-</div>
-</div>
-</section>
-<!-- Trust Section -->
-<section class="py-24 px-8 md:px-24">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-[1440px] mx-auto">
-<!-- Trust Card 1 -->
-<div class="flex flex-col items-center text-center group">
-<div class="w-20 h-20 rounded-full bg-primary/5 flex items-center justify-center mb-6 border border-primary/10 group-hover:bg-primary/10 transition-colors">
-<span class="material-symbols-outlined text-4xl text-primary" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
-</div>
-<h4 class="text-xl font-headline font-bold text-on-surface mb-3">Certified Purity</h4>
-<p class="text-on-surface-variant leading-relaxed">Every bar and coin is BIS Hallmarked and comes with a certificate of authenticity ensuring 24K 99.9% purity.</p>
-</div>
-<!-- Trust Card 2 -->
-<div class="flex flex-col items-center text-center group">
-<div class="w-20 h-20 rounded-full bg-primary/5 flex items-center justify-center mb-6 border border-primary/10 group-hover:bg-primary/10 transition-colors">
-<span class="material-symbols-outlined text-4xl text-primary" data-icon="local_shipping" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
-</div>
-<h4 class="text-xl font-headline font-bold text-on-surface mb-3">Secure Delivery</h4>
-<p class="text-on-surface-variant leading-relaxed">Insured transit through specialized logistics partners, delivered in tamper-evident packaging right to your doorstep.</p>
-</div>
-<!-- Trust Card 3 -->
-<div class="flex flex-col items-center text-center group">
-<div class="w-20 h-20 rounded-full bg-primary/5 flex items-center justify-center mb-6 border border-primary/10 group-hover:bg-primary/10 transition-colors">
-<span class="material-symbols-outlined text-4xl text-primary" data-icon="account_balance" style="font-variation-settings: 'FILL' 1;">account_balance</span>
-</div>
-<h4 class="text-xl font-headline font-bold text-on-surface mb-3">Investment Grade</h4>
-<p class="text-on-surface-variant leading-relaxed">LBM-accredited bullion that offers maximum liquidity and value retention across global precious metal markets.</p>
-</div>
-</div>
-</section>
-<!-- Final CTA -->
-<section class="py-32 px-8 bg-surface-container-low overflow-hidden relative">
-<div class="absolute top-0 right-0 w-96 h-96 bg-primary/10 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2"></div>
-<div class="max-w-[1000px] mx-auto text-center relative z-10">
-<h2 class="text-display-sm md:text-5xl font-headline font-bold text-on-surface mb-8 leading-tight">
-                    Own gold not just digitally — <br/><span class="text-primary italic">but physically, beautifully, and securely.</span>
-</h2>
-<button onclick="scrollToProducts()" class="gold-shimmer px-12 py-5 text-on-primary font-headline font-extrabold text-lg uppercase tracking-widest rounded-lg shadow-2xl hover:scale-[1.02] transition-all">
+                    </div>
+                </div>
+                <div class="relative group">
+                    <div
+                        class="absolute -inset-4 bg-primary/20 blur-3xl rounded-full opacity-30 group-hover:opacity-50 transition-opacity">
+                    </div>
+                    <img decoding="async" loading="lazy" alt="Gold Bullion"
+                        class="relative w-full h-auto object-cover rounded-2xl shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]"
+                        data-alt="Cinematic close-up of heavy gold bars and minted gold coins with soft golden glow reflecting off polished metallic surfaces in a dark premium setting"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoDlByOTG5qI11eMyUaxcM9NecS4T46W0LhGfwGUEXC36893p0Oj3qRcteNzfuwCgsm34d0i_ioyCqcr-6LdQ3SoXvDxX0AEeD76feiBTUWyRpOoqP6V4DGCSJqrnKkSv5QHpLNz1p9xWWSGqQXKe8yxGopn-UkTQ_E5n7zM82tDVQSqhpjclL3c_BiG-C-W9noci_fe7NQZ61i7vfEIb670FOR3y11k5RQ9zI4IMTs8ZnXMzf4LpOg5wr7WamScUU_yt55y5r1cIq" />
+                </div>
+            </div>
+        </section>
+        <!-- Featured Products -->
+        <section id="investment-selection" class="py-24 px-8 md:px-24 bg-surface-container-lowest">
+            <div class="max-w-[1440px] mx-auto">
+                <div class="flex justify-between items-end mb-16">
+                    <div>
+                        <h2 class="text-4xl font-headline font-bold text-on-surface mb-4">Investment Selection</h2>
+                        <p class="text-on-surface-variant">The benchmark of physical asset accumulation.</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <button onclick="scrollProducts('left')"
+                            class="p-2 border border-outline-variant hover:border-primary transition-colors text-primary active:scale-95">
+                            <span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+                        </button>
+                        <button onclick="scrollProducts('right')"
+                            class="p-2 border border-outline-variant hover:border-primary transition-colors text-primary active:scale-95">
+                            <span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+                        </button>
+                    </div>
+                </div>
+                <div id="product-container"
+                    class="grid grid-flow-col auto-cols-[85%] md:auto-cols-[calc(50%-1rem)] lg:auto-cols-[calc(25%-1.5rem)] gap-8 overflow-x-auto snap-x snap-mandatory pt-4 pb-8 -mx-4 px-4 md:mx-0 md:px-0 scroll-smooth"
+                    style="scrollbar-width: none;">
+                    <!-- Product 1 -->
+                    <div
+                        class="snap-start shrink-0 glass-card p-1 rounded-xl group transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(212,175,55,0.15)]">
+                        <div class="bg-surface-container-high rounded-lg p-6 h-full flex flex-col">
+                            <div class="mb-6 relative overflow-hidden rounded-lg aspect-square">
+                                <img decoding="async" loading="lazy" alt="1g Gold Coin"
+                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    data-alt="A single 1 gram gold coin with intricate engravings isolated on a dark textured surface with dramatic top lighting"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP3ZEwXBDDVfgk2LpFdLKF8XmHE7lH1TtdtaN2lbFl09rtIUVa7I5uSRcbcIemOKO3N2onSWHFxOKCd0F1OUORW9Rl14cP3rBIKbSp-wIWWEtfo1lm8J1ZgLZIrFydLGx9bURvUDxek0C3oN4lZ0790KlOuEf24zgUrWmsQceHix8yMP_sRBqu0taeumEoVnf8pzWoiaScDO2Y2x0x-Ad9au-1I9PWXMslT-bPmLryAMDIeuybcwlkjxxVqPodz7eTIocUsOT1z9uS" />
+                                <div
+                                    class="absolute top-4 right-4 bg-primary px-2 py-1 rounded text-[10px] font-bold text-on-primary">
+                                    24K / 999</div>
+                            </div>
+                            <h3 class="text-xl font-headline font-bold text-on-surface mb-1">Standard Gold Coin</h3>
+                            <p class="text-on-surface-variant text-sm mb-4">Weight: 1g</p>
+                            <div class="mt-auto">
+                                <div class="text-2xl font-headline font-extrabold text-primary mb-4">₹7,850</div>
+                                <button
+                                    class="w-full py-3 border border-primary/30 hover:bg-primary hover:text-on-primary transition-all text-primary font-headline text-xs font-bold uppercase tracking-widest rounded">View
+                                    Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 2 -->
+                    <div
+                        class="snap-start shrink-0 glass-card p-1 rounded-xl group transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(212,175,55,0.15)]">
+                        <div class="bg-surface-container-high rounded-lg p-6 h-full flex flex-col">
+                            <div class="mb-6 relative overflow-hidden rounded-lg aspect-square">
+                                <img decoding="async" loading="lazy" alt="10g Gold Bar"
+                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    data-alt="A small 10 gram gold bar with stamped purity logos resting on black velvet with elegant side lighting"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtNW3rbnNNbCMp8ZwII7pI3-xfdjMyGTtp8KD2qK9A0UuDq1QB4SGkVK5ydQE19EeHuBEPvpERT7mMchOGPrcLgx8qub3CKRrDfSOhyAbsgOaDrjoJL2LAcXNaDZQwL9H86wpOjaiZAEwNt-xxuDZL-E8cBhQA0rF_3f28lvyTe8DO_4pRfn3b7N8JxMx_AvzypXWUW2nQgdgzxP-1NoSB-sVlwx9phojwhCHmO8-72qxqmiRR-Wif21OwP9TGwL2myhfvnBJHtY3o" />
+                                <div
+                                    class="absolute top-4 right-4 bg-primary px-2 py-1 rounded text-[10px] font-bold text-on-primary">
+                                    24K / 999</div>
+                            </div>
+                            <h3 class="text-xl font-headline font-bold text-on-surface mb-1">Bullion Gold Bar</h3>
+                            <p class="text-on-surface-variant text-sm mb-4">Weight: 10g</p>
+                            <div class="mt-auto">
+                                <div class="text-2xl font-headline font-extrabold text-primary mb-4">₹76,400</div>
+                                <button
+                                    class="w-full py-3 border border-primary/30 hover:bg-primary hover:text-on-primary transition-all text-primary font-headline text-xs font-bold uppercase tracking-widest rounded">View
+                                    Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 3 -->
+                    <div
+                        class="snap-start shrink-0 glass-card p-1 rounded-xl group transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(212,175,55,0.15)]">
+                        <div class="bg-surface-container-high rounded-lg p-6 h-full flex flex-col">
+                            <div class="mb-6 relative overflow-hidden rounded-lg aspect-square">
+                                <img decoding="async" loading="lazy" alt="100g Silver Bar"
+                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    data-alt="A 100 gram silver bar with a high-polish chrome finish reflecting soft light in a minimalist dark environment"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd9uhUvbUwaHoAKLCqqr-68BOv9HT81dvRnzMlB2iPCnn-ZaqRJ7W1OjayeWgWSsoG1DwSQJ9beFtz8pNCCU523SBmgNGV3D5X1fbyIxzD4U6fZ3sM5IDRo-6VEcdNjI02AZWcYQ1rAsm9cGgGhf9giHvNjiaH0sMojC7Aa-ge5r4OCqq2tkyk5mLU7fQ5juIu3fTVIkDUNRT8nkp0r3unmXHagx9TZMDsSj9FlgdrUwpbV6rZEyTgfj07FbhxUyKgcHj9gSrXYsoU" />
+                                <div
+                                    class="absolute top-4 right-4 bg-tertiary text-[#000767] px-2 py-1 rounded text-[10px] font-bold">
+                                    999 PURE</div>
+                            </div>
+                            <h3 class="text-xl font-headline font-bold text-on-surface mb-1">Sterling Silver Bar</h3>
+                            <p class="text-on-surface-variant text-sm mb-4">Weight: 100g</p>
+                            <div class="mt-auto">
+                                <div class="text-2xl font-headline font-extrabold text-primary mb-4">₹9,240</div>
+                                <button
+                                    class="w-full py-3 border border-primary/30 hover:bg-primary hover:text-on-primary transition-all text-primary font-headline text-xs font-bold uppercase tracking-widest rounded">View
+                                    Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 4 -->
+                    <div
+                        class="snap-start shrink-0 glass-card p-1 rounded-xl group transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(212,175,55,0.15)]">
+                        <div class="bg-surface-container-high rounded-lg p-6 h-full flex flex-col">
+                            <div class="mb-6 relative overflow-hidden rounded-lg aspect-square">
+                                <img decoding="async" loading="lazy" alt="100g Gold Bar"
+                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    data-alt="A substantial 100 gram gold investment bar with deep relief markings on a black granite surface"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuAIlZ13G0N8yTZPYKQMJ8b93qgo8MGFbktbXgCmK0pWI6GLQCmyDIZVKDAAzv6Cta_9V49-sEn6Dp107KxH8Scb7LsEHFpiSGnpzGx4b27D6OBMdGHTrhj3HY9Y2fOXXYYijbq8A2w4LewlrnikgGzCOGdPzoL4fnYoBmkGajhAPZswQXikIUrXtArhN5zDfNgU8jyTt2AKFhlFnZOGeEiHmEcSviHyQ14ntQcCiJpPBabvi1W0zgaePZ2SJJBIJHqFtu3QZEhAnD" />
+                                <div
+                                    class="absolute top-4 right-4 bg-primary px-2 py-1 rounded text-[10px] font-bold text-on-primary">
+                                    24K / 999</div>
+                            </div>
+                            <h3 class="text-xl font-headline font-bold text-on-surface mb-1">Classic Gold Ingot</h3>
+                            <p class="text-on-surface-variant text-sm mb-4">Weight: 100g</p>
+                            <div class="mt-auto">
+                                <div class="text-2xl font-headline font-extrabold text-primary mb-4">₹7,54,200</div>
+                                <button
+                                    class="w-full py-3 border border-primary/30 hover:bg-primary hover:text-on-primary transition-all text-primary font-headline text-xs font-bold uppercase tracking-widest rounded">View
+                                    Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Coming Soon Section -->
+        <section class="relative py-40 overflow-hidden text-center flex flex-col items-center justify-center">
+            <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background z-10"></div>
+                <div class="w-full h-full opacity-30"
+                    style="background-image: radial-gradient(#d4af37 0.5px, transparent 0.5px); background-size: 24px 24px;">
+                </div>
+            </div>
+            <div class="relative z-20 max-w-2xl px-8">
+                <h2
+                    class="text-primary font-headline font-black text-6xl md:text-8xl tracking-widest mb-6 opacity-20 filter blur-[2px] absolute inset-0 flex items-center justify-center select-none">
+                    COMING SOON</h2>
+                <div class="space-y-4">
+                    <h3
+                        class="text-primary font-headline font-extrabold text-4xl md:text-6xl uppercase tracking-[0.3em] drop-shadow-[0_0_15px_rgba(242,202,80,0.6)]">
+                        COMING SOON</h3>
+                    <p class="text-on-surface text-xl font-light tracking-widest">Shaping Something Golden</p>
+                    <div class="w-24 h-px bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mt-8">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Trust Section -->
+        <section class="py-24 px-8 md:px-24">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-[1440px] mx-auto">
+                <!-- Trust Card 1 -->
+                <div class="flex flex-col items-center text-center group">
+                    <div
+                        class="w-20 h-20 rounded-full bg-primary/5 flex items-center justify-center mb-6 border border-primary/10 group-hover:bg-primary/10 transition-colors">
+                        <span class="material-symbols-outlined text-4xl text-primary" data-icon="verified"
+                            style="font-variation-settings: 'FILL' 1;">verified</span>
+                    </div>
+                    <h4 class="text-xl font-headline font-bold text-on-surface mb-3">Certified Purity</h4>
+                    <p class="text-on-surface-variant leading-relaxed">Every bar and coin is BIS Hallmarked and comes
+                        with a certificate of authenticity ensuring 24K 99.9% purity.</p>
+                </div>
+                <!-- Trust Card 2 -->
+                <div class="flex flex-col items-center text-center group">
+                    <div
+                        class="w-20 h-20 rounded-full bg-primary/5 flex items-center justify-center mb-6 border border-primary/10 group-hover:bg-primary/10 transition-colors">
+                        <span class="material-symbols-outlined text-4xl text-primary" data-icon="local_shipping"
+                            style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+                    </div>
+                    <h4 class="text-xl font-headline font-bold text-on-surface mb-3">Secure Delivery</h4>
+                    <p class="text-on-surface-variant leading-relaxed">Insured transit through specialized logistics
+                        partners, delivered in tamper-evident packaging right to your doorstep.</p>
+                </div>
+                <!-- Trust Card 3 -->
+                <div class="flex flex-col items-center text-center group">
+                    <div
+                        class="w-20 h-20 rounded-full bg-primary/5 flex items-center justify-center mb-6 border border-primary/10 group-hover:bg-primary/10 transition-colors">
+                        <span class="material-symbols-outlined text-4xl text-primary" data-icon="account_balance"
+                            style="font-variation-settings: 'FILL' 1;">account_balance</span>
+                    </div>
+                    <h4 class="text-xl font-headline font-bold text-on-surface mb-3">Investment Grade</h4>
+                    <p class="text-on-surface-variant leading-relaxed">LBM-accredited bullion that offers maximum
+                        liquidity and value retention across global precious metal markets.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Final CTA -->
+        <section class="py-32 px-8 bg-surface-container-low overflow-hidden relative">
+            <div
+                class="absolute top-0 right-0 w-96 h-96 bg-primary/10 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2">
+            </div>
+            <div class="max-w-[1000px] mx-auto text-center relative z-10">
+                <h2 class="text-display-sm md:text-5xl font-headline font-bold text-on-surface mb-8 leading-tight">
+                    Own gold not just digitally — <br /><span class="text-primary italic">but physically, beautifully,
+                        and securely.</span>
+                </h2>
+                <button onclick="scrollToProducts()"
+                    class="gold-shimmer px-12 py-5 text-on-primary font-headline font-extrabold text-lg uppercase tracking-widest rounded-lg shadow-2xl hover:scale-[1.02] transition-all">
                     Start Investing Now
                 </button>
-</div>
-</section>
-</main>
+            </div>
+        </section>
+    </main>
 
     <!-- Partner / Trust Logos Banner -->
     <div class="border-t border-white/5 bg-[#0a0f18] py-10 relative overflow-hidden">
@@ -519,24 +548,31 @@
         </div>
     </div>
 
-        <!-- Premium Fintech Footer -->
-    <footer class="bg-[#0B0B0B] border-t border-[#D4AF37]/10 pt-24 pb-12 relative overflow-hidden">
-        
+    <!-- Premium Fintech Footer -->
+    <!-- Premium Fintech Footer -->
+    <footer class="bg-[#0B0B0B] border-t border-[#D4AF37]/10 pt-24 pb-12 mt-auto relative overflow-hidden">
+
         <!-- Subtle Glow Background for ultra-premium feel -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#D4AF37]/5 blur-[150px] pointer-events-none z-0"></div>
+        <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#D4AF37]/5 blur-[150px] pointer-events-none z-0">
+        </div>
 
         <div class="max-w-7xl mx-auto px-6 md:px-8 relative z-10 space-y-16">
-            
+
             <!-- 5-Column Grid Layout -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
-                
+
                 <!-- Column 1: Logo Section & Socials (Spans wider slightly or standard 1 col) -->
                 <div class="lg:col-span-1 space-y-8 ux-reveal">
                     <div>
                         <!-- Logo Placeholder space -->
                         <a href="index.html" class="inline-block group focus:outline-none">
-                            <h2 class="text-3xl font-black text-[#D4AF37] font-headline tracking-tighter group-hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.6)] transition-all duration-300">GOLDe5</h2>
-                            <p class="text-[#d0c5af] text-[9px] font-medium tracking-[0.3em] font-body uppercase leading-tight mt-1 group-hover:text-white transition-colors duration-300">Grow in Grams</p>
+                            <h2
+                                class="text-3xl font-black text-[#D4AF37] font-headline tracking-tighter group-hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.6)] transition-all duration-300">
+                                GOLDe5</h2>
+                            <p
+                                class="text-[#d0c5af] text-[9px] font-medium tracking-[0.3em] font-body uppercase leading-tight mt-1 group-hover:text-white transition-colors duration-300">
+                                Grow in Grams</p>
                         </a>
                         <p class="text-gray-400 text-sm leading-relaxed mt-6">
                             The pinnacle of private metal banking. Secure, liquid, and globally accessible.
@@ -546,90 +582,146 @@
                     <!-- Social Icons -->
                     <div class="flex flex-wrap gap-3">
                         <!-- Facebook -->
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0B0B] hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] hover:scale-110 transition-all duration-300">
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5c0-2.03 1.23-3.14 3.06-3.14.87 0 1.62.06 1.84.09v2.1l-1.26.01c-.99 0-1.18.47-1.18 1.16V12h2.46l-.32 3h-2.14v6.8C18.56 20.87 22 16.84 22 12z"/></svg>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0B0B] hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] hover:scale-110 transition-all duration-300">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5c0-2.03 1.23-3.14 3.06-3.14.87 0 1.62.06 1.84.09v2.1l-1.26.01c-.99 0-1.18.47-1.18 1.16V12h2.46l-.32 3h-2.14v6.8C18.56 20.87 22 16.84 22 12z" />
+                            </svg>
                         </a>
                         <!-- Instagram -->
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0B0B] hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] hover:scale-110 transition-all duration-300">
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.4 5.6 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.6 18.4 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 0 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0B0B] hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] hover:scale-110 transition-all duration-300">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.4 5.6 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.6 18.4 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 0 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" />
+                            </svg>
                         </a>
                         <!-- Twitter (X) -->
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0B0B] hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] hover:scale-110 transition-all duration-300">
-                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0B0B] hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] hover:scale-110 transition-all duration-300">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg>
                         </a>
                         <!-- YouTube -->
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0B0B] hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] hover:scale-110 transition-all duration-300">
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M21.582 6.186a2.665 2.665 0 0 0-1.876-1.884C18.04 3.864 12 3.864 12 3.864s-6.04 0-7.706.438a2.665 2.665 0 0 0-1.876 1.884C2 7.86 2 12 2 12s0 4.14.418 5.814a2.665 2.665 0 0 0 1.876 1.884c1.667.438 7.706.438 7.706.438s6.04 0 7.706-.438a2.665 2.665 0 0 0 1.876-1.884C22 16.14 22 12 22 12s0-4.14-.418-5.814zM9.99 15.422v-6.85l6.02 3.426-6.02 3.424z"/></svg>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0B0B] hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] hover:scale-110 transition-all duration-300">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M21.582 6.186a2.665 2.665 0 0 0-1.876-1.884C18.04 3.864 12 3.864 12 3.864s-6.04 0-7.706.438a2.665 2.665 0 0 0-1.876 1.884C2 7.86 2 12 2 12s0 4.14.418 5.814a2.665 2.665 0 0 0 1.876 1.884c1.667.438 7.706.438 7.706.438s6.04 0 7.706-.438a2.665 2.665 0 0 0 1.876-1.884C22 16.14 22 12 22 12s0-4.14-.418-5.814zM9.99 15.422v-6.85l6.02 3.426-6.02 3.424z" />
+                            </svg>
                         </a>
                         <!-- LinkedIn -->
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0B0B] hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] hover:scale-110 transition-all duration-300">
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.924 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0B0B] hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] hover:scale-110 transition-all duration-300">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.924 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
                         </a>
                         <!-- WhatsApp -->
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0B0B] hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] hover:scale-110 transition-all duration-300">
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.031 0C5.405 0 .016 5.39.016 12.016c0 2.122.553 4.195 1.603 6.012L.016 24l6.115-1.603a11.93 11.93 0 0 0 5.9 1.559h.005c6.626 0 12.015-5.39 12.015-12.016S18.657 0 12.031 0zm0 21.956c-1.787 0-3.535-.48-5.068-1.39l-.363-.215-3.766.988.997-3.673-.236-.375A9.972 9.972 0 0 1 2.022 12.01c0-5.516 4.49-10.007 10.01-10.007 5.516 0 10.006 4.49 10.006 10.006s-4.49 10.007-10.007 10.007zm5.502-7.518c-.302-.151-1.786-.883-2.064-.984-.277-.101-.48-.151-.682.151-.202.302-.782.984-.959 1.185-.176.202-.353.227-.655.076-1.464-.738-2.529-1.316-3.504-2.998-.176-.302.264-.265.852-1.439.076-.151.038-.277-.019-.428-.057-.151-.682-1.639-.933-2.244-.244-.589-.492-.51-.682-.519l-.58-.009c-.202 0-.53.076-.807.378-.277.302-1.06 1.034-1.06 2.518s1.085 2.915 1.236 3.116c.151.202 2.124 3.242 5.143 4.544 2.127.918 2.802.756 3.307.655.679-.136 1.786-.731 2.038-1.437.252-.706.252-1.311.176-1.438-.076-.126-.277-.202-.579-.353z"/></svg>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0B0B] hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] hover:scale-110 transition-all duration-300">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M12.031 0C5.405 0 .016 5.39.016 12.016c0 2.122.553 4.195 1.603 6.012L.016 24l6.115-1.603a11.93 11.93 0 0 0 5.9 1.559h.005c6.626 0 12.015-5.39 12.015-12.016S18.657 0 12.031 0zm0 21.956c-1.787 0-3.535-.48-5.068-1.39l-.363-.215-3.766.988.997-3.673-.236-.375A9.972 9.972 0 0 1 2.022 12.01c0-5.516 4.49-10.007 10.01-10.007 5.516 0 10.006 4.49 10.006 10.006s-4.49 10.007-10.007 10.007zm5.502-7.518c-.302-.151-1.786-.883-2.064-.984-.277-.101-.48-.151-.682.151-.202.302-.782.984-.959 1.185-.176.202-.353.227-.655.076-1.464-.738-2.529-1.316-3.504-2.998-.176-.302.264-.265.852-1.439.076-.151.038-.277-.019-.428-.057-.151-.682-1.639-.933-2.244-.244-.589-.492-.51-.682-.519l-.58-.009c-.202 0-.53.076-.807.378-.277.302-1.06 1.034-1.06 2.518s1.085 2.915 1.236 3.116c.151.202 2.124 3.242 5.143 4.544 2.127.918 2.802.756 3.307.655.679-.136 1.786-.731 2.038-1.437.252-.706.252-1.311.176-1.438-.076-.126-.277-.202-.579-.353z" />
+                            </svg>
                         </a>
                     </div>
                 </div>
 
                 <!-- Column 2: COMPANY -->
                 <div class="lg:col-span-1 space-y-6 ux-reveal" style="animation-delay: 0.1s;">
-                    <h5 class="text-[#D4AF37] font-bold font-headline uppercase text-[11px] tracking-[0.2em] relative inline-block">Company<div class="absolute -bottom-2 left-0 w-8 h-px bg-[#D4AF37]"></div></h5>
+                    <h5
+                        class="text-[#D4AF37] font-bold font-headline uppercase text-[11px] tracking-[0.2em] relative inline-block">
+                        Company<div class="absolute -bottom-2 left-0 w-8 h-px bg-[#D4AF37]"></div>
+                    </h5>
                     <ul class="space-y-4 text-sm text-gray-300 font-medium">
-                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="about.html">About Us</a></li>
-                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="#">FAQ</a></li>
-                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="#">Contact Us</a></li>
-                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="#">Careers</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300"
+                                href="about.html">About Us</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300"
+                                href="#">FAQ</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300"
+                                href="#">Contact Us</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300"
+                                href="#">Careers</a></li>
                     </ul>
                 </div>
 
                 <!-- Column 3: EXPLORE -->
                 <div class="lg:col-span-1 space-y-6 ux-reveal" style="animation-delay: 0.2s;">
-                    <h5 class="text-[#D4AF37] font-bold font-headline uppercase text-[11px] tracking-[0.2em] relative inline-block">Explore<div class="absolute -bottom-2 left-0 w-8 h-px bg-[#D4AF37]"></div></h5>
+                    <h5
+                        class="text-[#D4AF37] font-bold font-headline uppercase text-[11px] tracking-[0.2em] relative inline-block">
+                        Explore<div class="absolute -bottom-2 left-0 w-8 h-px bg-[#D4AF37]"></div>
+                    </h5>
                     <ul class="space-y-4 text-sm text-gray-300 font-medium">
-                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="gold-sip.html">SIP</a></li>
-                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="coins-bars.html">Shop</a></li>
-                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="#">Marketplace</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300"
+                                href="gold-sip.html">SIP</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300"
+                                href="coins-bars.html">Shop</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300"
+                                href="#">Marketplace</a></li>
                     </ul>
                 </div>
 
                 <!-- Column 4: PARTNERS -->
                 <div class="lg:col-span-1 space-y-6 ux-reveal" style="animation-delay: 0.3s;">
-                    <h5 class="text-[#D4AF37] font-bold font-headline uppercase text-[11px] tracking-[0.2em] relative inline-block">Partners<div class="absolute -bottom-2 left-0 w-8 h-px bg-[#D4AF37]"></div></h5>
+                    <h5
+                        class="text-[#D4AF37] font-bold font-headline uppercase text-[11px] tracking-[0.2em] relative inline-block">
+                        Partners<div class="absolute -bottom-2 left-0 w-8 h-px bg-[#D4AF37]"></div>
+                    </h5>
                     <ul class="space-y-4 text-sm text-gray-300 font-medium">
-                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="investor.html">Investors</a></li>
-                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="partner.html">Retail Partners</a></li>
-                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="partner.html">Affiliate Partners</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300"
+                                href="investor.html">Investors</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300"
+                                href="partner.html">Retail Partners</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300"
+                                href="partner.html">Affiliate Partners</a></li>
                     </ul>
                 </div>
 
                 <!-- Column 5: LEGAL -->
                 <div class="lg:col-span-1 space-y-6 ux-reveal" style="animation-delay: 0.4s;">
-                    <h5 class="text-[#D4AF37] font-bold font-headline uppercase text-[11px] tracking-[0.2em] relative inline-block">Legal<div class="absolute -bottom-2 left-0 w-8 h-px bg-[#D4AF37]"></div></h5>
+                    <h5
+                        class="text-[#D4AF37] font-bold font-headline uppercase text-[11px] tracking-[0.2em] relative inline-block">
+                        Legal<div class="absolute -bottom-2 left-0 w-8 h-px bg-[#D4AF37]"></div>
+                    </h5>
                     <ul class="space-y-4 text-sm text-gray-300 font-medium">
-                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="terms.html">Terms & Conditions</a></li>
-                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="terms.html">Privacy Policy</a></li>
-                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="terms.html">Cyber Advisory</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300"
+                                href="terms.html">Terms & Conditions</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300"
+                                href="terms.html">Privacy Policy</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300"
+                                href="terms.html">Cyber Advisory</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300"
+                                href="terms.html">Disclaimer</a></li>
                     </ul>
                 </div>
 
             </div>
 
             <!-- Bottom Section (Copyright + Status) -->
-            <div class="pt-8 mt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 ux-reveal">
+            <div
+                class="pt-8 mt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 ux-reveal">
                 <p class="text-gray-400 text-xs font-semibold tracking-wider uppercase">
                     © 2026 GOLDe5. All rights reserved.
                 </p>
-                <div class="flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/5 rounded-full cursor-default hover:bg-white/10 transition-colors">
+                <div
+                    class="flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/5 rounded-full cursor-default hover:bg-white/10 transition-colors">
                     <span class="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_#22c55e] animate-pulse"></span>
-                    <span class="text-[10px] font-black text-gray-300 tracking-widest uppercase">Network Status: Operational</span>
+                    <span class="text-[10px] font-black text-gray-300 tracking-widest uppercase">Network Status:
+                        Operational</span>
                 </div>
             </div>
 
             <!-- Disclaimer -->
             <div class="pt-4 text-center pb-8 ux-reveal">
-                <p class="text-gray-500 text-[10px] sm:text-xs font-medium max-w-4xl mx-auto leading-relaxed border-t border-white/5 pt-6">
-                    Investments are subject to market risks. Returns are not guaranteed and may vary. Please read all related documents carefully before investing.
+                <p
+                    class="text-gray-500 text-[10px] sm:text-xs font-medium max-w-4xl mx-auto leading-relaxed border-t border-white/5 pt-6">
+                    Investments are subject to market risks. Returns are not guaranteed and may vary. Please read all
+                    related documents carefully before investing.
                 </p>
             </div>
 
@@ -644,7 +736,7 @@
         // Horizontal scrolling for products grid on mobile/tablet
         const productContainer = document.getElementById('product-container');
         function scrollProducts(direction) {
-            if(productContainer) {
+            if (productContainer) {
                 const scrollAmount = window.innerWidth > 768 ? 300 : window.innerWidth * 0.8;
                 if (direction === 'left') {
                     productContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
@@ -655,100 +747,101 @@
         }
     </script>
 
-<!-- GLOBAL UX SCRIPT -->
-<script id="global-ux-script">
-document.addEventListener("DOMContentLoaded", () => {
-    // 1. Intersection Observer for Smooth Sequential Reveals
-    // Target sections, cards, and prominent text elements
-    const revealElements = document.querySelectorAll('section, .glass-card, h1, h2, h3, .ux-reveal');
-    
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-        let delayCount = 0;
-        entries.forEach(entry => {
-            if(entry.isIntersecting) {
-                // Add staggered delay based on rapid succession
-                setTimeout(() => {
-                    entry.target.classList.add('ux-revealed');
-                }, delayCount * 100);
-                delayCount++;
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.05, rootMargin: "0px 0px -50px 0px" });
+    <!-- GLOBAL UX SCRIPT -->
+    <script id="global-ux-script">
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1. Intersection Observer for Smooth Sequential Reveals
+            // Target sections, cards, and prominent text elements
+            const revealElements = document.querySelectorAll('section, .glass-card, h1, h2, h3, .ux-reveal');
 
-    revealElements.forEach(el => {
-        // Prevent double revealing if it's already animated by existing classes
-        if(!el.classList.contains('animate-slide-up')) {
-            el.classList.add('ux-reveal');
-        }
-        revealObserver.observe(el);
-    });
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                let delayCount = 0;
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add staggered delay based on rapid succession
+                        setTimeout(() => {
+                            entry.target.classList.add('ux-revealed');
+                        }, delayCount * 100);
+                        delayCount++;
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.05, rootMargin: "0px 0px -50px 0px" });
 
-    // 2. Sticky Navbar advanced effect
-    const nav = document.querySelector('nav');
-    if(nav) {
-        window.addEventListener('scroll', () => {
-            if(window.scrollY > 40) {
-                nav.classList.add('nav-scrolled');
-            } else {
-                nav.classList.remove('nav-scrolled');
-            }
-        });
-    }
+            revealElements.forEach(el => {
+                // Prevent double revealing if it's already animated by existing classes
+                if (!el.classList.contains('animate-slide-up')) {
+                    el.classList.add('ux-reveal');
+                }
+                revealObserver.observe(el);
+            });
 
-    // 3. 3D Tilt Effect on Glass Cards
-    const cards = document.querySelectorAll('.glass-card');
-    cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            // Only apply tilt on desktop devices
-            if(window.innerWidth > 768) {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                // Sensible degrees for tilt
-                const rotateX = ((y - centerY) / centerY) * -4; 
-                const rotateY = ((x - centerX) / centerX) * 4;
-                card.style.transform = `perspective(1000px) scale(1.02) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
-                card.style.transition = 'none'; // Instant follow
+            // 2. Sticky Navbar advanced effect
+            const nav = document.querySelector('nav');
+            if (nav) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 40) {
+                        nav.classList.add('nav-scrolled');
+                    } else {
+                        nav.classList.remove('nav-scrolled');
+                    }
+                });
             }
-        });
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = ''; // Clear inline styles to allow CSS transition to take over
-            card.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease';
-        });
-    });
 
-    // 4. Form Input Focus Glow Logic
-    const inputs = document.querySelectorAll('input, textarea, select');
-    inputs.forEach(input => {
-        input.addEventListener('focus', () => {
-            if(input.parentElement && input.parentElement.classList.contains('space-y-2')) {
-                input.parentElement.classList.add('input-focused');
-            }
-        });
-        input.addEventListener('blur', () => {
-            if(input.parentElement) {
-                input.parentElement.classList.remove('input-focused');
-            }
-        });
-    });
+            // 3. 3D Tilt Effect on Glass Cards
+            const cards = document.querySelectorAll('.glass-card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    // Only apply tilt on desktop devices
+                    if (window.innerWidth > 768) {
+                        const rect = card.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        const centerX = rect.width / 2;
+                        const centerY = rect.height / 2;
+                        // Sensible degrees for tilt
+                        const rotateX = ((y - centerY) / centerY) * -4;
+                        const rotateY = ((x - centerX) / centerX) * 4;
+                        card.style.transform = `perspective(1000px) scale(1.02) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+                        card.style.transition = 'none'; // Instant follow
+                    }
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = ''; // Clear inline styles to allow CSS transition to take over
+                    card.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease';
+                });
+            });
 
-    // 5. Parallax Hero Effect (Optional gentle background shift)
-    const heroSection = document.querySelector('section:first-of-type');
-    window.addEventListener('scroll', () => {
-        if(heroSection && window.scrollY < window.innerHeight) {
-            const bgElement = heroSection.querySelector('.absolute.inset-0 img');
-            if(bgElement) {
-                const yPos = window.scrollY * 0.3; // 30% speed of scroll
-                bgElement.style.transform = `translateY(${yPos}px)`;
-            }
-        }
-    });
+            // 4. Form Input Focus Glow Logic
+            const inputs = document.querySelectorAll('input, textarea, select');
+            inputs.forEach(input => {
+                input.addEventListener('focus', () => {
+                    if (input.parentElement && input.parentElement.classList.contains('space-y-2')) {
+                        input.parentElement.classList.add('input-focused');
+                    }
+                });
+                input.addEventListener('blur', () => {
+                    if (input.parentElement) {
+                        input.parentElement.classList.remove('input-focused');
+                    }
+                });
+            });
 
-});
-</script>
+            // 5. Parallax Hero Effect (Optional gentle background shift)
+            const heroSection = document.querySelector('section:first-of-type');
+            window.addEventListener('scroll', () => {
+                if (heroSection && window.scrollY < window.innerHeight) {
+                    const bgElement = heroSection.querySelector('.absolute.inset-0 img');
+                    if (bgElement) {
+                        const yPos = window.scrollY * 0.3; // 30% speed of scroll
+                        bgElement.style.transform = `translateY(${yPos}px)`;
+                    }
+                }
+            });
+
+        });
+    </script>
 
 </body>
+
 </html>

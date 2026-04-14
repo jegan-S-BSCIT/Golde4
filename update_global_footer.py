@@ -90,9 +90,10 @@ new_footer_html = """    <!-- Premium Fintech Footer -->
                 <div class="lg:col-span-1 space-y-6 ux-reveal" style="animation-delay: 0.4s;">
                     <h5 class="text-[#D4AF37] font-bold font-headline uppercase text-[11px] tracking-[0.2em] relative inline-block">Legal<div class="absolute -bottom-2 left-0 w-8 h-px bg-[#D4AF37]"></div></h5>
                     <ul class="space-y-4 text-sm text-gray-300 font-medium">
-                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="#">Terms & Conditions</a></li>
-                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="#">Privacy Policy</a></li>
-                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="#">Cyber Advisory</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="terms.html">Terms & Conditions</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="terms.html">Privacy Policy</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="terms.html">Cyber Advisory</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="terms.html">Disclaimer</a></li>
                     </ul>
                 </div>
 

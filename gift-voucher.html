@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 
 <html class="dark" lang="en"><head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>GOLDe5 | Luxury Gifting &amp; Smart Plans</title>
@@ -123,7 +127,7 @@
         opacity: 0;
         transform: translateY(30px) scale(0.98);
         transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-        will-change: opacity, transform;
+        will-change: transform, opacity;
     }
     .ux-revealed {
         opacity: 1;
@@ -189,153 +193,42 @@
     }
 </style>
 </head>
-<body class="flex flex-col min-h-[100vh] bg-background text-on-surface font-body selection:bg-primary/30">
-    <!-- Top Navigation Bar -->
-    <!-- Top Navigation Bar -->
-    <nav class="sticky top-0 w-full z-50 bg-[#0B0B0B]/80 backdrop-blur-xl border-b border-white/5 shadow-[0_4px_20px_rgba(233,195,73,0.05)] h-20 flex items-center">
-        <div class="flex justify-between items-center max-w-7xl mx-auto px-6 md:px-8 w-full">
-            <!-- Left Side Logo -->
-            <a href="index.html" class="flex flex-col items-center justify-center cursor-pointer group hover:-translate-y-[1px] transition-transform duration-300">
-                <div class="text-[28px] md:text-[30px] font-black text-[#D4AF37] font-headline tracking-tighter leading-none group-hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.8)] transition-all duration-300">
-                    GOLDe5
-                </div>
-                <div class="text-[#d0c5af] text-[9.5px] md:text-[10px] font-medium tracking-[0.28em] font-body uppercase leading-tight mt-[2px] group-hover:text-white transition-colors duration-300">
-                    Grow in Grams
-                </div>
-            </a>
-            
-            <!-- Right Side Navigation -->
-            <div class="flex items-center gap-6 md:gap-10">
-                <!-- Desktop Nav -->
-                <div class="hidden md:flex items-center gap-8">
-                    <a class="flex items-center text-gray-400 font-medium border-b-2 border-transparent pb-1 font-headline tracking-tight text-sm hover:text-[#f2ca50] hover:border-[#f2ca50] transition-all duration-300 cursor-pointer" href="index.html">Home</a>
-                    
-                    <!-- Products Dropdown Link -->
-                    <div class="relative group">
-                        <!-- ACTIVE LINK -->
-                        <a class="flex items-center gap-1 text-[#f2ca50] font-bold border-b-2 border-[#f2ca50] pb-1 font-headline tracking-tight text-sm hover:text-[#f2ca50] transition-colors duration-300 cursor-pointer" href="#">
-                            Products
-                            <span class="material-symbols-outlined text-[16px] transition-transform duration-300 group-hover:rotate-180">expand_more</span>
-                        </a>
-
-                        <!-- Dropdown Menu -->
-                        <div class="absolute top-[calc(100%+10px)] left-[50%] -translate-x-1/2 w-48 bg-[#0B0B0B] rounded-xl border border-[#D4AF37]/20 shadow-[0_15px_30px_rgba(0,0,0,0.8)] flex flex-col py-2 opacity-0 invisible translate-y-3 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
-                            <!-- Invisible Hover Bridge -->
-                            <div class="absolute -top-[15px] left-0 w-full h-[15px] bg-transparent"></div>
-
-                            <a href="gold-sip.html" class="px-5 py-3 text-sm text-gray-300 font-medium hover:text-[#D4AF37] hover:bg-white/5 transition-all duration-200 cursor-pointer flex items-center gap-3">
-                                <span class="material-symbols-outlined text-[18px]">payments</span> Gold SIP
-                            </a>
-                            <a href="coins-bars.html" class="px-5 py-3 text-sm text-gray-300 font-medium hover:text-[#D4AF37] hover:bg-white/5 transition-all duration-200 cursor-pointer flex items-center gap-3">
-                                <span class="material-symbols-outlined text-[18px]">monetization_on</span> Coins & Bars
-                            </a>
-                            <a href="gift-voucher.html" class="px-5 py-3 text-sm text-[#D4AF37] font-bold hover:bg-white/5 transition-all duration-200 cursor-pointer flex items-center gap-3">
-                                <span class="material-symbols-outlined text-[18px]">card_giftcard</span> Gift Voucher
-                            </a>
-                            <a href="jewel-scheme.html" class="px-5 py-3 text-sm text-gray-300 font-medium hover:text-[#D4AF37] hover:bg-white/5 transition-all duration-200 cursor-pointer flex items-center gap-3">
-                                <span class="material-symbols-outlined text-[18px]">diamond</span> Jewel Scheme
-                            </a>
-                        </div>
-                    </div>
-                    <a class="flex items-center text-gray-400 font-medium border-b-2 border-transparent pb-1 font-headline tracking-tight text-sm hover:text-[#f2ca50] hover:border-[#f2ca50] transition-all duration-300 cursor-pointer" href="investor.html">Investor</a>
-                    <a class="flex items-center text-gray-400 font-medium border-b-2 border-transparent pb-1 font-headline tracking-tight text-sm hover:text-[#f2ca50] hover:border-[#f2ca50] transition-all duration-300 cursor-pointer" href="partner.html">Partner</a>
-                </div>
-                
-                <!-- Action Buttons -->
-                <div class="flex items-center gap-4 md:gap-6">
-                    <button class="bullion-gradient text-[#111] px-6 md:px-8 py-2 md:py-2.5 rounded-xl font-headline font-extrabold text-xs md:text-sm tracking-wide active:scale-95 transition-all duration-300 shadow-[0_0_15px_rgba(212,175,55,0.3)] hover:shadow-[0_0_25px_rgba(212,175,55,0.6)] hover:brightness-110">
-                        Login
-                    </button>
-                    <!-- Mobile Hamburger -->
-                    <button class="md:hidden text-white hover:text-[#D4AF37] transition-colors p-1" onclick="document.getElementById('mobile-menu').classList.remove('hidden')">
-                        <span class="material-symbols-outlined text-3xl">menu</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="hidden fixed inset-0 z-[100] bg-[#0B0B0B]/95 backdrop-blur-xl pt-24 px-6 flex flex-col gap-6 items-center border-b border-[#D4AF37]/20 shadow-[0_20px_50px_rgba(0,0,0,0.9)] overflow-y-auto pb-10">
-        <a class="text-gray-400 font-medium font-headline tracking-tighter text-xl active:scale-95 transition-all" href="index.html">Home</a>
-        <div class="w-full h-px bg-white/5 max-w-xs"></div>
-        <div class="flex flex-col items-center gap-4">
-            <!-- ACTIVE LINK -->
-            <span class="text-[#f2ca50] font-bold font-headline tracking-tighter text-xl">Products</span>
-            <a href="gold-sip.html" class="text-sm text-gray-300 hover:text-[#D4AF37] transition-colors text-center">Gold SIP</a>
-            <a href="coins-bars.html" class="text-sm text-gray-300 hover:text-[#D4AF37] transition-colors text-center">Coins & Bars</a>
-            <a href="gift-voucher.html" class="text-sm text-[#D4AF37] font-bold hover:text-[#D4AF37] transition-colors text-center">Gift Voucher</a>
-            <a href="jewel-scheme.html" class="text-sm text-gray-300 hover:text-[#D4AF37] transition-colors text-center">Jewel Scheme</a>
-        </div>
-        <div class="w-full h-px bg-white/5 max-w-xs"></div>
-        <a class="text-gray-400 font-medium font-headline tracking-tighter text-xl active:scale-95 transition-all" href="investor.html">Investor</a>
-        <div class="w-full h-px bg-white/5 max-w-xs"></div>
-        <a class="text-gray-400 font-medium font-headline tracking-tighter text-xl active:scale-95 transition-all" href="partner.html">Partner</a>
-        <button class="absolute top-6 right-6 text-white" onclick="document.getElementById('mobile-menu').classList.add('hidden')">
-            <span class="material-symbols-outlined text-3xl">close</span>
-        </button>
-    </div>
-
-    <!-- Live Financial Ticker -->
-    <div class="w-full bg-[#D4AF37] h-10 flex items-center overflow-hidden border-b border-[#B8962E] relative z-40 group shadow-[0_2px_15px_rgba(212,175,55,0.2)]">
-        <!-- Static Left Container (Prices) -->
-        <div class="bg-[#0B0B0B] text-[#D4AF37] px-4 md:px-8 h-full flex items-center shadow-[10px_0_20px_rgba(0,0,0,0.8)] z-20 font-black tracking-wider text-[10px] md:text-xs uppercase border-r border-[#D4AF37]/30 shrink-0 relative">
-            <span class="flex items-center gap-2 md:gap-3">
-                <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse drop-shadow-[0_0_5px_rgba(239,68,68,1)]"></span>
-                <span>Live Price: Gold ₹74,000/gm <span class="text-white/30 px-1 hidden md:inline">|</span> Silver ₹90/gm</span>
-            </span>
-            <!-- Slanted decorative edge -->
-            <div class="absolute right-[-15px] top-0 h-full w-[30px] bg-[#0B0B0B] -skew-x-[25deg] z-[-1] border-r border-[#D4AF37]/40 shadow-[5px_0_15px_rgba(0,0,0,0.5)]"></div>
-        </div>
-
-        <!-- Scrolling Right Container (Quotes) -->
-        <div class="flex-1 relative overflow-hidden h-full flex items-center ml-2 md:ml-6 justify-center md:justify-start">
-            <div id="quote-slider" class="text-[#111] font-bold text-[11px] md:text-sm tracking-wide absolute w-full transition-all duration-500 transform translate-y-0 opacity-100 flex items-center gap-2">
-                <span class="w-1.5 h-1.5 bg-[#4d3d0f] rounded-full hidden md:inline-block"></span>
-                <span id="quote-text">Start a Gold SIP and grow wealth gram by gram.</span>
-            </div>
-            <script>
-                (function(){
-                    if (window.quotesInitialized) return;
-                    window.quotesInitialized = true;
-                    const quotes = [
-                        "Start a Gold SIP and grow wealth gram by gram.",
-                        "Never Say Never to Gold.",
-                        "Central banks store gold as reserves.",
-                        "Gold has protected wealth for over 5,000 years.",
-                        "Silver is used in solar panels and electronics.",
-                        "Gold is a symbol of lasting wealth.",
-                        "A little gold every month creates a powerful future.",
-                        "Silver combines industrial demand with investment value.",
-                        "Smart investors always keep gold in their portfolio."
-                    ];
-                    let currentQuoteIndex = 0;
-                    const quoteSlider = document.getElementById('quote-slider');
-                    const quoteText = document.getElementById('quote-text');
-                    
-                    if(quoteSlider && quoteText) {
-                        setInterval(() => {
-                            quoteSlider.style.transform = 'translateY(-20px)';
-                            quoteSlider.style.opacity = '0';
-                            
-                            setTimeout(() => {
-                                currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
-                                quoteText.innerText = quotes[currentQuoteIndex];
-                                quoteSlider.style.transition = 'none';
-                                quoteSlider.style.transform = 'translateY(20px)';
-                                void quoteSlider.offsetWidth;
-                                quoteSlider.style.transition = 'all 0.5s ease-out';
-                                quoteSlider.style.transform = 'translateY(0)';
-                                quoteSlider.style.opacity = '1';
-                            }, 500);
-                        }, 4000); 
-                    }
-                })();
-            </script>
-        </div>
-    </div>
-
-<main class="flex-1 w-full">
+<body class="flex flex-col min-h-[100vh] bg-background text-on-surface font-body selection:bg-primary/30 overflow-x-hidden">
+    <!-- GLOBAL HEADER INJECTED -->
+    <div id="header-placeholder"></div>
+    <script>
+      fetch("components/header.html")
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("header-placeholder").innerHTML = data;
+          
+          // Execute script tags inside fetched HTML (the quote slider JS)
+          const scripts = document.getElementById("header-placeholder").querySelectorAll("script");
+          scripts.forEach(oldScript => {
+            const newScript = document.createElement("script");
+            Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+            newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+            oldScript.parentNode.replaceChild(newScript, oldScript);
+          });
+          
+          // Add active class logic
+          const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+          const navLinks = document.querySelectorAll('#header-placeholder a');
+          navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            // Basic matching, drop trailing slashes/hashes
+            const cleanHref = href ? href.split('#')[0].split('?')[0] : '';
+            if (cleanHref && currentPath === cleanHref) {
+              link.classList.add('text-[#f2ca50]', 'border-[#f2ca50]');
+              link.classList.remove('text-gray-400', 'border-transparent');
+            } else if (cleanHref) {
+              link.classList.remove('text-[#f2ca50]', 'border-[#f2ca50]');
+              link.classList.add('text-gray-400', 'border-transparent');
+            }
+          });
+        });
+    </script>
+    <main class="flex-1 w-full">
 <!-- Hero Section -->
 <section class="relative min-h-[819px] flex items-center px-8 lg:px-24 overflow-hidden">
 <div class="absolute inset-0 z-0">
@@ -363,7 +256,7 @@
 </div>
 <div class="relative group">
 <div class="absolute -inset-4 bg-primary/20 blur-2xl group-hover:bg-primary/30 transition-all rounded-full"></div>
-<img class="relative rounded-2xl w-full h-[500px] object-cover shadow-2xl grayscale hover:grayscale-0 transition-all duration-700" data-alt="luxury black gift box with a silk gold ribbon and bow sitting on a reflective dark marble surface with warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-zOiT_CUtzZG0CqQVyoTZccsq3d5DtK3PoI8vPJ91YGdOGk5yUqm0hxWhQNklkgEuVtDehpKrBdp5_g4JXfgs91qNK9u94E7TYD37kt4_CWJZwyrAa8AJJVglpHld1N3Y1ebWaJiB8fPACymyIQ8IKsiLf9IU1NGIoNOVXwqzhbJ1LDFb9Od2-hJWgGEKOUPl7rYKabPk73YKsB09lVuUjVInh9NSjvH9lA7RE1RUPEbhQZqAWnHHlgDz50izbfKRxnqTkxd9JNlT"/>
+<img decoding="async" loading="lazy" class="relative rounded-2xl w-full h-[500px] object-cover shadow-2xl grayscale hover:grayscale-0 transition-all duration-700" data-alt="luxury black gift box with a silk gold ribbon and bow sitting on a reflective dark marble surface with warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-zOiT_CUtzZG0CqQVyoTZccsq3d5DtK3PoI8vPJ91YGdOGk5yUqm0hxWhQNklkgEuVtDehpKrBdp5_g4JXfgs91qNK9u94E7TYD37kt4_CWJZwyrAa8AJJVglpHld1N3Y1ebWaJiB8fPACymyIQ8IKsiLf9IU1NGIoNOVXwqzhbJ1LDFb9Od2-hJWgGEKOUPl7rYKabPk73YKsB09lVuUjVInh9NSjvH9lA7RE1RUPEbhQZqAWnHHlgDz50izbfKRxnqTkxd9JNlT"/>
 </div>
 </div>
 </section>
@@ -381,7 +274,7 @@
 <div class="relative h-full bg-surface-container-high rounded-xl p-8 flex flex-col justify-between">
 <div class="space-y-6">
 <div class="w-full h-64 rounded-lg overflow-hidden">
-<img class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" data-alt="elegant graphic showing digital gold investment tracking on a premium smartphone with luxury aesthetic background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf0ykZruLSZa4-3eDfCtVTPX5nydPfIo58L_PNOlsm1Qp6hJyxcDvMRmvzBfrDA1ijSisMfeEbjNC9EX8VQbSOsG4Ay2OU761Mherpluul2_SBcpVHqj6dONXZmuvePxSLsdH_oxMov_IqrOV4PvD2-qEJRzHNUYXclY5sADShPrA6uhjsHwTRY5hXO0tapreGdWHy7Xzzvf6PyGLt5xD2q3-W5ryTSk-ZHNOFWAUVNPkkTU7tF-XTc5g1ixgCjUNx2SP4PApnCx82"/>
+<img decoding="async" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" data-alt="elegant graphic showing digital gold investment tracking on a premium smartphone with luxury aesthetic background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf0ykZruLSZa4-3eDfCtVTPX5nydPfIo58L_PNOlsm1Qp6hJyxcDvMRmvzBfrDA1ijSisMfeEbjNC9EX8VQbSOsG4Ay2OU761Mherpluul2_SBcpVHqj6dONXZmuvePxSLsdH_oxMov_IqrOV4PvD2-qEJRzHNUYXclY5sADShPrA6uhjsHwTRY5hXO0tapreGdWHy7Xzzvf6PyGLt5xD2q3-W5ryTSk-ZHNOFWAUVNPkkTU7tF-XTc5g1ixgCjUNx2SP4PApnCx82"/>
 </div>
 <h3 class="font-headline text-2xl font-bold">GIFT A GOLD / SILVER PLAN</h3>
 <p class="text-on-surface-variant text-sm">Empower their future with a recurring savings plan. Start a legacy of discipline and growth.</p>
@@ -397,7 +290,7 @@
 <div class="relative h-full bg-surface-container-high rounded-xl p-8 flex flex-col justify-between">
 <div class="space-y-6">
 <div class="w-full h-64 rounded-lg overflow-hidden">
-<img class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" data-alt="close up of physical gold coins and bars stacked neatly on a dark surface with dramatic golden spotlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6bhTAN-i883XBO-vrrHSBOf6DWGuYLmRH51ANg-zBoCEL3pzEQO8mSi4qpQcWy_tQeTXIeF5NSEwN8uTHjBpK-RnRb8-zKFqKsqxxk69UDgt0sEaOPCVKazB1QSZ4Olqg_aChnAICuarqcgDbj4KCDbShSFiAPPNPR178ejLjE7pt24XBmt0IFrv2XV8W2bZAaUxXLGUQauWk_0Xz14-5fQW6dXs7WSHkmsoBNkeRMBIVD32bLHHkmKcYWSw_p5EflzQzekbrxo4-"/>
+<img decoding="async" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" data-alt="close up of physical gold coins and bars stacked neatly on a dark surface with dramatic golden spotlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6bhTAN-i883XBO-vrrHSBOf6DWGuYLmRH51ANg-zBoCEL3pzEQO8mSi4qpQcWy_tQeTXIeF5NSEwN8uTHjBpK-RnRb8-zKFqKsqxxk69UDgt0sEaOPCVKazB1QSZ4Olqg_aChnAICuarqcgDbj4KCDbShSFiAPPNPR178ejLjE7pt24XBmt0IFrv2XV8W2bZAaUxXLGUQauWk_0Xz14-5fQW6dXs7WSHkmsoBNkeRMBIVD32bLHHkmKcYWSw_p5EflzQzekbrxo4-"/>
 </div>
 <h3 class="font-headline text-2xl font-bold">GIFT PRECIOUS METALS</h3>
 <p class="text-on-surface-variant text-sm">Directly purchase physical gold coins or bars and gift them instantly through our vault system.</p>
@@ -549,7 +442,8 @@
     </div>
 
         <!-- Premium Fintech Footer -->
-    <footer class="bg-[#0B0B0B] border-t border-[#D4AF37]/10 pt-24 pb-12 relative overflow-hidden">
+        <!-- Premium Fintech Footer -->
+    <footer class="bg-[#0B0B0B] border-t border-[#D4AF37]/10 pt-24 pb-12 mt-auto relative overflow-hidden">
         
         <!-- Subtle Glow Background for ultra-premium feel -->
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#D4AF37]/5 blur-[150px] pointer-events-none z-0"></div>
@@ -639,6 +533,7 @@
                         <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="terms.html">Terms & Conditions</a></li>
                         <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="terms.html">Privacy Policy</a></li>
                         <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="terms.html">Cyber Advisory</a></li>
+                        <li><a class="hover:text-[#D4AF37] hover:translate-x-1 inline-block transition-all duration-300" href="terms.html">Disclaimer</a></li>
                     </ul>
                 </div>
 
